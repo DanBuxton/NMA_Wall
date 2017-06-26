@@ -8,5 +8,6 @@ namespace NMA_Wall.BO
 {
     class Message
     {
+        public Guid Id { get; protected set; }
     }
 }
