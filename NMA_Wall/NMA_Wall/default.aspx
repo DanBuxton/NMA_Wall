@@ -4,8 +4,9 @@
     <meta name="description" content="" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyArea" runat="server">
-    <h1 class="h1">Comments on <%= MemorialName %> Statue
-    </h1>
+    <h1 class="h1">Comments on the <%= MemorialName %> Statue</h1>
+
+
 
     <div id="Upload images">
     </div>

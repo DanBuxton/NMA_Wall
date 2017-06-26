@@ -27,7 +27,7 @@ namespace NMA_Wall
             SQLServerConnect();
 
             // Get memorial data from database
-            MemorialName = "";
+            MemorialName = "Shot At Dawn";
         }
 
         protected void Page_Load(object sender, EventArgs e)
