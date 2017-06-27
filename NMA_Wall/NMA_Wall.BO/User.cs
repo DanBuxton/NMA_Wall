@@ -11,6 +11,8 @@ namespace NMA_Wall.BO
         public Guid Id { get; protected set; }
 
         public bool IsSuperAdmin { get; protected set; }
+        public bool IsContribruter { get; protected set; }
+        public bool IsAdmin { get; protected set; }
 
         public string Username { get; protected set; }
         public string Password { get; protected set; }

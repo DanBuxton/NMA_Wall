@@ -2,22 +2,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us">
 <head runat="server">
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="The description of my page" />
     <title></title>
+
+    <meta charset="utf-8" />
+
     <link href="css/style.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="HeadArea" runat="server">
-
     </asp:ContentPlaceHolder>
+
 </head>
 <body>
     <form id="form1" runat="server">
-    <h1>Wall</h1>
-    <div>
-        <asp:ContentPlaceHolder ID="BodyArea" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+        <header>
+            <nav>
+            </nav>
+        </header>
+        <h1 class="h1">Wall</h1>
+        <%-- Do we need this?? --%>
+        <main>
+            <asp:ContentPlaceHolder ID="BodyArea" runat="server">
+            </asp:ContentPlaceHolder>
+        </main>
+        <footer>
+        </footer>
     </form>
 </body>
 </html>

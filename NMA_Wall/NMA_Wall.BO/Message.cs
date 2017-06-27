@@ -13,6 +13,11 @@ namespace NMA_Wall.BO
         public double Latitude { get; protected set; }
         public double Longitude { get; protected set; }
 
+        public Message()
+        {
+
+        }
+
         #region GeoLocationHelpers
 
         public static double Distance(double fromLatitude, double fromLongitude, double toLatitude, double toLongitude, char unit = 'K')
