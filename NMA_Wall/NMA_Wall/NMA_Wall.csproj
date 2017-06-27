@@ -101,7 +101,6 @@
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="Login.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

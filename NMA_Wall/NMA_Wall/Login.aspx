@@ -5,9 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyArea" runat="server">
     <div class="login-page">
         <div class="form">
-            <input type="text" placeholder="Username" />
-            <input type="password" placeholder="Password" />
-            <button>Login!</button>
+            <asp:TextBox ID="txtUsername" runat="server" placeholder="Username" />
+            <asp:TextBox ID="txtPassword" runat="server" placeholder="Password" />
+            <asp:Button ID="btnSubmit" Text="Submit!" runat="server" />
         </div>
     </div>
 </asp:Content>
