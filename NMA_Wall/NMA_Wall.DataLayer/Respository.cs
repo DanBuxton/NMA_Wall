@@ -64,6 +64,22 @@ namespace NMA_Wall.DataLayer
             return DB.Messages.ToArray().Where(m => BO.Message.Distance(latitude, longitude, m.Latitude, m.Longitude) < distance);
         }
 
+        public void ContentAdd(BO.Content content)
+        {
+            DB.Content.Add(content);
+        }
+
+        public void RemoveContent(BO.Content content)
+        {
+            DB.Content.Remove(content);
+        }
+
+        public IEnumerable<BO.Content> ContentGetInRange(double latitude, double longitude, double distance)
+        {
+            // TODO This is a really bad way of doing things... need to rethink this in the future
+            return DB.Content.ToArray().Where(c => BO.Message.Distance(latitude, longitude, c.Latitude, c.Longitude) < distance);
+        }
+
         public void SaveChanges()
         {
             DB.SaveChanges();
