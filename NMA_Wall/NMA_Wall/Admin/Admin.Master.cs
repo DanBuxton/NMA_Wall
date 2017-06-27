@@ -12,14 +12,14 @@ namespace NMA_Wall.Admin
     {
         public User CurrentUser { get; set; }
 
-        public Admin()
-        {
-
-        }
-
         public Admin(User user)
         {
             CurrentUser = user;
+        }
+
+        public Admin()
+        {
+
         }
 
         protected void Page_Load(object sender, EventArgs e)
