@@ -9,6 +9,7 @@ body {
 }
 
 /*#region Headings */
+
 .h1, .h2, .h3, .h4, .h5, .h6 {
     /* Taken from the NMA Website for consistency */
     font-family: "ITCAvantGardeStd-Bk", "Helvetica", Arial, sans-serif;
