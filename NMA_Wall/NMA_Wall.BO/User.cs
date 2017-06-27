@@ -8,8 +8,10 @@ namespace NMA_Wall.BO
 {
     public class User
     {
-        public bool isContribruter { get; protected set; } = false;
-        public bool isAdmin { get; protected set; } = false;
+        public bool IsContribruter { get; protected set; } = false;
+        public bool IsAdmin { get; protected set; } = false;
+        public bool IsAnonymous { get; set; } = true;
+        public bool IsSuperAdmin { get; set; }
 
         public User()
         {
