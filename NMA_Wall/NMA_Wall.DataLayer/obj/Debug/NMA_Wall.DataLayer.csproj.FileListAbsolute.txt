@@ -10,3 +10,15 @@ C:\andy.wyatt\Git\NMA_Wall\NMA_Wall\NMA_Wall.DataLayer\bin\Debug\EntityFramework
 C:\andy.wyatt\Git\NMA_Wall\NMA_Wall\NMA_Wall.DataLayer\obj\Debug\NMA_Wall.DataLayer.csprojResolveAssemblyReference.cache
 C:\andy.wyatt\Git\NMA_Wall\NMA_Wall\NMA_Wall.DataLayer\obj\Debug\NMA_Wall.DataLayer.dll
 C:\andy.wyatt\Git\NMA_Wall\NMA_Wall\NMA_Wall.DataLayer\obj\Debug\NMA_Wall.DataLayer.pdb
+C:\Daniel.Buxton\NMA\NMA_Wall\NMA_Wall.DataLayer\obj\Debug\NMA_Wall.DataLayer.csprojResolveAssemblyReference.cache
+C:\Daniel.Buxton\NMA\NMA_Wall\NMA_Wall.DataLayer\obj\Debug\NMA_Wall.DataLayer.dll
+C:\Daniel.Buxton\NMA\NMA_Wall\NMA_Wall.DataLayer\obj\Debug\NMA_Wall.DataLayer.pdb
+C:\Daniel.Buxton\NMA\NMA_Wall\NMA_Wall.DataLayer\bin\Debug\NMA_Wall.DataLayer.dll.config
+C:\Daniel.Buxton\NMA\NMA_Wall\NMA_Wall.DataLayer\bin\Debug\NMA_Wall.DataLayer.dll
+C:\Daniel.Buxton\NMA\NMA_Wall\NMA_Wall.DataLayer\bin\Debug\NMA_Wall.DataLayer.pdb
+C:\Daniel.Buxton\NMA\NMA_Wall\NMA_Wall.DataLayer\bin\Debug\EntityFramework.dll
+C:\Daniel.Buxton\NMA\NMA_Wall\NMA_Wall.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Daniel.Buxton\NMA\NMA_Wall\NMA_Wall.DataLayer\bin\Debug\NMA_Wall.BO.dll
+C:\Daniel.Buxton\NMA\NMA_Wall\NMA_Wall.DataLayer\bin\Debug\NMA_Wall.BO.pdb
+C:\Daniel.Buxton\NMA\NMA_Wall\NMA_Wall.DataLayer\bin\Debug\EntityFramework.xml
+C:\Daniel.Buxton\NMA\NMA_Wall\NMA_Wall.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
