@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace NMA_Wall.BO
 {
-    class User
+    public class User
     {
+        public Guid Id { get; protected set; }
+
+        public bool IsSuperAdmin { get; protected set; }
+
+        public string Username { get; protected set; }
+        public string Password { get; protected set; }
     }
 }

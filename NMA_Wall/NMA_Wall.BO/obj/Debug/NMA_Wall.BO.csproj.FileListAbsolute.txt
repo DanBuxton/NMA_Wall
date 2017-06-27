@@ -1,0 +1,5 @@
+C:\andy.wyatt\Git\NMA_Wall\NMA_Wall\NMA_Wall.BO\bin\Debug\NMA_Wall.BO.dll
+C:\andy.wyatt\Git\NMA_Wall\NMA_Wall\NMA_Wall.BO\bin\Debug\NMA_Wall.BO.pdb
+C:\andy.wyatt\Git\NMA_Wall\NMA_Wall\NMA_Wall.BO\obj\Debug\NMA_Wall.BO.csprojResolveAssemblyReference.cache
+C:\andy.wyatt\Git\NMA_Wall\NMA_Wall\NMA_Wall.BO\obj\Debug\NMA_Wall.BO.dll
+C:\andy.wyatt\Git\NMA_Wall\NMA_Wall\NMA_Wall.BO\obj\Debug\NMA_Wall.BO.pdb
