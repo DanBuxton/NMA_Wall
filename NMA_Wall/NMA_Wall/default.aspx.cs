@@ -25,6 +25,8 @@ namespace NMA_Wall
         {
             // Get memorial data from database
             MemorialName = "Shot At Dawn";
+
+
         }
 
         protected void Page_Load(object sender, EventArgs e)

@@ -16,5 +16,10 @@ namespace NMA_Wall.BO
 
         public string Username { get; protected set; }
         public string Password { get; protected set; }
+
+        public User()
+        {
+
+        }
     }
 }
