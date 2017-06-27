@@ -97,8 +97,10 @@
   <ItemGroup>
     <Content Include="Admin\assets\css\Admin.css" />
     <Content Include="Admin\UserAdmin.aspx" />
+    <Content Include="css\LoginStyleSheet.css" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Login.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -145,6 +147,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SiteMaster.Master.cs">

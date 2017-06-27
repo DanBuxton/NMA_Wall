@@ -1,13 +1,13 @@
 ﻿@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-
 .login-page
 {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
 }
-.form /*Whitebox*/ 
+
+form /*Whitebox*/ 
 {
   position: relative;
   background: #FFFFFF;
@@ -17,7 +17,8 @@
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.form input /*Text box's*/
+
+form input /*Text box's*/
 {
   font-family: "Roboto", sans-serif;
   background: #f2f2f2; /*Grey*/
@@ -28,7 +29,8 @@
   box-sizing: border-box; /*Box ending*/
   font-size: 14px;
 }
-.form button /*Button*/
+
+form button /*Button*/
 {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase; /*All caps*/
@@ -40,7 +42,6 @@
   font-size: 14px;
   cursor: pointer;
 }
-
 
 body {
   background: #17bae8; 
