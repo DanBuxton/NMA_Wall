@@ -8,14 +8,13 @@ namespace NMA_Wall.BO
 {
     public class User
     {
-        public bool IsContribruter { get; protected set; } = false;
-        public bool IsAdmin { get; protected set; } = false;
-        public bool IsAnonymous { get; set; } = true;
-        public bool IsSuperAdmin { get; set; }
+        public Guid Id { get; protected set; }
 
-        public User()
-        {
+        public bool IsSuperAdmin { get; protected set; }
+        public bool IsContribruter { get; protected set; }
+        public bool IsAdmin { get; protected set; }
 
-        }
+        public string Username { get; protected set; }
+        public string Password { get; protected set; }
     }
 }

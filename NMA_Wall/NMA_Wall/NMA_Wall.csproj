@@ -99,8 +99,6 @@
     <Content Include="Admin\UserAdmin.aspx" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
-    <Content Include="Login.html" />
-    <Content Include="css\LoginStyleSheet.css" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -133,6 +131,9 @@
     </Compile>
     <Compile Include="Admin\UserAdmin.aspx.designer.cs">
       <DependentUpon>UserAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -168,8 +169,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NMA_Wall.BO\NMA_Wall.BO.csproj">
-      <Project>{1BE9FA0F-C010-4710-8910-E3FF38D486CD}</Project>
+      <Project>{1be9fa0f-c010-4710-8910-e3ff38d486cd}</Project>
       <Name>NMA_Wall.BO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NMA_Wall.DataLayer\NMA_Wall.DataLayer.csproj">
+      <Project>{bbffc074-9630-4256-8b83-d043bdb32bf3}</Project>
+      <Name>NMA_Wall.DataLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
