@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Content.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="GeoLocationHelper.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
