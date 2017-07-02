@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace NMA_Wall.Admin
 {
-    public partial class UserAdmin : System.Web.UI.Page
+    public partial class UserAdmin : /*System.Web.UI.Page*/ BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

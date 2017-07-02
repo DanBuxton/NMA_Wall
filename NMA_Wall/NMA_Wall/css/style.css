@@ -4,9 +4,107 @@
     Secondary: #698ea2 / Light Blue/Gray - navigation background
 */
 
-body {
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+body {
+    margin: 0 auto;
+    background-color: #fff;
+    font: 14px/16px "proxima-nova", "Helvetica", Arial, sans-serif;
 }
+
+#comments {
+    background-color: #fff;
+    background-image: url('../img/pattren01.png');
+    background-size: cover;
+}
+
+input, textarea, select {
+    font: 100% "ITCAvantGardeStd-Bk", "Helvetica", Arial, sans-serif;
+    color: #000;
+    vertical-align: middle;
+}
+
+    input[type="text"], input[type="search"], textarea {
+        -webkit-appearance: none;
+        float: left;
+        padding: 7px;
+        width: 85%;
+        line-height: 31px;
+        color: #8a8a8a;
+        border: 0;
+        font-size: 20px;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+    }
+
+main {
+    margin: auto 5%;
+}
+
+.footer {
+    bottom: 0px;
+    position: fixed;
+    height: 50px;
+}
+
+span.comment-removed.removed-by-admin {
+    color: red;
+}
+
+span.required:before {
+    color: red;
+    content: "*";
+}
+
+p, label {
+    cursor: default;
+}
+
+abbr {
+    text-decoration: underline;
+}
+
+input[type=text] {
+    background: none;
+    border: 1px solid;
+}
+
+textarea {
+    background: none;
+    border: 1px solid;
+}
+
+select {
+    background: none;
+    border: 1px solid;
+}
+
+.message-details {
+    font-size: smaller;
+    font-style: italic;
+}
+
+/*#region Navigation */
+
+header {
+    position: relative;
+    display: block;
+}
+
+nav ul {
+    display: inline-block;
+    text-decoration: none;
+}
+
+    nav ul li {
+        text-decoration: none;
+    }
+
+    nav ul .right {
+        float: right;
+    }
+
+/*#endregion */
 
 /*#region Headings */
 
@@ -54,4 +152,34 @@ body {
 
 .container {
     margin: 0 auto;
+}
+
+.btn-default {
+    min-width: 236px;
+    border-radius: 35px;
+    line-height: 20px;
+    text-transform: Capitalize;
+    padding: 10px 20px;
+    text-align: center;
+    background: #a2c617;
+    color: #FFF;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 16px;
+    font-weight: 700;
+    min-width: 251px;
+    min-height: 46px;
+    padding: 13px 20px 12px;
+}
+
+    .btn-default:hover {
+        color: #000;
+    }
+
+span.right {
+    float: right;
+}
+
+.clear {
+    clear: both;
 }

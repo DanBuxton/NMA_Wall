@@ -17,7 +17,7 @@ namespace NMA_Wall.BO
         public string Username { get; protected set; }
         public string Password { get; protected set; }
 
-        public User(string username, string password)
+        public User(string username, string password, bool isContribruter = false, bool isAdmin = false, bool isSuperAdmin = false)
         {
 
         }

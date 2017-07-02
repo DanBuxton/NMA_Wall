@@ -14,9 +14,19 @@ namespace NMA_Wall.BO
         public double Latitude { get; protected set; }
         public double Longitude { get; protected set; }
 
+        public DateTime DateAdded { get; private set; }
+
+        public Message(string message, double lat, double lon, bool hasImage = false) : this()
+        {
+            MessageBody = message;
+            Latitude = lat;
+            Longitude = lon;
+            HasImage = hasImage;
+        }
+
         public Message()
         {
-
+            DateAdded = DateTime.Now;
         }
     }
 }

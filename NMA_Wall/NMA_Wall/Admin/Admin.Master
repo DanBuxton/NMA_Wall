@@ -2,17 +2,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-gb">
 <head runat="server">
-    <title></title>
     <meta name="author" content="" />
     <meta name="description" content="" />
+    <meta charset="utf-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%-- ------ CSS ----- --%>
     <link href="../css/style.css" rel="stylesheet" />
     <%-- -- JavaScript -- --%>
-    <script src="assets/js/modernizr.js"></script>
+    <%--<script src="assets/js/modernizr.js"></script>--%>
+    <script src="../js/jquery-3.2.1.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
 
     </asp:ContentPlaceHolder>
@@ -23,8 +24,6 @@
             <nav class="nav">
 
             </nav>
-
-            <h1 class="h1">The National Memorial Arboretum</h1>
         </header>
 
         <main class="main">

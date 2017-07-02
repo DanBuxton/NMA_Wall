@@ -7,28 +7,40 @@
     <meta name="author" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="The description of my page" />
-    <title></title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="http://www.thenma.org.uk/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="http://www.thenma.org.uk/images/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="http://www.thenma.org.uk/images/favicon-16x16.png" />
 
     <meta charset="utf-8" />
 
     <link href="css/style.css" rel="stylesheet" />
+    <script src="js/jquery-3.2.1.js"></script>
+    <%-- Different <title> on each page --%>
     <asp:ContentPlaceHolder ID="HeadArea" runat="server">
     </asp:ContentPlaceHolder>
-
 </head>
 <body>
-    <form id="fmMain" runat="server">
+    <form id="fmMain" name="fmMain" runat="server">
         <header>
             <nav>
+                <ul>
+                    <li><a target="_blank" href="http://www.thenma.org.uk">NMA website</a></li>
+                </ul>
+                <ul>
+                    <li><a href="Login.aspx">Login / Signup</a></li>
+                </ul>
             </nav>
         </header>
-        <h1 class="h1">Wall</h1>
-        <%-- Do we need this?? --%>
+
+        <%--<h1 class="h1">Wall</h1>--%>
         <main>
             <asp:ContentPlaceHolder ID="BodyArea" runat="server">
             </asp:ContentPlaceHolder>
         </main>
-        <footer>
+
+        <footer class="footer">
+            <p>&copy; <%= DateTime.Now.Year %> The National Memorial Arboretum Company Limited.</p>
         </footer>
     </form>
 </body>

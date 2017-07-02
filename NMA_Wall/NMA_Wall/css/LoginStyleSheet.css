@@ -30,7 +30,7 @@ form input /*Text box's*/
   font-size: 14px;
 }
 
-form button /*Button*/
+form input[type=button], form input[type=submit] /*Button*/
 {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase; /*All caps*/

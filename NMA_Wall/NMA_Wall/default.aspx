@@ -1,58 +1,88 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="NMA_Wall.Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadArea" runat="server">
+    <title><%= MemorialName %> Comments</title>
     <meta name="description" content="" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyArea" runat="server">
-    <h2 class="h1"><%= MemorialName %> momorial comments</h2>
+    <h2 class="h2"><%= MemorialName %> Memorial Comments</h2>
 
-    <section id="<%= MemorialName %>comments">
-        <div id="comment">
+    <section id="comments">
+        <%-- Comment templates --%>
+        <div class="comment">
+            <h3 class="comment-h3">Good Example</h3>
             <p>
-                MessageBody
-
+                This is a great example of what happend during WW1
                 <br />
-
-                Posted by 
-                <b>
-                    <abbr>Anonymous</abbr>
-                </b>
+                <span class="message-details">Posted by Anonymous at 11:32</span>
+            </p>
+        </div>
+        <div class="comment">
+            <h3 class="comment-h3"><span class="comment-removed removed-by-admin">Comment removed</span></h3>
+            <p>
+                <span class="comment-removed removed-by-admin">Sorry, this comment has been flagged and removed by an admin</span>
+                <br />
+                <span class="message-details">Posted by Anonymous at 12:27</span>
+            </p>
+        </div>
+        <div class="comment">
+            <h3 class="comment-h3">Beautiful place of peace</h3>
+            <p>
+                It was a lovely, warm feeling to see my grandad's name here
+                <br />
+                <span class="message-details">Posted by Anonymous at 14:58</span>
             </p>
         </div>
     </section>
 
-    <section>
-        <textarea></textarea>
+    <div class="clear"></div>
 
-        <div id="UploadImage">
-            <%--<asp:FileUpload runat="server" AllowMultiple="false" />--%>
-            <label for="imgComment">Add an image</label>
+    <section class="bottom" style="bottom: 0px; text-align: center; position: absolute; margin-bottom: 50px; width: 90%;">
+        <label for="txtSubject"><span class="required"></span>&nbsp;Subject:-</label>
+        <input runat="server" type="text" name="messageSubject" value="" id="txtSubject" style="width: 100%;" placeholder="Subject" autocomplete="off" />
+
+        <br />
+        <br />
+
+        <label for="txtMessage"><span class="required"></span>&nbsp;Message:-</label>
+        <%--<input type="text" name="Message" id="txtMessage" value="" runat="server" style="width: 100%; vertical-align: text-top;" placeholder="Message" autocomplete="off" />--%>
+        <asp:TextBox runat="server" AutoCompleteType="None" TextMode="MultiLine" name="message" ID="txtMessage" Width="100%" Height="100" Placeholder="Message" />
+
+        <br />
+        <br />
+
+        <div id="commentOptions">
+            <div id="UploadImage">
+                <%--<asp:FileUpload runat="server" AllowMultiple="false" />--%>
+                <asp:Label Text="Error:-" runat="server" ID="lblError" CssClass="right" Visible="false" />
+
+                <label for="imgComment">Add an image</label>
+
+                <br />
+
+                <input  id="imgComment" type="file" name="messageImage" accept="image/*" runat="server" />
+            </div>
 
             <br />
 
-            <input id="imgComment" type="file" name="Image" accept="image/*" />
+            <label><span class="required"></span>&nbsp;Please choose all that apply to your visit today: </label>
+
+            <select id="selOptions" name="messageOptions" multiple="true" runat="server">
+                <option value="FirstTime visitor">First-Time visitor</option>
+                <option value="Repeat visitor">Repeat visitor</option>
+                <option value="International visitor">International visitor</option>
+                <option value="Forces visitor">Forces (current/ex)</option>
+                <option value="Event visitor">Visitor to an event</option>
+                <option value="Organised visitor">Member of an organised visit</option>
+                <option value="NMA friend">NMA Friend</option>
+                <option value="TRBL member">Royal British Legion member</option>
+            </select>
         </div>
 
         <br />
 
-        <div id="commentOptions">
-            <asp:Label Text="Please choose all that apply to your visit today" runat="server" />
-
-            <br />
-
-            <select id="select-multi" multiple="multiple">
-                <option value="FirstTime visitor">First-Time visitor</option>
-                <option value="Repeat visitor">Repeat visitor</option>
-                <option value="Forces visitor">Forces (current/ex)</option>
-                <option value="Event visitor">Visitor to an event</option>
-                <option value="Organised visitor">Member of an organised visit</option>
-                <option value="TRBL member">The Royal British Legion member</option>
-                <option value="NMA friend">NMA Friend</option>
-                <option value="International visitor">International visitor</option>
-            </select>
-        </div>
-
-        <input type="submit" name="btnSubmit" value="Post" />
+        <asp:Button Text="Post" runat="server" CssClass="btn-default" ID="btnPostMessage" />
     </section>
-</asp:Content>
 
+    <%--<script src="js/Homepage.js"></script>--%>
+</asp:Content>
