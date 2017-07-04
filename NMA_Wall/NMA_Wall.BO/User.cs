@@ -19,7 +19,11 @@ namespace NMA_Wall.BO
 
         public User(string username, string password, bool isContribruter = false, bool isAdmin = false, bool isSuperAdmin = false)
         {
-
+            Username = username;
+            Password = password;
+            IsContribruter = isContribruter;
+            IsAdmin = isAdmin;
+            IsSuperAdmin = isSuperAdmin;
         }
 
         public User()

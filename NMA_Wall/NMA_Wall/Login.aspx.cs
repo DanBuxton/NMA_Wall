@@ -13,8 +13,8 @@ namespace NMA_Wall
 {
     public partial class Login : /*System.Web.UI.Page*/ BasePage
     {
-        // Database Methods
-        public Respository DB { get; set; } = new Respository();
+        // Using BasePage.cs. No need for this
+        //public Respository DB { get; set; } = new Respository();
 
         protected void Page_Load(object sender, EventArgs e)
         {
