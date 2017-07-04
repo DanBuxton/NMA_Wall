@@ -17,7 +17,9 @@ namespace NMA_Wall.BO
         public string Username { get; protected set; }
         public string Password { get; protected set; }
 
-        public User(string username, string password, bool isContribruter = false, bool isAdmin = false, bool isSuperAdmin = false)
+        public DateTime DateAdded { get; set; }
+
+        public User(string username, string password, bool isContribruter = false, bool isAdmin = false, bool isSuperAdmin = false) : this()
         {
             Username = username;
             Password = password;
@@ -28,7 +30,7 @@ namespace NMA_Wall.BO
 
         public User()
         {
-
+            DateAdded = DateTime.Now;
         }
     }
 }
