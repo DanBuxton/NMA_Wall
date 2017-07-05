@@ -12,16 +12,13 @@ namespace NMA_Wall
 {
     public partial class Default : System.Web.UI.Page /*BasePage*/
     {
-        public DataLayer.Respository DB { get; set; } = new DataLayer.Respository();
+        private DataLayer.Respository DB { get; set; } = new DataLayer.Respository();
 
         public string MemorialName { get; private set; }
 
         public Default()
         {
             PreInit += Default_PreInit;
-
-            // System.NullReferenceException: Object reference not set to an instance of an object
-            //btnPostMessage.Click += BtnPostMessage_Click;
         }
 
         private void Default_PreInit(object sender, EventArgs e)
@@ -39,16 +36,17 @@ namespace NMA_Wall
             if (imgComment.Value != null)
                 isImageSelected = true;
 
-            if (txtSubject.Value != null)
+            if (txtSubject.Value != null || txtSubject.Value == "")
             {
                 if (txtSubject.Value.Length >= 3)
                 {
-                    if (txtMessage.Text != null)
+                    if (txtMessage.Text != null || txtMessage.Text == "")
                     {
                         if (txtMessage.Text.Length > 3)
                         {
                             if (selOptions.Value != null)
                             {
+                                lblError.Visible = false;
                                 // Database code here
 
                                 if (isImageSelected)
@@ -89,13 +87,15 @@ namespace NMA_Wall
 
             if (error != "Error:-")
             {
-                lblError.Text = "";
+                lblError.ForeColor = System.Drawing.Color.Red;
+                lblError.Text = error;
+                lblError.Visible = true;
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblError.ForeColor = System.Drawing.Color.Red;
+            btnPostMessage.Click += BtnPostMessage_Click;
         }
     }
 }

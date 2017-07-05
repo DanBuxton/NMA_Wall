@@ -52,9 +52,9 @@
         <br />
 
         <div id="commentOptions">
+                <asp:Label Text="Error:-" runat="server" ID="lblError" CssClass="right" Visible="false" />
             <div id="UploadImage">
                 <%--<asp:FileUpload runat="server" AllowMultiple="false" />--%>
-                <asp:Label Text="Error:-" runat="server" ID="lblError" CssClass="right" Visible="false" />
 
                 <label for="imgComment">Add an image</label>
 

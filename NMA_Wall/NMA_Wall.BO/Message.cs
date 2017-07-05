@@ -14,14 +14,19 @@ namespace NMA_Wall.BO
         public double Latitude { get; protected set; }
         public double Longitude { get; protected set; }
 
+        public bool IsAwaitingModeration { get; set; }
+
         public DateTime DateAdded { get; private set; }
 
-        public Message(string message, double lat, double lon, bool hasImage = false) : this()
+        public Message(string message, double lat, double lon,
+            bool hasImage = false, bool isAwaitingModeration = true) : this()
         {
             MessageBody = message;
             Latitude = lat;
             Longitude = lon;
             HasImage = hasImage;
+
+            IsAwaitingModeration = isAwaitingModeration;
         }
 
         public Message()

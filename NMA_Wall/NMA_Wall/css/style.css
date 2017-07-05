@@ -24,18 +24,18 @@ input, textarea, select {
     vertical-align: middle;
 }
 
-    input[type="text"], input[type="search"], textarea {
-        -webkit-appearance: none;
-        float: left;
-        padding: 7px;
-        width: 85%;
-        line-height: 31px;
-        color: #8a8a8a;
-        border: 0;
-        font-size: 20px;
-        -webkit-appearance: none;
-        -webkit-border-radius: 0;
-    }
+input[type="text"], input[type="search"], textarea {
+    -webkit-appearance: none;
+    float: left;
+    padding: 7px;
+    width: 85%;
+    line-height: 31px;
+    color: #8a8a8a;
+    border: 0;
+    font-size: 20px;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
 
 main {
     margin: auto 5%;
@@ -45,6 +45,7 @@ main {
     bottom: 0px;
     position: fixed;
     height: 50px;
+    text-align: center;
 }
 
 span.comment-removed.removed-by-admin {
@@ -96,13 +97,13 @@ nav ul {
     text-decoration: none;
 }
 
-    nav ul li {
-        text-decoration: none;
-    }
+nav ul li {
+    text-decoration: none;
+}
 
-    nav ul .right {
-        float: right;
-    }
+nav ul.right {
+    float: right;
+}
 
 /*#endregion */
 
@@ -172,7 +173,7 @@ nav ul {
     padding: 13px 20px 12px;
 }
 
-    .btn-default:hover {
+.btn-default:hover {
         color: #000;
     }
 

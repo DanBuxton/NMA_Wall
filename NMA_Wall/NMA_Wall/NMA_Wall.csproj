@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\assets\css\Admin.css" />
+    <Content Include="Admin\CommentModeration.aspx" />
     <Content Include="Admin\UserAdmin.aspx" />
     <Content Include="css\LoginStyleSheet.css" />
     <Content Include="css\style.css" />
@@ -129,6 +130,13 @@
     </Compile>
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CommentModeration.aspx.cs">
+      <DependentUpon>CommentModeration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CommentModeration.aspx.designer.cs">
+      <DependentUpon>CommentModeration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserAdmin.aspx.cs">
       <DependentUpon>UserAdmin.aspx</DependentUpon>

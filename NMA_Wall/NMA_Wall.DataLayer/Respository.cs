@@ -64,6 +64,12 @@ namespace NMA_Wall.DataLayer
             return DB.Messages.ToArray().Where(m => BO.GeoLocationHelper.Distance(latitude, longitude, m.Latitude, m.Longitude) < distance);
         }
 
+        // For comment moderation
+        public IEnumerable<BO.Message> MessageGetAwaitingModeration()
+        {
+            return DB.Messages.Where(m => m.IsAwaitingModeration);
+        }
+
         public void ContentAdd(BO.Content content)
         {
             DB.Content.Add(content);

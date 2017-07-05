@@ -38,15 +38,31 @@ namespace NMA_Wall
             {
                 if (!(txtPassword.Text.Length < 5))
                 {
-                    if (DB.UserGet(txtUsername.Text, txtPassword.Text.ComputeHash()) != null)
+                    // if (DB.UserGet(txtUsername.Text, txtPassword.Text.ComputeHash()) != null)
+                    // {
+
+                    // Database Login Here -> direct user to '/Admin/' with the current user
+                    User user = DB.UserGet(txtUsername.Text, txtPassword.Text.ComputeHash());
+
+                    if (user != null)
                     {
-                        User user = DB.UserGet(txtUsername.Text, txtPassword.Text.ComputeHash());
-
-
+                        if (user.IsAdmin || user.IsSuperAdmin)
+                        {
+                            Response.Redirect("/Admin/UserAdmin.aspx");
+                        }
+                        else if (user.IsContribruter)
+                        {
+                            Response.Redirect("/Admin/UserContribruter.aspx"); // Does not exist yet
+                        }
+                        else
+                        {
+                            // User not set up correct
+                        }
                     }
 
+                    // }
+
                     /*
-                    // Database Login Here -> direct user to '/Admin/' with the current user
                     User user = new User();
 
                     if (DB.UserGet(txtUsername.Text, txtPassword.Text) != null)

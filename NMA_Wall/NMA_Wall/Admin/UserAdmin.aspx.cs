@@ -9,9 +9,19 @@ namespace NMA_Wall.Admin
 {
     public partial class UserAdmin : /*System.Web.UI.Page*/ BasePage
     {
-        protected void Page_Load(object sender, EventArgs e)
+        public UserAdmin()
         {
 
+        }
+
+        private void BtnModCom_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CommentModeration.aspx");
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            btnModCom.Click += BtnModCom_Click;
         }
     }
 }

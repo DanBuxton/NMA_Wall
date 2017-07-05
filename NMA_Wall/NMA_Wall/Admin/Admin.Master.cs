@@ -12,7 +12,7 @@ namespace NMA_Wall.Admin
 {
     public partial class Admin : System.Web.UI.MasterPage
     {
-        public Respository Repo { get; set; } = new Respository();
+        public Respository DB { get; set; } = new Respository();
         public User CurrentUser { get; set; }
 
         public Admin()

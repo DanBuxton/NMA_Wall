@@ -9,20 +9,28 @@
     <meta charset="utf-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="http://www.thenma.org.uk/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="http://www.thenma.org.uk/images/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="http://www.thenma.org.uk/images/favicon-16x16.png" />
+
     <%-- ------ CSS ----- --%>
     <link href="../css/style.css" rel="stylesheet" />
+    <link href="assets/css/Admin.css" rel="stylesheet" />
     <%-- -- JavaScript -- --%>
     <%--<script src="assets/js/modernizr.js"></script>--%>
     <script src="../js/jquery-3.2.1.js"></script>
+    <%-- Different <title> on each page --%>
     <asp:ContentPlaceHolder ID="head" runat="server">
-
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
         <header class="header">
             <nav class="nav">
-
+                <ul class="right">
+                    <li><asp:Button ID="btnLogOut" Text="Log out" runat="server" CssClass="btn-default" /></li>
+                </ul>
             </nav>
         </header>
 
