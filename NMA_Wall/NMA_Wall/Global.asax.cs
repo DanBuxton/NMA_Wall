@@ -7,10 +7,26 @@ using System.Web.SessionState;
 
 namespace NMA_Wall
 {
-    public class Global : System.Web.HttpApplication
+    public class Global : HttpApplication
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+
+        }
+
+        void Application_Error(object sender, EventArgs e)
+        {
+            // Get last error from the server
+            Exception exc = Server.GetLastError();
+
+            if (exc is HttpUnhandledException)
+            {
+                if (exc.InnerException != null)
+                {
+                    exc = new Exception(exc.InnerException.Message);
+                    Server.Transfer("Error.aspx?handler=Application_Error%20-%20Global.asax", true);
+                }
+            }
         }
     }
 }

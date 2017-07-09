@@ -101,6 +101,8 @@
     <Content Include="css\LoginStyleSheet.css" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Error.aspx" />
+    <Content Include="ErrorPage.aspx" />
     <Content Include="img\pattren01.png" />
     <Content Include="js\Homepage.js" />
     <Content Include="js\jquery-3.2.1.js" />
@@ -154,6 +156,20 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

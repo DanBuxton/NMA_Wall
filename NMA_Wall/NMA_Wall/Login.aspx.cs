@@ -34,15 +34,16 @@ namespace NMA_Wall
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
-            if (!(txtUsername.Text.Length < 5))
+            if (txtUsername.Text != null)
             {
-                if (!(txtPassword.Text.Length < 5))
+                if (txtPassword.Text != null)
                 {
                     // if (DB.UserGet(txtUsername.Text, txtPassword.Text.ComputeHash()) != null)
                     // {
 
                     // Database Login Here -> direct user to '/Admin/' with the current user
-                    User user = DB.UserGet(txtUsername.Text, txtPassword.Text.ComputeHash());
+                    //   DB.UserGet Hashes password
+                    User user = DB.UserGet(txtUsername.Text, txtPassword.Text);
 
                     if (user != null)
                     {
