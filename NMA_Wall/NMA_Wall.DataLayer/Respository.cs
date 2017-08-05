@@ -38,6 +38,59 @@ namespace NMA_Wall.DataLayer
             return DB.Users.FirstOrDefault(u => u.Id == id);
         }
 
+        // Required for Admin Welcome page (UserAdmin.aspx)
+        public string UserGetType(Guid id)
+        {
+            string result = "";
+
+            // Code reuse
+            BO.User user = UserGet(id);
+            //BO.User user = DB.Users.FirstOrDefault(u => u.Id == id);
+
+            if (user != null)
+            {
+                if (user.IsSuperAdmin)
+                {
+                    result = "Super Admin";
+                }
+                else if (user.IsAdmin)
+                {
+                    result = "Admin";
+                }
+                else if (user.IsContribruter)
+                {
+                    result = "Contribruter";
+                }
+            }
+
+            return result;
+        }
+        public string UserGetType(BO.User user)
+        {
+            string result = "";
+
+            // Code reuse
+            //BO.User user = DB.Users.FirstOrDefault(u => u.Id == id);
+
+            if (user != null)
+            {
+                if (user.IsSuperAdmin)
+                {
+                    result = "Super Admin";
+                }
+                else if (user.IsAdmin)
+                {
+                    result = "Admin";
+                }
+                else if (user.IsContribruter)
+                {
+                    result = "Contribruter";
+                }
+            }
+
+            return result;
+        }
+
         public IEnumerable<BO.User> UserGetAll()
         {
             return DB.Users;

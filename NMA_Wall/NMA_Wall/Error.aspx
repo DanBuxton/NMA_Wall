@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Error.aspx.cs" Inherits="NMA_Wall.Error" %>
+﻿<%@ Page Title="Technical Issue" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Error.aspx.cs" Inherits="NMA_Wall.Error" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadArea" runat="server">
+    <%-- Title added using the C# Title property of the Page reference --%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyArea" runat="server">
     <h2>Error:</h2>

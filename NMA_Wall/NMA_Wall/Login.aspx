@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="NMA_Wall.Login" %>
+﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="NMA_Wall.Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadArea" runat="server">
+    <%-- Title added using the C# Title property of the Page reference --%>
     <link href="css/LoginStyleSheet.css" rel="stylesheet" />
     <script type="text/javascript">
         function Back() {

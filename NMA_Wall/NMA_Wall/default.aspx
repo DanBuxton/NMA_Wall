@@ -1,8 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="NMA_Wall.Default" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="NMA_Wall.Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadArea" runat="server">
-    <title><%= MemorialName %> Comments</title>
+    <%-- Title added using the C# Title property of the Page reference --%>
+    <%--<title><%= MemorialName %> Comments</title>--%>
+
+    <% Page.Title = MemorialName + " Comments"; %>
+
     <meta name="description" content="" />
+    <meta name="keywords" content="" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyArea" runat="server">
     <h2 class="h2"><%= MemorialName %> Memorial Comments</h2>

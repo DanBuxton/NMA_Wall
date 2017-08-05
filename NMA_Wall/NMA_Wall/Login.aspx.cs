@@ -13,8 +13,7 @@ namespace NMA_Wall
 {
     public partial class Login : /*System.Web.UI.Page*/ BasePage
     {
-        // Using BasePage.cs. No need for this
-        //public Respository DB { get; set; } = new Respository();
+        // Using BasePage.cs
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -47,6 +46,9 @@ namespace NMA_Wall
 
                     if (user != null)
                     {
+                        // Make sure user details are on the BasePage
+                        LoggedInUser = user;
+
                         if (user.IsAdmin || user.IsSuperAdmin)
                         {
                             Response.Redirect("/Admin/UserAdmin.aspx");

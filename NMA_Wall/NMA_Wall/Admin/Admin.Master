@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-gb">
 <head runat="server">
+    <title></title>
     <meta name="author" content="" />
     <meta name="description" content="" />
     <meta charset="utf-8" />
@@ -35,8 +36,6 @@
         </header>
 
         <main class="main">
-            <h2 class="h1">Welcome <%--= Users name --%></h2>
-            <p>Account Type: <%--= admin / contributor --%></p>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </main>

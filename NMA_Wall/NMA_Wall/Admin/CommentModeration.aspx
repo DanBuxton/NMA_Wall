@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="CommentModeration.aspx.cs" Inherits="NMA_Wall.Admin.CommentModeration" %>
+﻿<%@ Page Title="Comment Moderation - National Menorial Arboretum" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="CommentModeration.aspx.cs" Inherits="NMA_Wall.Admin.CommentModeration" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Comment Moderation - National Menorial Arboretum</title>
+    <%-- Title added using the C# Title property of the Page reference --%>
     <style>
         table {
+            /* Some good looking styles */
         }
     </style>
 </asp:Content>
@@ -12,12 +13,11 @@
         <table style="text-align: center;">
             <thead>
                 <tr>
-                    <%
-#if DEBUG
-                            { %>
-                    <th>ID (Development Only)</th>
-                    <% }
-#endif %>
+                    <% if (Request.IsLocal)
+                        { %>
+                    <th>ID</th>
+                    <!-- Dev eyes only -->
+                    <% }%>
                     <th>Title</th>
                     <th>MessageBody</th>
                     <th>Image</th>
@@ -28,12 +28,11 @@
             <tbody>
                 <%  %>
                 <tr>
-                    <%
-#if DEBUG
-                            { %>
+                    <% if (Request.IsLocal)
+                        { %>
                     <td>ID</td>
-                    <% }
-#endif %>
+                    <!-- Dev eyes only -->
+                    <% }%>
                     <td>
                         <label><%  %></label>
                     </td>
@@ -47,7 +46,8 @@
                         <label><%  %></label>
                     </td>
                 </tr>
-                <tr><%
+                <tr>
+                    <%
 #if DEBUG
                             { %>
                     <td>
@@ -72,7 +72,8 @@
                         </label>
                     </td>
                 </tr>
-                <tr><%
+                <tr>
+                    <%
 #if DEBUG
                             { %>
                     <td>
@@ -80,7 +81,7 @@
                     </td>
                     <% }
 #endif %>
-                    
+
                     <td>
                         <label>Great Memorial</label></td>
                     <td>This Memorial is the best</td>
