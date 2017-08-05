@@ -4,7 +4,7 @@
     <%-- Title added using the C# Title property of the Page reference --%>
     
     <%-- Uncomment when DB works --%>
-     <%-- Page.Title = "Admin"; --%>
+     <% Page.Title = "Admin"; %>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
             <h2 class="h1">Welcome <small><%= LoggedInUser.Username %></small></h2>

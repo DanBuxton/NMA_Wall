@@ -5,18 +5,31 @@
     <style>
         table {
             /* Some good looking styles */
+            margin: auto;
+            width: 100%;
+        }
+
+        table td, table th {
+            border: solid 1px black;
+            margin: -1px;
+            padding: -1px;
+        }
+
+        table tr:nth-child(even),
+        table th {
+            background-color: #DDDDDD;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <section>
+    <h1 class="h1">Comment Moderation</h1>
+    <section style="align-content: center; height: 100%; width: 100%;" id="comment-mod">
         <table style="text-align: center;">
             <thead>
                 <tr>
                     <% if (Request.IsLocal)
                         { %>
                     <th>ID</th>
-                    <!-- Dev eyes only -->
                     <% }%>
                     <th>Title</th>
                     <th>MessageBody</th>
@@ -26,71 +39,88 @@
                 </tr>
             </thead>
             <tbody>
-                <%  %>
+                <%-- Get All unmoderated messages into an array to display --%>
+                <%-- NMA_Wall.BO.Message[] messages = DB.MessageGetAwaitingModeration().ToArray(); --%>
+                <%--<tr>
+                    <%
+                        foreach (var message in messages)
+                        {
+                            if (Request.IsLocal)
+                            {
+                    %><td><%=message.Id %></td>
+                    <%
+                            }
+                    %><td><%= message.Title %></td>
+                    <%
+                    %><td><%=message.MessageBody %></td>
+                    <%
+                    %><td><%=message.Id %></td>
+                    <%
+                    %><td><%=message.DateAdded %></td>
+                    <%
+                        }
+                    %>
+                </tr>--%>
                 <tr>
                     <% if (Request.IsLocal)
                         { %>
-                    <td>ID</td>
-                    <!-- Dev eyes only -->
+                    <td>25</td>
                     <% }%>
-                    <td>
-                        <label><%  %></label>
-                    </td>
-                    <td>
-                        <label><%  %></label>
-                    </td>
-                    <td>
-                        <label><%  %></label>
-                    </td>
-                    <td>
-                        <label><%  %></label>
-                    </td>
-                </tr>
-                <tr>
-                    <%
-#if DEBUG
-                            { %>
-                    <td>
-                        <label>25</label>
-                    </td>
-                    <% }
-#endif %>
                     <td>
                         <label>Great Memorial</label>
                     </td>
                     <td>
-                        <label>
-                            This Memorial is the best
-                        </label>
+                        <label>This Memorial is the best</label>
                     </td>
                     <td>
                         <img src="http://placehold.it/100x100" alt="Alternate Text" />
                     </td>
                     <td>
-                        <label>
-                            <%= DateTime.Now.Date.ToShortDateString() %>
-                        </label>
+                        <label><%= DateTime.Now.Date.ToShortDateString() %></label>
+                    </td>
+                    <td>
+                        <form action="/" method="post">
+                            <label runat="server">
+                                Yes<br />
+                                <input type="radio" name="name" value="" /></label>
+                            <br />
+                            <label runat="server">
+                                No<br />
+                                <input type="radio" name="name" value="" /></label>
+                        </form>
                     </td>
                 </tr>
                 <tr>
-                    <%
-#if DEBUG
-                            { %>
-                    <td>
-                        <label>26</label>
-                    </td>
-                    <% }
-#endif %>
-
+                    <% if (Request.IsLocal)
+                        { %>
+                    <td>26</td>
+                    <% }%>
                     <td>
                         <label>Great Memorial</label></td>
-                    <td>This Memorial is the best</td>
+                    <td>
+                        <label>This Memorial is the best</label>
+                    </td>
                     <td>
                         <img src="http://placehold.it/100x100" alt="Alternate Text" />
                     </td>
-                    <td><%= DateTime.Now.Date.ToShortDateString() %></td>
+                    <td>
+                        <label><%= DateTime.Now.Date.ToShortDateString() %></label>
+                    </td>
+                    <td>
+                        <label runat="server">
+                            Yes<br />
+                            <input type="radio" name="name" value="" /></label>
+                        <br />
+                        <label runat="server">
+                            No<br />
+                            <input type="radio" name="name" value="" /></label>
+                    </td>
                 </tr>
             </tbody>
         </table>
+
+        <br />
+
+        <input type="button" name="name" value="Update moderated messages" class="btn-default" style="width: 100%;" />
     </section>
 </asp:Content>

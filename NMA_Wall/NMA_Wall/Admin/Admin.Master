@@ -26,23 +26,19 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <header class="header">
-            <nav class="nav">
-                <ul class="right">
-                    <li><asp:Button ID="btnLogOut" Text="Log out" runat="server" CssClass="btn-default" /></li>
-                </ul>
-            </nav>
-        </header>
+    <header class="header">
+        <nav class="nav">
 
-        <main class="main">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </main>
+        </nav>
+    </header>
 
-        <footer class="footer">
-            <p>&copy; <%= DateTime.Now.Year %> The National Memorial Arboretum Company Limited.</p>
-        </footer>
-    </form>
+    <main class="main">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; <%= DateTime.Now.Year %> The National Memorial Arboretum Company Limited.</p>
+    </footer>
 </body>
 </html>

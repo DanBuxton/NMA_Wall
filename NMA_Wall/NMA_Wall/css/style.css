@@ -18,34 +18,43 @@ body {
     background-size: cover;
 }
 
+#comment-mod {
+    background-color: #fff;
+    background-image: url('../img/pattren01.png');
+    background-size: cover;
+}
+
 input, textarea, select {
     font: 100% "ITCAvantGardeStd-Bk", "Helvetica", Arial, sans-serif;
     color: #000;
     vertical-align: middle;
 }
 
-input[type="text"], input[type="search"], textarea {
-    -webkit-appearance: none;
-    float: left;
-    padding: 7px;
-    width: 85%;
-    line-height: 31px;
-    color: #8a8a8a;
-    border: 0;
-    font-size: 20px;
-    -webkit-appearance: none;
-    -webkit-border-radius: 0;
-}
+    input[type="text"], input[type="search"], textarea {
+        -webkit-appearance: none;
+        float: left;
+        padding: 7px;
+        width: 85%;
+        line-height: 31px;
+        color: #8a8a8a;
+        border: 0;
+        font-size: 20px;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+    }
 
 main {
     margin: auto 5%;
 }
 
 .footer {
+    margin: auto;
     bottom: 0px;
     position: fixed;
     height: 50px;
     text-align: center;
+    margin: auto;
+    width: 100%;
 }
 
 span.comment-removed.removed-by-admin {
@@ -97,13 +106,13 @@ nav ul {
     text-decoration: none;
 }
 
-nav ul li {
-    text-decoration: none;
-}
+    nav ul li {
+        text-decoration: none;
+    }
 
-nav ul.right {
-    float: right;
-}
+    nav ul.right {
+        float: right;
+    }
 
 /*#endregion */
 
@@ -162,7 +171,7 @@ nav ul.right {
     text-transform: Capitalize;
     padding: 10px 20px;
     text-align: center;
-    background: #a2c617;
+    background-color: #a2c617;
     color: #FFF;
     display: inline-block;
     vertical-align: top;
