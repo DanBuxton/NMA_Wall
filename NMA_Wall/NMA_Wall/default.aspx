@@ -33,7 +33,7 @@
         <div class="comment">
             <h3 class="comment-h3">Beautiful place of peace</h3>
             <p>
-                It was a lovely, warm feeling to see my grandad's name here
+                It was a lovely, warm feeling to see my grandad's name here :cry:
                 <br />
                 <span class="message-details">Posted by Anonymous at 14:58</span>
             </p>
@@ -49,7 +49,7 @@
         <br />
         <br />
 
-        <label for="txtMessage"><span class="required"></span>&nbsp;Message:-</label>
+        <label for="txtMessage"><span class="required"></span>&nbsp;Message:-</label> <label><small>Uses <a href="https://emojipedia.org/" target="_blank">Emojipedia shortcodes</a> for emojis</small></label>
         <%--<input type="text" name="Message" id="txtMessage" value="" runat="server" style="width: 100%; vertical-align: text-top;" placeholder="Message" autocomplete="off" />--%>
         <asp:TextBox runat="server" AutoCompleteType="None" TextMode="MultiLine" name="message" ID="txtMessage" Width="100%" Height="100" Placeholder="Message" />
 

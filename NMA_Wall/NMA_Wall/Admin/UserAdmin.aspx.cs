@@ -13,15 +13,5 @@ namespace NMA_Wall.Admin
         {
 
         }
-
-        private void BtnModCom_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("CommentModeration.aspx");
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            btnModCom.Click += BtnModCom_Click;
-        }
     }
 }

@@ -21,7 +21,7 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <h1 class="h1">Comment Moderation</h1>
     <section style="align-content: center; height: 100%; width: 100%;" id="comment-mod">
         <table style="text-align: center;">
@@ -31,7 +31,8 @@
                         { %>
                     <th>ID</th>
                     <% }%>
-                    <th>Title</th>
+                    <th>Memorial</th>
+                    <th>Subject</th>
                     <th>MessageBody</th>
                     <th>Image</th>
                     <th>Date Added</th>
@@ -64,8 +65,11 @@
                 <tr>
                     <% if (Request.IsLocal)
                         { %>
-                    <td>25</td>
+                    <td>4</td>
                     <% }%>
+                    <td>
+                        <label>Shot at Dawn</label>
+                    </td>
                     <td>
                         <label>Great Memorial</label>
                     </td>
@@ -93,12 +97,15 @@
                 <tr>
                     <% if (Request.IsLocal)
                         { %>
-                    <td>26</td>
+                    <td>5</td>
                     <% }%>
                     <td>
-                        <label>Great Memorial</label></td>
+                        <label>Shot at Dawn</label>
+                    </td>
                     <td>
-                        <label>This Memorial is the best</label>
+                        <label>Attention!!</label></td>
+                    <td>
+                        <label>This is awful</label>
                     </td>
                     <td>
                         <img src="http://placehold.it/100x100" alt="Alternate Text" />

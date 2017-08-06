@@ -123,6 +123,11 @@ namespace NMA_Wall.DataLayer
             return DB.Messages.Where(m => m.IsAwaitingModeration);
         }
 
+        public IEnumerable<BO.Message> MessageGetAll()
+        {
+            return DB.Messages;
+        }
+
         public void ContentAdd(BO.Content content)
         {
             DB.Content.Add(content);
