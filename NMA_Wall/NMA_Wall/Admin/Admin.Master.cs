@@ -10,19 +10,18 @@ using NMA_Wall.DataLayer;
 
 namespace NMA_Wall.Admin
 {
-    public partial class Admin : System.Web.UI.MasterPage
+    public partial class Admin : BaseMasterPage
     {
-        public Respository DB { get; set; } = new Respository();
-        public User CurrentUser { get; set; }
-
         public Admin()
         {
 
         }
 
-        public Admin(User user)
+        private void BtnLogout_ServerClick(object sender, EventArgs e)
         {
-            CurrentUser = user;
+            LoggedInUser = null;
+            
+            Response.Redirect("../Default.aspx");
         }
 
         protected void Page_Load(object sender, EventArgs e)

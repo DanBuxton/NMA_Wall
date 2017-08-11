@@ -14,10 +14,9 @@
         <h3>Admin Essensials Thing</h3>
         <section>
             <h3>Useful Numbers</h3>
-            
             <label>Number of Comments - <%= /*DB.MessageGetAll()*/ "4" %></label>
             <br />
-            <label>Number of Comments - <%= /*DB.MessageGetAll()*/ "4" %></label>
+            <label>Number of Memorials - <%= /*DB.MessageGetAll()*/ "300+" %></label>
         </section>
         <section id="secAccountStuff">
             <section>

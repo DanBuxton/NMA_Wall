@@ -61,6 +61,10 @@ namespace NMA_Wall.DataLayer
                 {
                     result = "Contribruter";
                 }
+                else
+                {
+                    result = string.Empty;
+                }
             }
 
             return result;
@@ -85,6 +89,10 @@ namespace NMA_Wall.DataLayer
                 else if (user.IsContribruter)
                 {
                     result = "Contribruter";
+                }
+                else
+                {
+                    result = string.Empty;
                 }
             }
 
@@ -115,12 +123,6 @@ namespace NMA_Wall.DataLayer
         {
             // TODO This is a really bad way of doing things... need to rethink this in the future
             return DB.Messages.ToArray().Where(m => BO.GeoLocationHelper.Distance(latitude, longitude, m.Latitude, m.Longitude) < distance);
-        }
-
-        // For comment moderation
-        public IEnumerable<BO.Message> MessageGetAwaitingModeration()
-        {
-            return DB.Messages.Where(m => m.IsAwaitingModeration);
         }
 
         public IEnumerable<BO.Message> MessageGetAll()

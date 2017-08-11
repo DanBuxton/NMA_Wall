@@ -41,7 +41,6 @@
             </thead>
             <tbody>
                 <%-- Get All unmoderated messages into an array to display --%>
-                <%-- NMA_Wall.BO.Message[] messages = DB.MessageGetAwaitingModeration().ToArray(); --%>
                 <%--<tr>
                     <%
                         foreach (var message in messages)

@@ -11,22 +11,21 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="icon" type="image/png" sizes="16x16" href="http://www.thenma.org.uk/images/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="http://www.thenma.org.uk/images/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="http://www.thenma.org.uk/images/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="http://www.thenma.org.uk/images/favicon-16x16.png" />
 
     <%-- ------ CSS ----- --%>
     <link href="../css/style.css" rel="stylesheet" />
     <link href="assets/css/Admin.css" rel="stylesheet" />
 
     <%-- -- JavaScript -- --%>
-    <%--<script src="assets/js/modernizr.js"></script>--%>
-    <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
+
     <%-- Emoji support for the younger NMA visitors (Emojidex) --%>
     <link href="https://cdn.emojidex.com/scripts/css/emojidex.css" rel="stylesheet" />
     <script src="https://cdn.emojidex.com/scripts/javascript/emojidex.js"></script>
 
-    <%-- Different <title> on each page --%>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -38,6 +37,8 @@
     </header>
 
     <main class="main">
+        <button id="btnLogout" type="button" class="btn-default" runat="server">Logout</button>
+
         <asp:ContentPlaceHolder ID="body" runat="server">
         </asp:ContentPlaceHolder>
     </main>

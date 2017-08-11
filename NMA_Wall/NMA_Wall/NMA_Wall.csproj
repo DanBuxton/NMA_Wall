@@ -98,6 +98,7 @@
     <Content Include="Admin\assets\css\Admin.css" />
     <Content Include="Admin\CommentModeration.aspx" />
     <Content Include="Admin\UserAdmin.aspx" />
+    <Content Include="css\emojidex.css" />
     <Content Include="css\LoginStyleSheet.css" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
@@ -131,6 +132,9 @@
     </Compile>
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BaseMasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\CommentModeration.aspx.cs">
       <DependentUpon>CommentModeration.aspx</DependentUpon>

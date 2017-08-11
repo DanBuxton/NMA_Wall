@@ -2,8 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadArea" runat="server">
     <%-- Title added using the C# Title property of the Page reference --%>
-    <%--<title><%= MemorialName %> Comments</title>--%>
-
     <% Page.Title = MemorialName + " Comments"; %>
 
     <meta name="description" content="" />
@@ -49,9 +47,9 @@
         <br />
         <br />
 
-        <label for="txtMessage"><span class="required"></span>&nbsp;Message:-</label> <label><small>Uses <a href="https://emojipedia.org/" target="_blank">Emojipedia shortcodes</a> for emojis</small></label>
+        <label for="txtMessage"><span class="required"></span>&nbsp;Comment:-</label> <label><small>(Uses <a href="https://emojipedia.org/" target="_blank">Emojipedia shortcodes</a> for emojis)</small></label>
         <%--<input type="text" name="Message" id="txtMessage" value="" runat="server" style="width: 100%; vertical-align: text-top;" placeholder="Message" autocomplete="off" />--%>
-        <asp:TextBox runat="server" AutoCompleteType="None" TextMode="MultiLine" name="message" ID="txtMessage" Width="100%" Height="100" Placeholder="Message" />
+        <asp:TextBox runat="server" AutoCompleteType="None" TextMode="MultiLine" name="message" ID="txtMessage" Width="100%" Height="100" Placeholder="Comment" />
 
         <br />
         <br />
@@ -67,20 +65,23 @@
 
                 <input  id="imgComment" type="file" name="messageImage" accept="image/*" runat="server" />
             </div>
-
+            :bomb:
+            :knife:
+            :face_with_thermometer:
+            :gb:
             <br />
 
             <label><span class="required"></span>&nbsp;Please choose all that apply to your visit today: </label>
 
             <select id="selOptions" name="messageOptions" multiple="true" runat="server">
                 <option value="FirstTime visitor">First-Time visitor</option>
-                <option value="Repeat visitor">Repeat visitor</option>
-                <option value="International visitor">International visitor</option>
                 <option value="Forces visitor">Forces (current/ex)</option>
-                <option value="Event visitor">Visitor to an event</option>
+                <option value="International visitor">International visitor</option>
+                <option value="Repeat visitor">Repeat visitor</option>
                 <option value="Organised visitor">Member of an organised visit</option>
                 <option value="NMA friend">NMA Friend</option>
                 <option value="TRBL member">Royal British Legion member</option>
+                <option value="Event visitor">Visitor to an event</option>
             </select>
         </div>
 
@@ -89,5 +90,5 @@
         <asp:Button Text="Post" runat="server" CssClass="btn-default" ID="btnPostMessage" />
     </section>
 
-    <%--<script src="js/Homepage.js"></script>--%>
+    <%--<script src="js/Homepage.js"></script>--%><%-- Infinate Loop somewhere --%>
 </asp:Content>

@@ -11,7 +11,7 @@ using NMA_Wall.BO.Extensions;
 
 namespace NMA_Wall
 {
-    public partial class Login : /*System.Web.UI.Page*/ BasePage
+    public partial class Login : BasePage
     {
         // Using BasePage.cs
 
@@ -33,6 +33,11 @@ namespace NMA_Wall
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
+            if (LoggedInUser != null)
+            {
+                Response.Redirect("/Admin/UserAdmin.aspx");
+            }
+
             if (txtUsername.Text != null)
             {
                 if (txtPassword.Text != null)
