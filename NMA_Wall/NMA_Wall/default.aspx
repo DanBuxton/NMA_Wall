@@ -43,7 +43,7 @@
     <div class="row">
         <section id="secCommentDetails" class="col-sm-12">
             <label for="subject"><span class="required"></span>&nbsp;Subject:-</label>
-            <input type="text" name="subject" value="" id="txtSubject" style="width: 100%;" placeholder="Subject" autocomplete="off" runat="server" />
+            <input type="text" name="subject" value="" id="txtSubject" style="width: 100%;" placeholder="Subject" autocomplete="off" runat="server" required="required" />
 
             <br />
             <br />
@@ -51,7 +51,7 @@
             <label for="txtComment"><span class="required"></span>&nbsp;Comment:-</label>
             <label><small>(Uses <a href="https://emojipedia.org/" target="_blank">Emojipedia shortcodes</a> for emojis)</small></label>
             <%--<input type="text" name="message" id="txtMessage" value="" runat="server" style="width: 100%; vertical-align: text-top;" placeholder="Message" autocomplete="off" />--%>
-            <input type="text" name="comment" value="" id="txtComment" style="width: 100%;" placeholder="Comment" autocomplete="off" runat="server" />
+            <input type="text" name="comment" value="" id="txtComment" style="width: 100%;" placeholder="Comment" autocomplete="off" runat="server" required="required" />
             <%--<asp:TextBox runat="server" AutoCompleteType="None" TextMode="MultiLine" ID="txtMessage" Width="100%" Height="100" Placeholder="Comment" />--%>
 
             <br />
@@ -72,7 +72,7 @@
 
                 <label><span class="required"></span>&nbsp;Please choose all that apply to your visit today: </label>
 
-                <select id="selOptions" name="messageOptions" multiple="true" runat="server">
+                <select id="selOptions" name="messageOptions" multiple="true" runat="server" required="required">
                     <option value="FirstTime visitor">First-Time visitor</option>
                     <option value="Forces visitor">Forces (current/ex)</option>
                     <option value="International visitor">International visitor</option>
@@ -86,9 +86,9 @@
 
             <br />
 
-            <asp:Button Text="Post" runat="server" CssClass="btn-default" ID="btnPostMessage" />
+            <input type="submit" name="submit" value="Post" class="btn-default" />
         </section>
     </div>
 
-    <%--<script src="js/Homepage.js"></script>--%><%-- Infinate Loop somewhere --%>
+    <script src="js/Homepage.js"></script>
 </asp:Content>

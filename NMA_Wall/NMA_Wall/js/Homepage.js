@@ -1,5 +1,6 @@
-﻿var isMessageValid;
-var isSubjectValid;
+﻿var isSubjectValid;
+var isCommentValid;
+var isImageValid;
 var isOptionSelected;
 
 var form = document.forms['fmMain'];
@@ -7,87 +8,72 @@ var form = document.forms['fmMain'];
 // Issue reading values that result in 'undefined' not 'null'
 
 function ValidateForm() {
-    isMessageValid = false;
+    isCommentValid = false;
     isSubjectValid = false;
     isOptionSelected = false;
+    isImageValid = false;
 
-    message = $('#txtMessage');
-    messageSubject = $('#txtSubject');
-    messageOptions = $('#selOptions');
+    subject = $("#txtSubject");
+    subjectText = subject.text();
+    comment = $("#txtComment");
+    commentText = comment.text();
+    image = $("#imgComment");
+    imageVal = image.val();
 
-    messageOptions = $('select#selOptions');
-
-    // Issue reading values
-    var messageValue = message.val();
-    var messageOptionsValue = $('#selOptions option:selected').val();
-
-    //alert('message:- ' + messageValue);
-    //alert('Selected Options:- ' + messageOptionsValue);
-
-    // Invalid message
+    // Harmful text
     regex = /<script.*?>([\s\S]*?)<\/script>/;
-    /*
-    if (!regex.test(messageValue) && !(messageValue === undefined)) {
-        if (messageValue.length > 3) {
-            isMessageValid = true;
-            alert('message Valid');
-            message.css("border-size", "1px");
-            message.css("border-color", "Default");
-        }
-        else {
-            alert('Please enter a longer message');
-            message.css("border-size", "1px");
-            message.css("border-color", "red");
-        }
-    }
-    else {
-        if (regex.test(messageValue)) {
-            // Message contains scripts/HTML
-            alert('Message contains: ' + regex);
-        }
-        else {
-            alert('Message is ' + undefined);
-            message.css("border-size", "1px");
-            message.css("border-color", "red");
+
+    // Subject Validation
+    if (subjectText.length >= 5) {
+        if (!subjectText.Contains(regex)) {
+            isSubjectValid = true;
         }
     }
 
-    /**/
-
-    //isMessageValid = true;
-
-    /*
-    if (messageOptionsValue === null || messageOptionsValue === undefined) {
-        alert('Please select something');
-        isOptionSelected = false;
-        messageOptions.css("border-size", "1px");
-        messageOptions.css("border-color", "Red");
+    // Comment Validation
+    if (commentText.length >= 5) {
+        if (!commentText.Contains(regex)) {
+            isCommentValid = true;
+        }
     }
-    else {
-        isOptionSelected = true;
+
+    // Selection Validation
+    // Done in HTML markup
+
+    //Image Validation
+    if (imageVal !== "") {
+        switch (imageVal.substring(imageVal.lastIndexOf('.').toLowerCase())) {
+            case 'gif':
+            case 'png':
+            case 'jpg':
+            case '':
+                isImageValid = true;
+                break;
+            default:
+                alert("Please select an image");
+                break;
+        }
     }
-    /**/
 
-    isMessageValid = true;
-    isSubjectValid = true;
-    isOptionSelected = true;
-
-    SubmitForm();
+    return SubmitForm();
 }
 
 function SubmitForm() {
-    if (isMessageValid && isSubjectValid && isOptionSelected) {
+    result = false;
+
+    if (isSubjectValid && isCommentValid && isImageValid && isOptionSelected) {
         /*
-        alert('Final message: ' + $('txtMessage').value);
-        alert('Final message: ' + $('txtMessage').value);
+        alert('Final message: ' + $('txtMessage').val());
+        alert('Final message: ' + $('txtMessage').val());
         alert('Final Options: ' + $('selOptions').selectedValue);
         /**/
-        form.submit();
         alert('Message sent for submission');
-        form.reset();
+
+        result = true;
     }
     else {
         alert('There was an issue with submitting your message');
-        //form.reset();
     }
+
+    return result;
 }

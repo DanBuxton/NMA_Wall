@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -20,6 +21,11 @@ namespace NMA_Wall
         public Default()
         {
             PreInit += Default_PreInit;
+
+            if (IsPostBack)
+            {
+                PostBack_Validation();
+            }
         }
 
         private void DisplayMessageBox(string message)
@@ -29,33 +35,34 @@ namespace NMA_Wall
 
         private void Default_PreInit(object sender, EventArgs e)
         {
-            // Get memorial name from ajax
+            // Get memorial name, details and comments from ajax
             MemorialName = "Shot At Dawn"; /* temp */
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            btnPostMessage.Click += BtnPostMessage_Click;
+
         }
 
-        public void BtnPostMessage_Click(object sender, EventArgs e)
+        private void PostBack_Validation()
         {
-            // No JavaScript validation as the user can see it
+            // Secondary validation
+            //Page.Validate();
             bool isImageSelected = false;
-            string error = "Error:-";
+            string error = "";
 
             if (imgComment.Value != null)
                 isImageSelected = true;
 
-            if (txtSubject.Value != null || txtSubject.Value != "")
+            if (txtSubject.Value != null && txtSubject.Value != "")
             {
                 if (txtSubject.Value.Length >= 3)
                 {
-                    if (txtComment.Value != null || txtComment.Value == "")
+                    if (txtComment.Value != null && txtComment.Value == "")
                     {
                         if (txtComment.Value.Length > 3)
                         {
-                            if (selOptions.Items.Count >= 1)
+                            if (selOptions.Items.Count == 1)
                             {
                                 if (isImageSelected)
                                 {
@@ -98,7 +105,7 @@ namespace NMA_Wall
                 error = "Subject subject cannot be empty";
             }
 
-            if (error != "Error:-")
+            if (error != "")
             {
                 DisplayMessageBox(error);
             }
