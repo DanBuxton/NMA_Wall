@@ -12,6 +12,7 @@ namespace NMA_Wall
 {
     public partial class Default : System.Web.UI.Page /*BasePage*/
     {
+        // Database Access
         private DataLayer.Respository DB { get; set; } = new DataLayer.Respository();
 
         public string MemorialName { get; private set; }
@@ -21,10 +22,20 @@ namespace NMA_Wall
             PreInit += Default_PreInit;
         }
 
+        private void DisplayMessageBox(string message)
+        {
+            Response.Write("<script>alert('" + message + "')</script>");
+        }
+
         private void Default_PreInit(object sender, EventArgs e)
         {
-            // Get memorial data from database
+            // Get memorial name from ajax
             MemorialName = "Shot At Dawn"; /* temp */
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            btnPostMessage.Click += BtnPostMessage_Click;
         }
 
         public void BtnPostMessage_Click(object sender, EventArgs e)
@@ -36,66 +47,61 @@ namespace NMA_Wall
             if (imgComment.Value != null)
                 isImageSelected = true;
 
-            if (txtSubject.Value != null || txtSubject.Value == "")
+            if (txtSubject.Value != null || txtSubject.Value != "")
             {
                 if (txtSubject.Value.Length >= 3)
                 {
-                    if (txtMessage.Text != null || txtMessage.Text == "")
+                    if (txtComment.Value != null || txtComment.Value == "")
                     {
-                        if (txtMessage.Text.Length > 3)
+                        if (txtComment.Value.Length > 3)
                         {
-                            if (selOptions.Value != null)
+                            if (selOptions.Items.Count >= 1)
                             {
-                                lblError.Visible = false;
-                                // Database code here
-
                                 if (isImageSelected)
                                 {
                                     // Database Code for image
 
                                 }
+                                else
+                                {
+                                    // Add comment to database
+                                    DB.MessageAdd(new BO.Message("", -29.367, 125.228, false));
+                                }
                             }
                             else
                             {
                                 // no options selected
-                                error += Environment.NewLine + "Please select all options that apply to you today";
+                                error = "Please select all options that apply to you today";
                             }
                         }
                         else
                         {
                             // longer message required
-                            error += Environment.NewLine + "Message must be longer than 3 characters";
+                            error = "Comment must be longer than 3 characters";
                         }
                     }
                     else
                     {
                         // no message entered
-                        error += Environment.NewLine + "Message cannot be empty";
+                        error = "Comment cannot be empty";
                     }
                 }
                 else
                 {
                     // longer subject required
-                    error += Environment.NewLine + "Message subject must be longer than 2 characters";
+                    error = "Subject subject must be longer than 2 characters";
                 }
             }
             else
             {
                 // no subject entered
-                error += Environment.NewLine + "Message subject cannot be empty";
+                error = "Subject subject cannot be empty";
             }
 
             if (error != "Error:-")
             {
-                lblError.ForeColor = System.Drawing.Color.Red;
-                lblError.Text = error;
-                lblError.Visible = true;
+                DisplayMessageBox(error);
             }
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            btnPostMessage.Click += BtnPostMessage_Click;
         }
     }
 }

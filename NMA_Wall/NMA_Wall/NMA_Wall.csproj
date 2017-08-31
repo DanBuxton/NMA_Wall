@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -98,12 +99,14 @@
     <Content Include="Admin\assets\css\Admin.css" />
     <Content Include="Admin\CommentModeration.aspx" />
     <Content Include="Admin\UserAdmin.aspx" />
-    <Content Include="css\emojidex.css" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.min.css" />
     <Content Include="css\LoginStyleSheet.css" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="img\pattren01.png" />
+    <Content Include="js\bootstrap.min.js" />
     <Content Include="js\Homepage.js" />
     <Content Include="js\jquery-3.2.1.js" />
     <Content Include="Login.aspx" />

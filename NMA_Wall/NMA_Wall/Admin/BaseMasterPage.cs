@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
 
 namespace NMA_Wall.Admin
 {
-    public class BaseMasterPage : MasterPage
+    public class BaseMasterPage : System.Web.UI.MasterPage
     {
         public DataLayer.Respository DB { get; set; } = new DataLayer.Respository();
 
