@@ -1,47 +1,47 @@
 ﻿.login-page
 {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
 }
 
 form /*Whitebox*/ 
 {
-  position: relative;
-  background: #FFFFFF;
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    position: relative;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 form input /*Text box's*/
 {
-  font-family: "Roboto", sans-serif;
-  background: #f2f2f2; /*Grey*/
-  width: 100%;
-  border: 0; /*Box depth*/
-  margin: 0 0 15px; /*Verticle box spacing*/
-  padding: 15px; /*Box size*/
-  box-sizing: border-box; /*Box ending*/
-  font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    background: #f2f2f2; /*Grey*/
+    width: 100%;
+    border: 0; /*Box depth*/
+    margin: 0 0 15px; /*Verticle box spacing*/
+    padding: 15px; /*Box size*/
+    box-sizing: border-box; /*Box ending*/
+    font-size: 14px;
 }
 
 form input[type=button], form input[type=submit] /*Button*/
 {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase; /*All caps*/
-  background: #17bae8; /*Green*/
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF; /*White*/
-  font-size: 14px;
-  cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase; /*All caps*/
+    background: #17bae8; /*Green*/
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF; /*White*/
+    font-size: 14px;
+    cursor: pointer;
 }
 
 body {
-  background: #17bae8; 
-  font-family: "Roboto", sans-serif;     
+    background: #17bae8; 
+    font-family: "Roboto", sans-serif;     
 }

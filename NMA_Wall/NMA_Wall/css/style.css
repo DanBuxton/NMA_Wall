@@ -8,6 +8,7 @@ body {
     margin: 0 auto;
     background-color: #fff;
     font: 14px/16px "proxima-nova", "Helvetica", Arial, sans-serif;
+    padding: 0;
 }
 
 a {
@@ -71,6 +72,11 @@ input[type="password"] {
 
 .comment-removed.removed-by-admin {
     color: red;
+}
+
+.comment img {
+    border-radius: 5px;
+    /*border-style: hidden;*/
 }
 
 .required:before {

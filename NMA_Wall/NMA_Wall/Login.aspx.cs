@@ -13,12 +13,24 @@ namespace NMA_Wall
 {
     public partial class Login : BasePage
     {
-        // Using BasePage.cs
+        public Login()
+        {
+            PreInit += Login_PreInit;
+
+            btnSubmit.Click += BtnSubmit_Click;
+        }
+
+        private void Login_PreInit(object sender, EventArgs e)
+        {
+            // Auto-Login
+            if (LoggedInUser != null)
+            {
+                Response.Redirect("/Admin/UserAdmin.aspx");
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // DB.MessageAdd(new Message("This is a great place to remember the fallen", 10.5, 10.5, true));
-
             /*
 #if DEBUG
             // For testing purposes:- User is SuperAdmin
@@ -28,16 +40,10 @@ namespace NMA_Wall
 
 #endif
             /**/
-            btnSubmit.Click += BtnSubmit_Click;
         }
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
-            if (LoggedInUser != null)
-            {
-                Response.Redirect("/Admin/UserAdmin.aspx");
-            }
-
             if (txtUsername.Text != null)
             {
                 if (txtPassword.Text != null)

@@ -11,11 +11,8 @@ using System.Web.UI.WebControls;
 
 namespace NMA_Wall
 {
-    public partial class Default : System.Web.UI.Page /*BasePage*/
+    public partial class Default : BasePage
     {
-        // Database Access
-        private DataLayer.Respository DB { get; set; } = new DataLayer.Respository();
-
         public string MemorialName { get; private set; }
 
         public Default()
