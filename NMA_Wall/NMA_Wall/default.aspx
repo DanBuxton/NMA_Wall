@@ -2,7 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadArea" runat="server">
     <%-- Title added using the C# Title property of the Page reference --%>
-    <% Page.Title = MemorialName + " Comments"; %>
+    <% 
+        if (!MemorialName.ToLower().Contains("memorial"))
+            Page.Title = MemorialName + " Memorial Comments";
+        else
+            Page.Title = MemorialName + " Comments";
+        %>
 
     <meta name="description" content="" />
     <meta name="keywords" content="Nation Memorial Arboretum; thenma.org.uk" />
