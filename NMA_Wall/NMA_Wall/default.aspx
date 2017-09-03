@@ -14,25 +14,25 @@
 
     <section id="comments" itemtype="http://schema.org/Blog">
         <%-- Comment templates --%>
-        <section class="comment" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/Review">
+        <section class="comment" itemprop="itemListElement" itemscope="itemscope">
             <h3 class="comment-h3">Good Example</h3>
-            <p>
+            <p itemtype="http://schema.org/Review">
                 <img src="http://www.placehold.it/150x150" alt="Image" itemprop="image" itemtype="http://schema.org/Photograph" />
                 <br />
                 <span class="message-details">Posted by Anonymous at 11:32</span>
             </p>
         </section>
-        <section class="comment" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/Review">
+        <section class="comment" itemprop="itemListElement" itemscope="itemscope">
             <h3 class="comment-h3"><span class="comment-removed removed-by-admin">Comment removed</span></h3>
-            <p>
+            <p itemtype="http://schema.org/Review">
                 <span class="comment-removed removed-by-admin">Sorry, this comment has been flagged and removed by an admin</span>
                 <br />
                 <span class="message-details">Posted by Anonymous at 12:27</span>
             </p>
         </section>
-        <section class="comment" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/Review">
+        <section class="comment" itemprop="itemListElement" itemscope="itemscope">
             <h3 class="comment-h3">Beautiful place of peace</h3>
-            <p>
+            <p itemtype="http://schema.org/Review">
                 It was a lovely, warm feeling to see my grandad's name here :cry:
                 <br />
                 <span class="message-details">Posted by Anonymous at 14:58</span>
