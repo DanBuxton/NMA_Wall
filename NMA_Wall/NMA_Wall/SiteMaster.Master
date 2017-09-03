@@ -5,8 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-us">
 <head runat="server">
     <title></title>
-    <meta name="author" content="a" />
+    <meta name="author" content="Nation Memorial Arboretum" />
+    <meta name="description" content="The description of my page" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta charset="utf-8" />
 
     <meta name="format-detection" content="telephone=no" />
 
@@ -30,7 +33,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <header id="header">
+    <header id="header" class="container">
         <nav id="nav">
             <ul>
                 <li><a href="../Default.aspx">Home</a></li>
@@ -53,12 +56,12 @@
     </main>
 
     <footer id="footer">
-        <p>&copy; <%= DateTime.Now.Year %> The National Memorial Arboretum Company Limited.</p>
+        <p>&copy; <%= DateTime.Now.Year %> The <span itemtype="http://schema.org/Organization"><a href="http://www.thenma.org.uk" itemprop="url"><span itemprop="name">National Memorial Arboretum</span></a></span> Company Limited.</p>
     </footer>
 
     <script>
         $(document).ready(function () {
-            $("main").emojidexReplace();
+            $("#main").emojidexReplace();
             $(".emojidex-plain_text").emojidexAutocomplete();
             $(".emojidex-content_editable").emojidexAutocomplete();
         });
