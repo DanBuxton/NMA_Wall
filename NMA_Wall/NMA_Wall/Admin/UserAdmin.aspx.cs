@@ -11,7 +11,12 @@ namespace NMA_Wall.Admin
     {
         public UserAdmin()
         {
+            PreInit += UserAdmin_PreInit;
+        }
 
+        private void UserAdmin_PreInit(object sender, EventArgs e)
+        {
+            Page.Title = "Admin";
         }
     }
 }

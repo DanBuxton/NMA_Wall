@@ -3,10 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadArea" runat="server">
     <%-- Title added using the C# Title property of the Page reference --%>
     <% 
-        if (!MemorialName.ToLower().Contains("memorial"))
-            Page.Title = MemorialName + " Memorial Comments";
-        else
-            Page.Title = MemorialName + " Comments";
+        
         %>
 
     <meta name="description" content="" />
@@ -15,17 +12,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyArea" runat="server">
     <h2 class="h2"><%= MemorialName %> Memorial Comments</h2>
 
-    <section id="comments">
+    <section id="comments" itemtype="http://schema.org/Blog">
         <%-- Comment templates --%>
-        <section class="comment">
+        <section class="comment" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/Review">
             <h3 class="comment-h3">Good Example</h3>
             <p>
-                <img src="http://www.placehold.it/150x150" alt="Image" />
+                <img src="http://www.placehold.it/150x150" alt="Image" itemprop="image" itemtype="http://schema.org/Photograph" />
                 <br />
                 <span class="message-details">Posted by Anonymous at 11:32</span>
             </p>
         </section>
-        <section class="comment">
+        <section class="comment" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/Review">
             <h3 class="comment-h3"><span class="comment-removed removed-by-admin">Comment removed</span></h3>
             <p>
                 <span class="comment-removed removed-by-admin">Sorry, this comment has been flagged and removed by an admin</span>
@@ -33,7 +30,7 @@
                 <span class="message-details">Posted by Anonymous at 12:27</span>
             </p>
         </section>
-        <section class="comment">
+        <section class="comment" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/Review">
             <h3 class="comment-h3">Beautiful place of peace</h3>
             <p>
                 It was a lovely, warm feeling to see my grandad's name here :cry:

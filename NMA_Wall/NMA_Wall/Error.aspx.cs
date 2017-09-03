@@ -9,6 +9,16 @@ namespace NMA_Wall
 {
     public partial class Error : BasePage
     {
+        public Error()
+        {
+            PreInit += Error_PreInit;
+        }
+
+        private void Error_PreInit(object sender, EventArgs e)
+        {
+            Page.Title = "Technical Issue";
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             // Create safe error messages.

@@ -4,6 +4,25 @@
     <%-- Title added using the C# Title property of the Page reference --%>
 
     <% Page.Title = "Admin"; %>
+    <style>
+        table {
+            /* Some good looking styles */
+            margin: auto;
+            width: 100%;
+        }
+
+        table td, table th {
+            border: solid 1px black;
+            margin: -1px;
+            padding: -1px;
+            text-align: center;
+        }
+
+        table tr:nth-child(even),
+        table th {
+            background-color: #DDDDDD;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <%-- Uncomment when DB works --%>

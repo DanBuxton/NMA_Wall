@@ -32,8 +32,13 @@ namespace NMA_Wall
 
         private void Default_PreInit(object sender, EventArgs e)
         {
-            // Get memorial name, details and comments from ajax
+            // Get memorial name, details and comments from somewhere
             MemorialName = "Shot At Dawn"; /* temp */
+
+            if (!MemorialName.ToLower().Contains("memorial"))
+                Page.Title = MemorialName + " Memorial Comments";
+            else
+                Page.Title = MemorialName + " Comments";
         }
 
         protected void Page_Load(object sender, EventArgs e)

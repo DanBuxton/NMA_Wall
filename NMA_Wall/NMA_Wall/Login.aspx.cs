@@ -16,30 +16,18 @@ namespace NMA_Wall
         public Login()
         {
             PreInit += Login_PreInit;
-
-            btnSubmit.Click += BtnSubmit_Click;
         }
 
         private void Login_PreInit(object sender, EventArgs e)
         {
             // Auto-Login
             if (LoggedInUser != null)
-            {
                 Response.Redirect("/Admin/UserAdmin.aspx");
-            }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*
-#if DEBUG
-            // For testing purposes:- User is SuperAdmin
-            User user = new User("Admin", "Hi", false, false, true);
-
-            DB.UserAdd(user);
-
-#endif
-            /**/
+            btnSubmit.Click += BtnSubmit_Click;
         }
 
         private void BtnSubmit_Click(object sender, EventArgs e)
