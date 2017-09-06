@@ -105,6 +105,7 @@
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="Error.aspx" />
+    <Content Include="img\Comments\01.JPG" />
     <Content Include="img\pattren01.png" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\Homepage.js" />

@@ -1,4 +1,10 @@
-﻿var isSubjectValid;
+﻿String.prototype.filename = function (extension) {
+    var s = this.replace(/\\/g, '/');
+    s = s.substring(s.lastIndexOf('/') + 1);
+    return extension ? s.replace(/[?#].+$/, '') : s.split('.')[0];
+};
+
+var isSubjectValid;
 var isCommentValid;
 var isImageValid;
 var isOptionSelected;
@@ -15,8 +21,10 @@ function ValidateForm() {
 
     subject = $("#txtSubject");
     subjectText = subject.text();
+
     comment = $("#txtComment");
     commentText = comment.text();
+
     image = $("#imgComment");
     imageVal = image.val();
 
@@ -77,3 +85,12 @@ function SubmitForm() {
 
     return result;
 }
+
+// Image click & ...
+$(function () {
+    $(".image").click(function () {
+        // Make image fillscreen etc.
+        var imageSrc = this.src;
+        var fileName = imageSrc.filename();
+    });
+});

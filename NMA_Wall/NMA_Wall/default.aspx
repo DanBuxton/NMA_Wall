@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadArea" runat="server">
     <%-- Title added using the C# Title property of the Page reference --%>
     <% 
-        
-        %>
+
+    %>
 
     <meta name="description" content="" />
     <meta name="keywords" content="Nation Memorial Arboretum; thenma.org.uk" />
@@ -17,11 +17,12 @@
         <section class="comment" itemprop="itemListElement" itemscope="itemscope">
             <h3 class="comment-h3">Good Example</h3>
             <p itemtype="http://schema.org/Review">
-                <img src="http://www.placehold.it/150x150" alt="Image" itemprop="image" itemtype="http://schema.org/Photograph" />
+                <img src="img/Comments/01.JPG" alt="Image 01" width="150" height="150" itemprop="image" itemtype="http://schema.org/Photograph" class="image" />
                 <br />
                 <span class="message-details">Posted by Anonymous at 11:32</span>
             </p>
         </section>
+
         <section class="comment" itemprop="itemListElement" itemscope="itemscope">
             <h3 class="comment-h3"><span class="comment-removed removed-by-admin">Comment removed</span></h3>
             <p itemtype="http://schema.org/Review">
