@@ -22,7 +22,6 @@
                 <span class="message-details">Posted by Anonymous at 11:32</span>
             </p>
         </section>
-
         <section class="comment" itemprop="itemListElement" itemscope="itemscope">
             <h3 class="comment-h3"><span class="comment-removed removed-by-admin">Comment removed</span></h3>
             <p itemtype="http://schema.org/Review">
@@ -90,6 +89,8 @@
 
         <input type="submit" name="submit" value="Post" class="btn-default" />
     </section>
+
+    <img src="http://placehold.it/150x150" alt="" id="imgFullscreen" />
 
     <script src="js/Homepage.js"></script>
 </asp:Content>

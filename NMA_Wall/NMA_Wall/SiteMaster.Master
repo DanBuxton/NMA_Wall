@@ -16,8 +16,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="http://www.thenma.org.uk/images/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="http://www.thenma.org.uk/images/favicon-96x96.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="http://www.thenma.org.uk/images/favicon-16x16.png" />
-
-    <meta charset="utf-8" />
     <%-- CSS --%>
     <%--<link href="css/bootstrap.min.css" rel="stylesheet" />--%>
 

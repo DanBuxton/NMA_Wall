@@ -92,5 +92,13 @@ $(function () {
         // Make image fillscreen etc.
         var imageSrc = this.src;
         var fileName = imageSrc.filename();
+        var fileNameWithExtension = fileName + ".jpg";
+        var image = $("#imgFullscreen");
+
+        confirm(fileNameWithExtension);
+
+        // Width and height done in markup
+        image.css("display", "normal");
+        image.options.src = imageSrc;
     });
 });

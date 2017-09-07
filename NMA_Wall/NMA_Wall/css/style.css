@@ -300,3 +300,9 @@ span.right {
 }
 
 /*#endregion */
+
+#imgFullscreen {
+    display: none;
+    position: fixed;
+    margin: auto auto;
+}
