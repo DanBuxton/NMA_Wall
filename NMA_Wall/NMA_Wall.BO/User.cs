@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using NMA_Wall.BO.Extensions;
+
 namespace NMA_Wall.BO
 {
     public class User
@@ -22,7 +24,7 @@ namespace NMA_Wall.BO
         public User(string username, string password, bool isContribruter = false, bool isAdmin = false, bool isSuperAdmin = false) : this()
         {
             Username = username;
-            Password = password;
+            Password = password.ComputeHash();
             IsContribruter = isContribruter;
             IsAdmin = isAdmin;
             IsSuperAdmin = isSuperAdmin;

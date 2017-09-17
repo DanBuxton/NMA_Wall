@@ -38,7 +38,7 @@ namespace NMA_Wall.DataLayer
             return DB.Users.FirstOrDefault(u => u.Id == id);
         }
 
-        // Required for Admin Welcome page (UserAdmin.aspx)
+        // Required for Admin (UserAdmin.aspx)
         public string UserGetType(Guid id)
         {
             string result = "";
@@ -48,24 +48,14 @@ namespace NMA_Wall.DataLayer
             //BO.User user = DB.Users.FirstOrDefault(u => u.Id == id);
 
             if (user != null)
-            {
                 if (user.IsSuperAdmin)
-                {
                     result = "Super Admin";
-                }
                 else if (user.IsAdmin)
-                {
                     result = "Admin";
-                }
                 else if (user.IsContribruter)
-                {
-                    result = "Contribruter";
-                }
+                    result = "Contributer";
                 else
-                {
                     result = string.Empty;
-                }
-            }
 
             return result;
         }
@@ -77,23 +67,30 @@ namespace NMA_Wall.DataLayer
             //BO.User user = DB.Users.FirstOrDefault(u => u.Id == id);
 
             if (user != null)
-            {
                 if (user.IsSuperAdmin)
-                {
                     result = "Super Admin";
-                }
                 else if (user.IsAdmin)
-                {
                     result = "Admin";
-                }
                 else if (user.IsContribruter)
-                {
-                    result = "Contribruter";
-                }
+                    result = "Contributer";
                 else
-                {
                     result = string.Empty;
-                }
+
+            return result;
+        }
+
+        public bool UserDoesExist(string username, string password)
+        {
+            bool result = true;
+
+            try
+            {
+                BO.User user = DB.Users.FirstOrDefault(u =>
+                u.Username == username);
+            }
+            catch(Exception e)
+            {
+                result = false;
             }
 
             return result;
@@ -128,6 +125,12 @@ namespace NMA_Wall.DataLayer
         public IEnumerable<BO.Message> MessageGetAll()
         {
             return DB.Messages;
+        }
+
+        // Required for Comment Moderation
+        public IEnumerable<BO.Message> MessageGetAllAwaitingModeration()
+        {
+            return DB.Messages.Where(m => m.IsAwaitingModeration);
         }
 
         public void ContentAdd(BO.Content content)

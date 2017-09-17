@@ -33,9 +33,9 @@
     <header id="header">
         <nav id="nav">
             <ul>
-                <li><a href="Default.aspx">Home</a></li>
+                <li><a href="../Default.aspx">Home</a></li>
 
-                <li><a href="Login.aspx">Login / Signup</a></li>
+                <li><a href="../Login.aspx">Login / Sign up</a></li>
 
                 <li><a target="_blank" href="http://www.thenma.org.uk">NMA website</a></li>
 
@@ -45,10 +45,12 @@
     </header>
 
     <main id="main">
-        <button id="btnLogout" type="button" class="btn-default" runat="server">Logout</button>
+        <form method="post" runat="server">
+            <asp:Button ID="btnLogout" Text="Logout" CssClass="btn-default" runat="server" />
 
-        <asp:ContentPlaceHolder ID="body" runat="server">
-        </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
+        </form>
     </main>
 
     <footer id="footer">
@@ -62,6 +64,6 @@
             $(".emojidex-content_editable").emojidexAutocomplete();
         });
     </script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>

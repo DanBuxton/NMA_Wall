@@ -17,16 +17,16 @@ namespace NMA_Wall.Admin
 
         }
 
-        private void BtnLogout_ServerClick(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            btnLogout.Click += BtnLogout_Click;
+        }
+
+        private void BtnLogout_Click(object sender, EventArgs e)
         {
             LoggedInUser = null;
             
             Response.Redirect("../Default.aspx");
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

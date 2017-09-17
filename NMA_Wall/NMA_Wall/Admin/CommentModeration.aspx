@@ -9,16 +9,16 @@
             width: 100%;
         }
 
-        table td, table th {
-            border: solid 1px black;
-            margin: -1px;
-            padding: -1px;
-        }
+            table td, table th {
+                border: solid 1px black;
+                margin: -1px;
+                padding: -1px;
+            }
 
-        table tr:nth-child(even),
-        table th {
-            background-color: #DDDDDD;
-        }
+            table tr:nth-child(even),
+            table th {
+                background-color: #DDDDDD;
+            }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
@@ -61,6 +61,7 @@
                         }
                     %>
                 </tr>--%>
+
                 <tr>
                     <% if (Request.IsLocal)
                         { %>
@@ -82,17 +83,16 @@
                         <label><%= DateTime.Now.Date.ToShortDateString() %></label>
                     </td>
                     <td>
-                        <form action="/" method="post">
-                            <label runat="server">
-                                Yes<br />
-                                <input type="radio" name="name" value="" /></label>
-                            <br />
-                            <label runat="server">
-                                No<br />
-                                <input type="radio" name="name" value="" /></label>
-                        </form>
+                        <label runat="server">
+                            Yes<br />
+                            <input type="radio" name="name" value="" /></label>
+                        <br />
+                        <label runat="server">
+                            No<br />
+                            <input type="radio" name="name" value="" /></label>
                     </td>
                 </tr>
+
                 <tr>
                     <% if (Request.IsLocal)
                         { %>

@@ -11,17 +11,17 @@
             width: 100%;
         }
 
-        table td, table th {
-            border: solid 1px black;
-            margin: -1px;
-            padding: -1px;
-            text-align: center;
-        }
+            table td, table th {
+                border: solid 1px black;
+                margin: -1px;
+                padding: -1px;
+                text-align: center;
+            }
 
-        table tr:nth-child(even),
-        table th {
-            background-color: #DDDDDD;
-        }
+            table tr:nth-child(even),
+            table th {
+                background-color: #DDDDDD;
+            }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
@@ -30,28 +30,26 @@
     <p>Account Type: <%= /*DB.UserGetType(LoggedInUser)*/"Super Admin" %></p>
 
     <section id="secAdminReportsThingy">
-        <h3>Admin Essensials Thing</h3>
+        <h3>Admin Essentials Thing</h3>
         <section>
             <h3>Useful Numbers</h3>
-            <label>Number of Comments - <%= /*DB.MessageGetAll()*/ "4" %></label>
+            <label>Number of Comments - <%= /**/DB.MessageGetAll().Count()/**/ %></label>
             <br />
             <label>Number of Memorials - <%= /*DB.MessageGetAll()*/ "300+" %></label>
         </section>
         <section id="secAccountStuff">
-            <section>
-                <form action="/" method="post" runat="server">
-                    <h3>Change Password</h3>
-                    <div>
-                        <input type="password" name="oldPassword" value="" placeholder="Old Password" autocomplete="off" />
-                        <br />
-                        <input type="password" name="newPassword" value="" placeholder="New Password" autocomplete="off" />
-                        <br />
-                        <input type="password" name="newRepeatPassword" value="" placeholder="Retype Password" autocomplete="off" />
-                        <div class="clear"></div>
-                        <br />
-                        <input type="submit" value="Change Password" class="btn-default" />
-                    </div>
-                </form>
+            <section id="secChangePassword">
+                <h3>Change Password</h3>
+                <div>
+                    <input type="password" name="oldPassword" value="" placeholder="Old Password" autocomplete="off" />
+                    <br />
+                    <input type="password" name="newPassword" value="" placeholder="New Password" autocomplete="off" />
+                    <br />
+                    <input type="password" name="newRepeatPassword" value="" placeholder="Retype Password" autocomplete="off" />
+                    <div class="clear"></div>
+                    <br />
+                    <input type="submit" value="Change Password" class="btn-default" />
+                </div>
             </section>
         </section>
     </section>
@@ -109,6 +107,10 @@
     </section>
 
     <section class="secActions">
-        <input type="button" name="btnModCom" value="Moderate Comments" class="btn-default" />
+        <section>
+            <asp:Button ID="btnAddUser" Text="Add User" CssClass="btn-default" runat="server" />
+        </section>
+
+        <asp:Button ID="btnModCom" Text="Moderate Comments" CssClass="btn-default" runat="server" />
     </section>
 </asp:Content>
