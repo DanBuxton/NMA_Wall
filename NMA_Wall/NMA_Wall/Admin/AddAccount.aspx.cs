@@ -16,8 +16,12 @@ namespace NMA_Wall.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.IsLocal)
-                Response.Write("Hello Add User Page");
+#if DEBUG
+            // For Testing purposes only
+            if (!DB.UserDoesExist("BSDCDeveloper", "NMA_User"))
+                DB.UserAdd(new BO.User("BSDCDeveloper", "BSDCDeveloper", isSuperAdmin: true));
+#endif
+
             btnUserAdd.Click += BtnUserAdd_Click;
         }
 
@@ -27,9 +31,6 @@ namespace NMA_Wall.Admin
 
             if (txtUsername.Text != "" && txtUsername.Text.Length >= 5) // Has entered OK username
             {
-                if (Request.IsLocal)
-                    Response.Write("Good username");
-
                 if (selAccountType.Value != null) // Has selected account type
                 {
                     BO.User user = new BO.User();
@@ -44,12 +45,17 @@ namespace NMA_Wall.Admin
                             user = new BO.User(txtUsername.Text, defaultPassword, isSuperAdmin: true);
 
                         if (Request.IsLocal)
-                            Response.Write("Adding User");
+                            Response.Write("Adding user");
 
                         DB.UserAdd(user);
 
                         if (Request.IsLocal)
-                            Response.Write("User Added");
+                            Response.Write("User added");
+                    }
+                    else // Username already exists
+                    {
+                        if (Request.IsLocal)
+                            Response.Write("User already exists");
                     }
                 }
                 else // Rubbish account type
