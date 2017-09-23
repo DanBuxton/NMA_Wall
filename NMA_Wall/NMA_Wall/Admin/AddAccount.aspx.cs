@@ -36,7 +36,7 @@ namespace NMA_Wall.Admin
 
                     if (!DB.UserDoesExist(txtUsername.Text, defaultPassword))
                     {
-                        if (selAccountType.Value == "Contributer")
+                        if (selAccountType.Value == "Contributor")
                             user = new BO.User(txtUsername.Text, defaultPassword, isContribruter: true);
                         else if (selAccountType.Value == "Admin")
                             user = new BO.User(txtUsername.Text, defaultPassword, isAdmin: true);
@@ -44,9 +44,12 @@ namespace NMA_Wall.Admin
                             user = new BO.User(txtUsername.Text, defaultPassword, isSuperAdmin: true);
 
                         if (Request.IsLocal)
-                            Response.Write("Bad account type");
+                            Response.Write("Adding User");
 
                         DB.UserAdd(user);
+
+                        if (Request.IsLocal)
+                            Response.Write("User Added");
                     }
                 }
                 else // Rubbish account type

@@ -7,11 +7,11 @@
         <fieldset>
             <label for="txtUsername">Username</label>
             <asp:TextBox ID="txtUsername" runat="server" />
-            <p>Password is 'NMA_Account' by default</p>
+            <p>Password is 'NMA_User' by default</p>
         </fieldset>
         <fieldset>
             <select id="selAccountType" runat="server">
-                <option value="Contributer" selected="selected">Contributer</option>
+                <option value="Contributer" selected="selected">Contributor</option>
                 <option value="Admin">Admin</option>
                 <option value="Super_Admin">Super Admin</option>
             </select>

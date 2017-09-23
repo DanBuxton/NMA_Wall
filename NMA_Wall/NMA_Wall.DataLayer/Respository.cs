@@ -53,7 +53,7 @@ namespace NMA_Wall.DataLayer
                 else if (user.IsAdmin)
                     result = "Admin";
                 else if (user.IsContribruter)
-                    result = "Contributer";
+                    result = "Contributor";
                 else
                     result = string.Empty;
 
@@ -72,7 +72,7 @@ namespace NMA_Wall.DataLayer
                 else if (user.IsAdmin)
                     result = "Admin";
                 else if (user.IsContribruter)
-                    result = "Contributer";
+                    result = "Contributor";
                 else
                     result = string.Empty;
 
@@ -88,7 +88,7 @@ namespace NMA_Wall.DataLayer
                 BO.User user = DB.Users.FirstOrDefault(u =>
                 u.Username == username);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 result = false;
             }
