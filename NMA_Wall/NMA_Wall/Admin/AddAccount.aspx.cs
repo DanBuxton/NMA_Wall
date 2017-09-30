@@ -22,9 +22,11 @@ namespace NMA_Wall.Admin
                 // For Testing purposes only
                 if (!DB.UserDoesExist("BSDCDeveloper", "BSDCDeveloper"))
                 {
+                    BO.User user = new BO.User("BSDCDeveloper", "BSDCDeveloper", isSuperAdmin: true);
+
                     Response.Write("Adding User");
-                    DB.UserAdd(new BO.User("BSDCDeveloper", "BSDCDeveloper", isSuperAdmin: true));
-                    Response.Write("Added User");
+                    DB.UserAdd(user);
+                    Response.Write("Added User: " + user.Username);
                 }
                 else
                 {

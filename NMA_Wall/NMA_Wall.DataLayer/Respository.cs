@@ -14,6 +14,7 @@ namespace NMA_Wall.DataLayer
         public void UserAdd(BO.User user)
         {
             DB.Users.Add(user);
+            DB.SaveChanges();
         }
 
         public void UserRemove(BO.User user)
@@ -21,6 +22,7 @@ namespace NMA_Wall.DataLayer
             if (user != null && !user.IsSuperAdmin)
             {
                 DB.Users.Remove(user);
+                DB.SaveChanges();
             }
         }
 
@@ -103,11 +105,13 @@ namespace NMA_Wall.DataLayer
         public void MessageAdd(BO.Message message)
         {
             DB.Messages.Add(message);
+            DB.SaveChanges();
         }
 
         public void MessageRemove(BO.Message message)
         {
             DB.Messages.Remove(message);
+            DB.SaveChanges();
         }
 
         public BO.Message MessageGet(Guid id)
@@ -135,11 +139,13 @@ namespace NMA_Wall.DataLayer
         public void ContentAdd(BO.Content content)
         {
             DB.Content.Add(content);
+            DB.SaveChanges();
         }
 
         public void RemoveContent(BO.Content content)
         {
             DB.Content.Remove(content);
+            DB.SaveChanges();
         }
 
         public IEnumerable<BO.Content> ContentGetInRange(double latitude, double longitude, double distance)
