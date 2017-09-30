@@ -33,7 +33,7 @@
         <section class="comment" itemprop="itemListElement" itemscope="itemscope">
             <h3 class="comment-h3">Beautiful place of peace</h3>
             <p itemtype="http://schema.org/Review">
-                It was a lovely, warm feeling to see my grandad's name here :cry:
+                It was a lovely, warm feeling to see my granddad's name here :cry:
                 <br />
                 <span class="message-details">Posted by Anonymous at 14:58</span>
             </p>

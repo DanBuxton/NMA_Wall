@@ -22,12 +22,12 @@ namespace NMA_Wall.Admin
 
         private void BtnAddUser_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/AddAccount.aspx");
+            Response.Redirect("/Admin/AddAccount.aspx");
         }
 
         private void BtnModCom_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/CommentModeration.aspx");
+            Response.Redirect("/Admin/CommentModeration.aspx");
         }
 
         private void UserAdmin_PreInit(object sender, EventArgs e)

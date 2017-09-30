@@ -89,7 +89,7 @@ function SubmitForm() {
 // Image click & ...
 $(function () {
     $(".image").click(function () {
-        // Make image fillscreen etc.
+        // Make image fullscreen etc.
         var imageSrc = this.src;
         var fileName = imageSrc.filename();
         var fileNameWithExtension = fileName + ".jpg";
