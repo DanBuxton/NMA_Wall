@@ -82,15 +82,14 @@ namespace NMA_Wall.DataLayer
         public bool UserDoesExist(string username, string password)
         {
             bool result = true;
+            BO.User user = new BO.User();
 
-            try
+            user = DB.Users.FirstOrDefault(u =>
+            u.Username == username);
+
+            if (user == null)
             {
-                BO.User user = DB.Users.FirstOrDefault(u =>
-                u.Username == username);
-            }
-            catch(Exception)
-            {
-                result = false;
+                result = !result;
             }
 
             return result;

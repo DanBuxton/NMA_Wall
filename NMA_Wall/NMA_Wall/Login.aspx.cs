@@ -59,6 +59,16 @@ namespace NMA_Wall
                         else
                         {
                             // User not set up correct
+
+                        }
+                    }
+                    else
+                    {
+                        if (Request.IsLocal)
+                        {
+                            Response.Write("User null");
+                            //Response.Write("Username: " + user.Username);
+                            //Response.Write("Password: " + user.Password);
                         }
                     }
 

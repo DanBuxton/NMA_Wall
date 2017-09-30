@@ -16,11 +16,21 @@ namespace NMA_Wall.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-#if DEBUG
-            // For Testing purposes only
-            if (!DB.UserDoesExist("BSDCDeveloper", "NMA_User"))
-                DB.UserAdd(new BO.User("BSDCDeveloper", "BSDCDeveloper", isSuperAdmin: true));
-#endif
+
+            if (Request.IsLocal)
+            {
+                // For Testing purposes only
+                if (!DB.UserDoesExist("BSDCDeveloper", "BSDCDeveloper"))
+                {
+                    Response.Write("Adding User");
+                    DB.UserAdd(new BO.User("BSDCDeveloper", "BSDCDeveloper", isSuperAdmin: true));
+                    Response.Write("Added User");
+                }
+                else
+                {
+                    Response.Write("Already exists");
+                }
+            }
 
             btnUserAdd.Click += BtnUserAdd_Click;
         }
