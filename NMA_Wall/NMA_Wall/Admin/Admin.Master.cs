@@ -14,7 +14,15 @@ namespace NMA_Wall.Admin
     {
         public Admin()
         {
+            Init += Admin_Init;
+        }
 
+        private void Admin_Init(object sender, EventArgs e)
+        {
+            if (LoggedInUser == null)
+            {
+                Response.Redirect("../Default.aspx");
+            }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,9 +32,11 @@ namespace NMA_Wall.Admin
 
         private void BtnLogout_Click(object sender, EventArgs e)
         {
-            LoggedInUser = null;
+            LoggedInUser = new User();
+            BasePage bp = new BasePage();
+            bp.LoggedInUser = new User();
             
-            Response.Redirect("../Default.aspx");
+            //Response.Redirect("../Default.aspx");
         }
     }
 }

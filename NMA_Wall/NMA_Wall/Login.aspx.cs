@@ -15,18 +15,15 @@ namespace NMA_Wall
     {
         public Login()
         {
-            PreInit += Login_PreInit;
-        }
 
-        private void Login_PreInit(object sender, EventArgs e)
-        {
-            // Auto-Login
-            if (LoggedInUser != null)
-                Response.Redirect("/Admin/UserAdmin.aspx");
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Auto-Login
+            if (LoggedInUser != null)
+                Response.Redirect("/Admin/UserAdmin.aspx");
+
             btnSubmit.Click += BtnSubmit_Click;
         }
 
@@ -47,8 +44,10 @@ namespace NMA_Wall
                     {
                         // Make sure user details are on the BasePage
                         LoggedInUser = user;
+                        Admin.BaseMasterPage amp = new Admin.BaseMasterPage();
+                        amp.LoggedInUser = user;
 
-                        if (user.IsAdmin || user.IsSuperAdmin)
+                        if (user.IsAdmin || user.IsSuperAdmin || user.IsContribruter)
                         {
                             Response.Redirect("/Admin/UserAdmin.aspx");
                         }

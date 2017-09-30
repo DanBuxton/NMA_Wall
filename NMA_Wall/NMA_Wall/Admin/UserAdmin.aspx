@@ -25,9 +25,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <%-- Uncomment when DB works --%>
-    <h2 class="h1">Welcome <small><%= /*LoggedInUser.Username*/"Admin" %></small></h2>
-    <p>Account Type: <%= /*DB.UserGetType(LoggedInUser)*/"Super Admin" %></p>
+    <h2 class="h1">Welcome <small><%= LoggedInUser.Username %></small></h2>
+    <p>Account Type: <%= DB.UserGetType(LoggedInUser) %></p>
 
     <section id="secAdminReportsThingy">
         <h3>Admin Essentials Thing</h3>

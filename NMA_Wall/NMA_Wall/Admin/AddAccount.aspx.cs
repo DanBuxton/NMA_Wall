@@ -16,10 +16,10 @@ namespace NMA_Wall.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (Request.IsLocal)
             {
                 // For Testing purposes only
+                /**/
                 if (!DB.UserDoesExist("BSDCDeveloper", "BSDCDeveloper"))
                 {
                     BO.User user = new BO.User("BSDCDeveloper", "BSDCDeveloper", isSuperAdmin: true);
@@ -32,6 +32,7 @@ namespace NMA_Wall.Admin
                 {
                     Response.Write("Already exists");
                 }
+                /**/
             }
 
             btnUserAdd.Click += BtnUserAdd_Click;
