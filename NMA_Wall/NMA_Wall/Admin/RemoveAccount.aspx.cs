@@ -29,8 +29,10 @@ namespace NMA_Wall.Admin
             {
                 if ((!(user.IsSuperAdmin || user.IsAdmin) && LoggedInUser.IsAdmin) || (!user.IsSuperAdmin && LoggedInUser.IsSuperAdmin))
                 {
-                    if (user == LoggedInUser) continue;
-                    selUsers.Items.Add(new ListItem(user.Username, user.Id.ToString()));
+                    if (user == LoggedInUser) continue; // User cannot remove it's self
+                    {
+                        selUsers.Items.Add(new ListItem(user.Username, user.Id.ToString()));
+                    }
                 }
             }
         }
