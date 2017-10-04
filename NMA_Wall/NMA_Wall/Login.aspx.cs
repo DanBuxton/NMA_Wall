@@ -20,9 +20,11 @@ namespace NMA_Wall
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            /**/
             // Auto-Login
-            if (LoggedInUser != null)
+            if (LoggedInUser != new User()) // No logout feature yet
                 Response.Redirect("/Admin/UserAdmin.aspx");
+            /**/
 
             btnSubmit.Click += BtnSubmit_Click;
         }
@@ -40,12 +42,10 @@ namespace NMA_Wall
                     //   DB.UserGet Hashes password
                     User user = DB.UserGet(txtUsername.Text, txtPassword.Text);
 
-                    if (user != null)
+                    if (user != null && user != new User())
                     {
                         // Make sure user details are on the BasePage
                         LoggedInUser = user;
-                        Admin.BaseMasterPage amp = new Admin.BaseMasterPage();
-                        amp.LoggedInUser = user;
 
                         if (user.IsAdmin || user.IsSuperAdmin || user.IsContribruter)
                         {

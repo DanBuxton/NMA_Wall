@@ -19,7 +19,7 @@ namespace NMA_Wall
             // Get last error from the server
             Exception exc = Server.GetLastError();
 
-            if (exc is HttpUnhandledException)
+            if (exc is HttpException)
             {
                 if (exc.InnerException != null)
                 {

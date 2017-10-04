@@ -11,13 +11,18 @@ namespace NMA_Wall.Admin
 {
     public partial class RemoveAccount : BasePage
     {
-        public List<User> Users { get; set; } = new List<BO.User>();
+        public List<User> Users { get; set; } = new List<User>();
 
         public RemoveAccount()
         {
+            PreInit += RemoveAccount_PreInit;
+        }
+
+        private void RemoveAccount_PreInit(object sender, EventArgs e)
+        {
             if (!(LoggedInUser.IsAdmin || LoggedInUser.IsSuperAdmin))
             {
-                Response.Redirect("/Admin/UserAdmin.aspx", true);
+                Response.Redirect(url: "/Admin/UserAdmin.aspx", endResponse: true);
             }
         }
 
@@ -25,13 +30,13 @@ namespace NMA_Wall.Admin
         {
             btnRemove.Click += BtnRemove_Click;
 
-            foreach (User user in DB.UserGetAll())
+            foreach (var user in DB.UserGetAll())
             {
-                if ((!(user.IsSuperAdmin || user.IsAdmin) && LoggedInUser.IsAdmin) || (!user.IsSuperAdmin && LoggedInUser.IsSuperAdmin))
+                if ((!(user.IsSuperAdmin || user.IsAdmin) && (LoggedInUser.IsAdmin || LoggedInUser.IsSuperAdmin)) || (user.IsSuperAdmin && LoggedInUser.IsSuperAdmin))
                 {
-                    if (user == LoggedInUser) continue; // User cannot remove it's self
+                    if (selUsers.Items.FindByValue(user.Id.ToString()) != null) continue; // Stops adding duplicated to select list
                     {
-                        selUsers.Items.Add(new ListItem(user.Username, user.Id.ToString()));
+                        selUsers.Items.Add(new ListItem(user.Username + " - " + DB.UserGetType(user.Id) + (user == LoggedInUser ? " (You)" : ""), user.Id.ToString()));
                     }
                 }
             }
@@ -45,9 +50,16 @@ namespace NMA_Wall.Admin
 
                 Guid.TryParse(selUsers.Value, out id);
 
-                BO.User user = DB.UserGet(id);
+                User user = DB.UserGet(id);
 
-                DB.UserRemove(user);
+                if (LoggedInUser != user)
+                {
+                    DB.UserRemove(user);
+                }
+                else
+                {
+                    // User removing itself
+                }
             }
         }
     }

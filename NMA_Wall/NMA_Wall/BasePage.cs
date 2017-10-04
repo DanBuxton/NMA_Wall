@@ -20,7 +20,7 @@ namespace NMA_Wall
                 Session["LoggedInUserId"] = value;
             }
         }
-
+        
         public BO.User LoggedInUser
         {
             get
@@ -36,7 +36,7 @@ namespace NMA_Wall
             }
             set
             {
-                if (LoggedInUser != null)
+                if (LoggedInUser != new BO.User())
                 {
                     LoggedInUserId = LoggedInUser.Id;
                 }

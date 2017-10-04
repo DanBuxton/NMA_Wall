@@ -36,7 +36,7 @@ namespace NMA_Wall.Admin
             }
             set
             {
-                if (LoggedInUser != null)
+                if (LoggedInUser != new BO.User())
                 {
                     LoggedInUserId = LoggedInUser.Id;
                 }
