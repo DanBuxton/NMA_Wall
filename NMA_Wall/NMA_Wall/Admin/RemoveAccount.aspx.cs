@@ -34,7 +34,7 @@ namespace NMA_Wall.Admin
             {
                 if ((!(user.IsSuperAdmin || user.IsAdmin) && (LoggedInUser.IsAdmin || LoggedInUser.IsSuperAdmin)) || (user.IsSuperAdmin && LoggedInUser.IsSuperAdmin))
                 {
-                    if (selUsers.Items.FindByValue(user.Id.ToString()) != null) continue; // Stops adding duplicated to select list
+                    if (selUsers.Items.FindByValue(user.Id.ToString()) != null) continue; // Doesn't add duplicates when on PostBack from issue(s)
                     {
                         selUsers.Items.Add(new ListItem(user.Username + " - " + DB.UserGetType(user.Id) + (user == LoggedInUser ? " (You)" : ""), user.Id.ToString()));
                     }
