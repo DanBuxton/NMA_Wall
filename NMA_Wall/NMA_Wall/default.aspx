@@ -17,7 +17,7 @@
         <section class="comment" itemprop="itemListElement" itemscope="itemscope">
             <h3 class="comment-h3">Good Example</h3>
             <p itemtype="http://schema.org/Review">
-                <img src="img/Comments/01.JPG" alt="Image 01" width="150" height="150" itemprop="image" itemtype="http://schema.org/Photograph" class="image" />
+                <img src="img/Comments/1.JPG" alt="Image 01" width="150" height="150" itemprop="image" itemtype="http://schema.org/Photograph" class="image" />
                 <br />
                 <span class="message-details">Posted by Anonymous at 11:32</span>
             </p>
