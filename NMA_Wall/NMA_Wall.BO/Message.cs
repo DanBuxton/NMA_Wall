@@ -20,7 +20,7 @@ namespace NMA_Wall.BO
 
         public Message(string message, double lat, double lon,
             bool hasImage = false, bool isAwaitingModeration = true) : this()
-        { // Hello
+        {
             MessageBody = message;
             Latitude = lat;
             Longitude = lon;
