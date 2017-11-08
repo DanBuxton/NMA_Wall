@@ -9,15 +9,15 @@ namespace NMA_Wall
     {
         public DataLayer.Respository DB { get; set; } = new DataLayer.Respository();
 
-        private Guid? LoggedInUserId
+        private string LoggedInUserName
         {
             get
             {
-                return Session["LoggedInUserId"] == null ? null : (Guid?)Session["LoggedInUserId"];
+                return Session["LoggedInUserName"] == null ? null : (string)Session["LoggedInUserName"];
             }
             set
             {
-                Session["LoggedInUserId"] = value;
+                Session["LoggedInUserName"] = value;
             }
         }
         
@@ -27,22 +27,22 @@ namespace NMA_Wall
             {
                 BO.User result = new BO.User();
 
-                if (LoggedInUserId.HasValue)
+                if (LoggedInUserName != null)
                 {
-                    result = DB.UserGet(LoggedInUserId.Value);
+                    result = BO.User.Users.FirstOrDefault(u => u.Username == LoggedInUserName);
                 }
 
                 return result;
             }
             set
             {
-                if (LoggedInUser != new BO.User())
+                if (value != null)
                 {
-                    LoggedInUserId = LoggedInUser.Id;
+                    LoggedInUserName = value.Username;
                 }
                 else
                 {
-                    LoggedInUserId = null;
+                    LoggedInUserName = null;
                 }
             }
         }

@@ -96,11 +96,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\AddAccount.aspx" />
     <Content Include="Admin\assets\css\Admin.css" />
     <Content Include="Admin\CommentModeration.aspx" />
-    <Content Include="Admin\RemoveAccount.aspx" />
-    <Content Include="Admin\UserAdmin.aspx" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\LoginStyleSheet.css" />
@@ -113,6 +110,7 @@
     <Content Include="js\Homepage.js" />
     <Content Include="js\jquery-3.2.1.js" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -132,13 +130,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\AddAccount.aspx.cs">
-      <DependentUpon>AddAccount.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\AddAccount.aspx.designer.cs">
-      <DependentUpon>AddAccount.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -146,29 +137,12 @@
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
-    <Compile Include="Admin\BaseMasterPage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Admin\CommentModeration.aspx.cs">
       <DependentUpon>CommentModeration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\CommentModeration.aspx.designer.cs">
       <DependentUpon>CommentModeration.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\RemoveAccount.aspx.cs">
-      <DependentUpon>RemoveAccount.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\RemoveAccount.aspx.designer.cs">
-      <DependentUpon>RemoveAccount.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\UserAdmin.aspx.cs">
-      <DependentUpon>UserAdmin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\UserAdmin.aspx.designer.cs">
-      <DependentUpon>UserAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -197,6 +171,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SiteMaster.Master.cs">
       <DependentUpon>SiteMaster.Master</DependentUpon>
@@ -209,6 +190,7 @@
   <ItemGroup>
     <Folder Include="Admin\assets\js\" />
     <Folder Include="App_Data\" />
+    <Folder Include="img\Content\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

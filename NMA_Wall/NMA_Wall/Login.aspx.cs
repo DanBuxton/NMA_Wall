@@ -22,7 +22,7 @@ namespace NMA_Wall
         {
             /**/
             // Auto-Login
-            if (LoggedInUser != new User()) // No logout feature yet
+            if (LoggedInUser != null) // No logout feature yet
                 Response.Redirect("/Admin/UserAdmin.aspx");
             /**/
 
@@ -40,14 +40,14 @@ namespace NMA_Wall
 
                     // Database Login Here -> direct user to '/Admin/' with the current user
                     //   DB.UserGet Hashes password
-                    User user = DB.UserGet(txtUsername.Text, txtPassword.Text);
+                    User user = BO.User.Users.FirstOrDefault(u => u.Username == txtUsername.Text && u.Password == txtPassword.Text);
 
-                    if (user != null && user != new User())
+                    if (user != null)
                     {
                         // Make sure user details are on the BasePage
                         LoggedInUser = user;
 
-                        if (user.IsAdmin || user.IsSuperAdmin || user.IsContribruter)
+                        if (user.IsAdmin)
                         {
                             Response.Redirect("/Admin/UserAdmin.aspx");
                         }
@@ -58,29 +58,9 @@ namespace NMA_Wall
                         else
                         {
                             // User not set up correct
-
+                            throw new Exception("You must be an admin or contributer!");
                         }
                     }
-                    else
-                    {
-                        if (Request.IsLocal)
-                        {
-                            Response.Write("User null");
-                            //Response.Write("Username: " + user.Username);
-                            //Response.Write("Password: " + user.Password);
-                        }
-                    }
-
-                    // }
-
-                    /*
-                    User user = new User();
-
-                    if (DB.UserGet(txtUsername.Text, txtPassword.Text) != null)
-                    {
-                        user = DB.UserGet(txtUsername.Text, txtPassword.Text);
-                    }
-                    /**/
                 }
             }
         }

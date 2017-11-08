@@ -10,7 +10,7 @@ using NMA_Wall.DataLayer;
 
 namespace NMA_Wall.Admin
 {
-    public partial class Admin : BaseMasterPage
+    public partial class Admin : BasePage
     {
         public Admin()
         {

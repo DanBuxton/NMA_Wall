@@ -13,8 +13,6 @@ namespace NMA_Wall
 {
     public partial class Default : BasePage
     {
-        public string MemorialName { get; private set; }
-
         public Default()
         {
             PreInit += Default_PreInit;
@@ -32,13 +30,7 @@ namespace NMA_Wall
 
         private void Default_PreInit(object sender, EventArgs e)
         {
-            // Get memorial name, details and comments from somewhere
-            MemorialName = "Shot At Dawn"; /* temp */
 
-            if (!MemorialName.ToLower().Contains("memorial"))
-                Page.Title = MemorialName + " Memorial Comments";
-            else
-                Page.Title = MemorialName + " Comments";
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -66,10 +58,15 @@ namespace NMA_Wall
                         {
                             if (selOptions.Items.Count == 1)
                             {
-                                if (isImageSelected)
+                                if (fuCommentImage.HasFile &&
+                                    (fuCommentImage.FileName.ToLower().EndsWith(".jpg") ||
+                                    fuCommentImage.FileName.ToLower().EndsWith(".jpeg")))
                                 {
                                     // Database Code for image
-
+                                    BO.Message message = new BO.Message("", -29.367, 125.228, false);
+                                    DB.MessageAdd(message);
+                                    DB.SaveChanges();
+                                    message.SaveImage(fuCommentImage.FileContent);
                                 }
                                 else
                                 {

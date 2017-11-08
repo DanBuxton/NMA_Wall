@@ -10,7 +10,6 @@ namespace NMA_Wall.DataLayer
     internal class DataContext : DbContext
     {
         public DbSet<BO.Message> Messages { get; set; }
-        public DbSet<BO.User> Users { get; set; }
         public DbSet<BO.Content> Content { get; set; }
 
         public DataContext() : base("NMA_Wall")

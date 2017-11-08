@@ -10,8 +10,6 @@
     <meta name="keywords" content="Nation Memorial Arboretum; thenma.org.uk" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyArea" runat="server">
-    <h2 class="h2"><%= MemorialName %> Memorial Comments</h2>
-
     <section id="comments" itemtype="http://schema.org/Blog">
         <%-- Comment templates --%>
         <section class="comment" itemprop="itemListElement" itemscope="itemscope">
@@ -60,7 +58,7 @@
 
         <div id="commentOptions">
             <div id="UploadImage">
-                <%--<asp:FileUpload runat="server" AllowMultiple="false" />--%>
+                <asp:FileUpload ID="fuCommentImage" runat="server" AllowMultiple="false" />
 
                 <label for="messageImage">Add an image</label>
 

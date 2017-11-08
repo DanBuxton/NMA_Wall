@@ -11,7 +11,7 @@ namespace NMA_Wall
     {
         protected void Application_Start(object sender, EventArgs e)
         {
-
+            BO.Settings.RootPathOfWebsite = Server.MapPath("/");
         }
 
         void Application_Error(object sender, EventArgs e)
