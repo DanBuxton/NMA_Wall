@@ -10,8 +10,10 @@ using NMA_Wall.DataLayer;
 
 namespace NMA_Wall.Admin
 {
-    public partial class Admin : BasePage
+    public partial class Admin : MasterPage //BasePage
     {
+        public BasePage BP { get; set; } = new BasePage();
+
         public Admin()
         {
             Init += Admin_Init;
@@ -19,7 +21,7 @@ namespace NMA_Wall.Admin
 
         private void Admin_Init(object sender, EventArgs e)
         {
-            if (LoggedInUser == null)
+            if (BP.LoggedInUser == null)
             {
                 Response.Redirect("../Default.aspx");
             }
@@ -32,9 +34,7 @@ namespace NMA_Wall.Admin
 
         private void BtnLogout_Click(object sender, EventArgs e)
         {
-            LoggedInUser = new User();
-            BasePage bp = new BasePage();
-            bp.LoggedInUser = new User();
+            BP.LoggedInUser = new User();
             
             //Response.Redirect("../Default.aspx");
         }

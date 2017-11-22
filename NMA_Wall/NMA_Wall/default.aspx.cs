@@ -42,11 +42,7 @@ namespace NMA_Wall
         {
             // Secondary validation
             //Page.Validate();
-            bool isImageSelected = false;
             string error = "";
-
-            if (imgComment.Value != null)
-                isImageSelected = true;
 
             if (txtSubject.Value != null && txtSubject.Value != "")
             {

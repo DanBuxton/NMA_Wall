@@ -20,10 +20,10 @@ namespace NMA_Wall
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            /**/
+            /*
             // Auto-Login
-            if (LoggedInUser != null) // No logout feature yet
-                Response.Redirect("/Admin/UserAdmin.aspx");
+            if (LoggedInUser != new User() && LoggedInUser != null)
+                Response.Redirect("/Admin/CommentModeration.aspx");
             /**/
 
             btnSubmit.Click += BtnSubmit_Click;
@@ -40,7 +40,7 @@ namespace NMA_Wall
 
                     // Database Login Here -> direct user to '/Admin/' with the current user
                     //   DB.UserGet Hashes password
-                    User user = BO.User.Users.FirstOrDefault(u => u.Username == txtUsername.Text && u.Password == txtPassword.Text);
+                    User user = BO.User.Users.FirstOrDefault(u => u.Username == txtUsername.Text && u.Password == txtPassword.Text.ComputeHash());
 
                     if (user != null)
                     {
@@ -49,11 +49,11 @@ namespace NMA_Wall
 
                         if (user.IsAdmin)
                         {
-                            Response.Redirect("/Admin/UserAdmin.aspx");
+                            Response.Redirect("/Admin/CommentModeration.aspx");
                         }
-                        else if (user.IsContribruter)
+                        else if (user.IsContributer)
                         {
-                            Response.Redirect("/Admin/UserContribruter.aspx"); // Does not exist yet
+                            Response.Redirect("/Admin/CommentModeration.aspx"); // Does not exist yet
                         }
                         else
                         {
