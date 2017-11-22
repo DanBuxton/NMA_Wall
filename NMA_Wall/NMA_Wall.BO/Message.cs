@@ -9,7 +9,14 @@ namespace NMA_Wall.BO
 {
     public class Message
     {
+        public static List<Message> Messages = new List<Message>
+        {
+            new Message(message: "I love this memorial", lat: 52.800428, lon: -1.630986),
+            new Message(message: "I hate this memorial", lat: 52.800428, lon: -1.630986)
+        };
+
         public Guid Id { get; protected set; }
+
         public string MessageBody { get; set; }
         public string ImagePath
         {
@@ -33,8 +40,12 @@ namespace NMA_Wall.BO
 
         public DateTime DateAdded { get; private set; }
 
+        /// <param name="message">The comment of the user</param>
+        /// <param name="lat">Where the user is (latitude)</param>
+        /// <param name="lon">Where the user is (longitude)</param>
+        /// <param name="isAwaitingModeration">Is the comment required to undergo moderation?</param>
         public Message(string message, double lat, double lon,
-            bool hasImage = false, bool isAwaitingModeration = true) : this()
+            bool isAwaitingModeration = true) : this()
         {
             Id = Guid.NewGuid();
             MessageBody = message;

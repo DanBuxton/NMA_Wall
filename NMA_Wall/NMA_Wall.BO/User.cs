@@ -14,12 +14,12 @@ namespace NMA_Wall.BO
         {
             new User("admin", "password", true, true),
             new User("moderator", "password", false, true),
-            new User("contributer", "password", true)
+            new User("contributor", "password", true)
         };
 
         public Guid Id { get; protected set; }
 
-        public bool IsContributer { get; protected set; }
+        public bool IsContributor { get; protected set; }
         public bool IsAdmin { get; protected set; }
 
         public string Username { get; protected set; }
@@ -27,11 +27,11 @@ namespace NMA_Wall.BO
 
         public DateTime DateAdded { get; private set; }
 
-        public User(string username, string password, bool isContributer = false, bool isAdmin = false) : this()
+        public User(string username, string password, bool isContributor = false, bool isAdmin = false) : this()
         {
             Username = username;
             Password = password.ComputeHash();
-            IsContributer = isContributer;
+            IsContributor = isContributor;
             IsAdmin = isAdmin;
         }
 

@@ -13,7 +13,12 @@ namespace NMA_Wall.Admin
 
         public CommentModeration()
         {
-            //GetUnmoderatedComments();
+            PreInit += CommentModeration_PreInit;
+        }
+
+        private void CommentModeration_PreInit(object sender, EventArgs e)
+        {
+            GetUnmoderatedComments();
         }
 
         private void GetUnmoderatedComments()
@@ -27,6 +32,15 @@ namespace NMA_Wall.Admin
                     Messages.Add(message);
                 }
             }
+
+#if DEBUG
+            foreach (BO.Message message in BO.Message.Messages)
+            {
+                Messages.Add(message);
+            }
+
+            Response.Write($"(DEBUG) There are {Messages.Count} message{(Messages.Count >= 2 ? "s" : "")}"); // For Testing
+#endif
         }
 
         protected void Page_Load(object sender, EventArgs e)

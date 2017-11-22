@@ -9,6 +9,12 @@ namespace NMA_Wall.BO
 {
     public class Content
     {
+        public List<Content> Contents = new List<Content>
+        {
+            new Content(mainHeading: "War Memorial", subjectHeading: "", contentBody: "", latitude: 52.800428, longitude: -1.630986),
+            new Content(mainHeading: "War Memorial", subjectHeading: "", contentBody: "", latitude: 52.800428, longitude: -1.630986)
+        };
+
         public Guid Id { get; protected set; }
 
         public string MainHeading { get; set; }
@@ -30,6 +36,11 @@ namespace NMA_Wall.BO
             }
         }
 
+        /// <param name="mainHeading">The name of the location/object</param>
+        /// <param name="subjectHeading">????</param>
+        /// <param name="contentBody">All about the location</param>
+        /// <param name="latitude">The latitude of the location</param>
+        /// <param name="longitude">The longitude of the locations</param>
         public Content(string mainHeading, string subjectHeading, string contentBody,
             double latitude, double longitude) : this()
         {

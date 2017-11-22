@@ -51,14 +51,14 @@ namespace NMA_Wall
                         {
                             Response.Redirect("/Admin/CommentModeration.aspx");
                         }
-                        else if (user.IsContributer)
+                        else if (user.IsContributor)
                         {
                             Response.Redirect("/Admin/CommentModeration.aspx"); // Does not exist yet
                         }
                         else
                         {
                             // User not set up correct
-                            throw new Exception("You must be an admin or contributer!");
+                            throw new Exception("You must be an admin or contributor!");
                         }
                     }
                 }
