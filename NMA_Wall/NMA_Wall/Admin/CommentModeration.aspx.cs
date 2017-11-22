@@ -36,10 +36,10 @@ namespace NMA_Wall.Admin
 #if DEBUG
             foreach (BO.Message message in BO.Message.Messages)
             {
-                Messages.Add(message);
+                //Messages.Add(message);
             }
 
-            Response.Write($"(DEBUG) There are {Messages.Count} message{(Messages.Count >= 2 ? "s" : "")}"); // For Testing
+            Response.Write($"(DEBUG) There are {Messages.Count} message{((Messages.Count >= 2) || (Messages.Count == 0) ? "s" : "")}");
 #endif
         }
 
