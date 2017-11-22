@@ -8,6 +8,15 @@ namespace NMA_Wall.BO
 {
     public static class GeoLocationHelper
     {
+        /// <summary>
+        /// Gets the distance from a location using GEOLocation
+        /// </summary>
+        /// <param name="fromLatitude">From latitude</param>
+        /// <param name="fromLongitude">From longitude</param>
+        /// <param name="toLatitude">To latitude</param>
+        /// <param name="toLongitude">To longitude</param>
+        /// <param name="unit">The unit of the distance</param>
+        /// <returns></returns>
         public static double Distance(double fromLatitude, double fromLongitude, double toLatitude, double toLongitude, char unit = 'K')
         {
             double theta = fromLongitude - toLongitude;
@@ -25,7 +34,7 @@ namespace NMA_Wall.BO
             }
             return (dist);
         }
-
+        
         public static double DegreeToRadian(double angle) { return Math.PI * angle / 180.0; }
 
         public static double RadianToDegree(double angle) { return 180.0 * angle / Math.PI; }

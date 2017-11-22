@@ -15,7 +15,7 @@ namespace NMA_Wall.BO
         {
             get
             {
-                return Path.Combine(Settings.RootPathOfWebsite, $@"img\Comments\{Id}.jpg");
+                return Path.Combine(Settings.RootPathOfWebsite, $@"\img\Comments\{Id}.jpg");
             }
         }
 
@@ -54,7 +54,7 @@ namespace NMA_Wall.BO
             byte[] imageBinary = new byte[fileContent.Length];
             fileContent.Read(imageBinary, 0, (int)fileContent.Length);
 
-            System.IO.File.WriteAllBytes(
+            File.WriteAllBytes(
                 ImagePath,
                 imageBinary);
         }
