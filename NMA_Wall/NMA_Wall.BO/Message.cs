@@ -24,7 +24,7 @@ namespace NMA_Wall.BO
         {
             get
             {
-                return Path.Combine(Settings.RootPathOfWebsite, $@"\img\Comments\{Id}.jpg");
+                return Path.Combine(Settings.RootPathOfWebsite, $@"img\Comments\{Id}.jpg");
             }
         }
 

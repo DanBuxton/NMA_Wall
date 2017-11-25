@@ -47,10 +47,10 @@
     <main id="main">
         <form method="post" runat="server">
             <asp:Button ID="btnLogout" Text="Logout" CssClass="btn-default" runat="server" />
-
-            <asp:ContentPlaceHolder ID="body" runat="server">
-            </asp:ContentPlaceHolder>
         </form>
+
+        <asp:ContentPlaceHolder ID="body" runat="server">
+        </asp:ContentPlaceHolder>
     </main>
 
     <footer id="footer">

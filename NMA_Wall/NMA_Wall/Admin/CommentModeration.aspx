@@ -23,16 +23,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <h1 class="h1">Comment Moderation</h1>
-    <section style="align-content: center; height: 100%; width: 100%;" id="comment-mod">
+    <section style="align-content: center; width: 100%;" id="comment-mod">
         <table style="text-align: center;">
             <thead>
                 <tr>
-                    <% if (Request.IsLocal)
+                    <% if (Request.IsLocal && false)
                         { %>
-                    <th>ID</th>
+                    <th>ID (local)</th>
                     <% }%>
-                    <th>Memorial</th>
-                    <th>Subject</th>
+                    <%--<th>Memorial</th>--%>
                     <th>MessageBody</th>
                     <th>Image</th>
                     <th>Date Added</th>
@@ -41,92 +40,65 @@
             </thead>
             <tbody>
                 <%-- Get All unmoderated messages into an array to display --%>
-                <%--<tr>
+                <%
+                    foreach (var message in Messages)
+                    {
+                %>
+                <tr>
                     <%
-                        foreach (var message in messages)
+                        if (Request.IsLocal && false)
                         {
-                            if (Request.IsLocal)
-                            {
-                    %><td><%=message.Id %></td>
-                    <%
-                            }
-                    %><td><%= message.Title %></td>
-                    <%
-                    %><td><%=message.MessageBody %></td>
-                    <%
-                    %><td><%=message.Id %></td>
-                    <%
-                    %><td><%=message.DateAdded %></td>
+                    %>
+                    <td>
+                        <p><%=message.Id %></p>
+                    </td>
                     <%
                         }
                     %>
-                </tr>--%>
-
-                <tr>
-                    <% if (Request.IsLocal)
-                        { %>
-                    <td>4</td>
-                    <% }%>
                     <td>
-                        <label>Shot at Dawn</label>
+                        <p><%=message.MessageBody %></p>
                     </td>
                     <td>
-                        <label>Great Memorial</label>
+                        <%
+                            if (message.HasImage || (Request.IsLocal && false))
+                            {
+                        %>
+                        <img src="<%=$@"{message.ImagePath}" %>" />
+                        <%
+                            }
+                            else
+                            {
+                        %>
+                        <p>No Image</p>
+                        <%
+                            }
+                        %>
                     </td>
                     <td>
-                        <label>This Memorial is the best</label>
+                        <p><time><%=$"{message.DateAdded.ToString("D")} {message.DateAdded.ToString("t")}" %></time></p>
                     </td>
                     <td>
-                        <img src="http://placehold.it/100x100" alt="Alternate Text" />
-                    </td>
-                    <td>
-                        <label><%= DateTime.Now.Date.ToShortDateString() %></label>
-                    </td>
-                    <td>
-                        <label runat="server">
-                            Yes<br />
-                            <input type="radio" name="name" value="" /></label>
-                        <br />
-                        <label runat="server">
-                            No<br />
-                            <input type="radio" name="name" value="" /></label>
-                    </td>
-                </tr>
-
-                <tr>
-                    <% if (Request.IsLocal)
-                        { %>
-                    <td>5</td>
-                    <% }%>
-                    <td>
-                        <label>Shot at Dawn</label>
-                    </td>
-                    <td>
-                        <label>Attention!!</label></td>
-                    <td>
-                        <label>This is awful</label>
-                    </td>
-                    <td>
-                        <img src="http://placehold.it/100x100" alt="Alternate Text" />
-                    </td>
-                    <td>
-                        <label><%= DateTime.Now.Date.ToShortDateString() %></label>
-                    </td>
-                    <td>
-                        <label runat="server">
-                            Yes<br />
-                            <input type="radio" name="name" value="" /></label>
-                        <br />
-                        <label runat="server">
-                            No<br />
-                            <input type="radio" name="name" value="" /></label>
+                        <form>
+                            <label>
+                                <input type="radio" name="CommentValid" value="Yes" />
+                                Yes
+                            </label>
+                            <br />
+                            <label>
+                                <input type="radio" name="CommentValid" value="No" />
+                                No
+                            </label>
+                        </form>
                     </td>
                 </tr>
+                <%
+                    }
+                %>
             </tbody>
         </table>
 
         <br />
 
-        <input type="button" name="name" value="Update moderated messages" class="btn-default" style="width: 100%;" />
+        <input runat="server" type="button" value="Update moderated messages" class="btn-default" style="width: 100%;" />
     </section>
 </asp:Content>

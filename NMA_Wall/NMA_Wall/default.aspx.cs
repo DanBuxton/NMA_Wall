@@ -64,7 +64,7 @@ namespace NMA_Wall
                                     DB.SaveChanges();
 
                                     // Saving an image can be done like this ->
-                                    fuCommentImage.SaveAs(Server.MapPath($"~/img/Comments/{message.Id}.jpg"));
+                                    fuCommentImage.SaveAs(Server.MapPath(Path.Combine(BO.Settings.RootPathOfWebsite, $"img/Comments/{message.Id}.jpg")));
                                     // message.SaveImage(fuCommentImage.FileContent);
                                 }
                                 else

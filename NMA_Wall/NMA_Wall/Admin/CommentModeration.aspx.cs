@@ -33,14 +33,13 @@ namespace NMA_Wall.Admin
                 }
             }
 
-#if DEBUG
+            // BO.Message.Messages contains if DEBUG
             foreach (BO.Message message in BO.Message.Messages)
             {
-                //Messages.Add(message);
+                Messages.Add(message);
             }
 
-            Response.Write($"(DEBUG) There are {Messages.Count} message{((Messages.Count >= 2) || (Messages.Count == 0) ? "s" : "")}");
-#endif
+            //Response.Write($"(DEBUG) There are {Messages.Count} message{((Messages.Count >= 2) || (Messages.Count == 0) ? "s" : "")}");
         }
 
         protected void Page_Load(object sender, EventArgs e)
