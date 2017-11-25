@@ -59,15 +59,18 @@ namespace NMA_Wall
                                     fuCommentImage.FileName.ToLower().EndsWith(".jpeg")))
                                 {
                                     // Database Code for image
-                                    BO.Message message = new BO.Message("", -29.367, 125.228, false);
+                                    BO.Message message = new BO.Message(txtComment.Value, -29.367, 125.228);
                                     DB.MessageAdd(message);
                                     DB.SaveChanges();
-                                    message.SaveImage(fuCommentImage.FileContent);
+
+                                    // Saving an image can be done like this ->
+                                    fuCommentImage.SaveAs(Server.MapPath($"~/img/Comments/{message.Id}.jpg"));
+                                    // message.SaveImage(fuCommentImage.FileContent);
                                 }
                                 else
                                 {
                                     // Add comment to database
-                                    DB.MessageAdd(new BO.Message("", -29.367, 125.228, false));
+                                    DB.MessageAdd(new BO.Message(txtComment.Value, -29.367, 125.228));
                                 }
                             }
                             else

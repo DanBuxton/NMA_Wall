@@ -11,8 +11,9 @@ namespace NMA_Wall.BO
     {
         public List<Content> Contents = new List<Content>
         {
-            new Content(mainHeading: "War Memorial", subjectHeading: "", contentBody: "", latitude: 52.800428, longitude: -1.630986),
+#if DEBUG
             new Content(mainHeading: "War Memorial", subjectHeading: "", contentBody: "", latitude: 52.800428, longitude: -1.630986)
+#endif
         };
 
         public Guid Id { get; protected set; }
