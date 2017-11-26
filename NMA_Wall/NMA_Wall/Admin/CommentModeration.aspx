@@ -67,7 +67,7 @@
                             if (message.HasImage || (Request.IsLocal && NMA_Wall.Global.IsDebug))
                             {
                         %>
-                        <img src="<%=$@"..\img\Comments\1.jpg" %>" width="150" height="150" class="image" />
+                        <img src="<%=$@"..\img\Comments\{message.ImagePath}.jpg" %>" width="150" height="150" class="image" />
                         <%
                             }
                             else
