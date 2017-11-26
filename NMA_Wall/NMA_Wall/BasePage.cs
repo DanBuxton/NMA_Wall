@@ -25,7 +25,7 @@ namespace NMA_Wall
         {
             get
             {
-                BO.User result = new BO.User();
+                BO.User result = null;
 
                 if (LoggedInUserName != null)
                 {

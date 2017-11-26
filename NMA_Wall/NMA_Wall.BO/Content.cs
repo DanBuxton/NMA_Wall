@@ -12,7 +12,7 @@ namespace NMA_Wall.BO
         public List<Content> Contents = new List<Content>
         {
 #if DEBUG
-            new Content(mainHeading: "War Memorial", subjectHeading: "", contentBody: "", latitude: 52.800428, longitude: -1.630986)
+            new Content(mainHeading: "War Memorial (Burton)", subjectHeading: "", contentBody: "A statue to remember the fallen", latitude: 52.800428, longitude: -1.630986)
 #endif
         };
 

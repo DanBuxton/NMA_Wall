@@ -12,7 +12,7 @@ namespace NMA_Wall.BO
         public static List<Message> Messages = new List<Message>
         {
 #if DEBUG
-            new Message(message: "I love this memorial", lat: 52.800428, lon: -1.630986),
+            new Message(message: "I love this memorial", lat: 52.800428, lon: -1.630986, isAwaitingModeration: false), // false for testing moderation page
             new Message(message: "I hate this memorial", lat: 52.800428, lon: -1.630986)
 #endif
         };

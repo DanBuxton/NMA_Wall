@@ -30,27 +30,13 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <header id="header">
-        <nav id="nav">
-            <ul>
-                <li><a href="../Default.aspx">Home</a></li>
-
-                <li><a href="../Login.aspx">Login / Sign up</a></li>
-
-                <li><a target="_blank" href="http://www.thenma.org.uk">NMA website</a></li>
-
-                <li><a target="_blank" href="http://www.britishlegion.org.uk/">Royal British Legion</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <main id="main">
         <form method="post" runat="server">
-            <asp:Button ID="btnLogout" Text="Logout" CssClass="btn-default" runat="server" />
-        </form>
+            <button id="btnLogout" class="btn-default" runat="server">Logout</button>
 
-        <asp:ContentPlaceHolder ID="body" runat="server">
-        </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
+        </form>
     </main>
 
     <footer id="footer">

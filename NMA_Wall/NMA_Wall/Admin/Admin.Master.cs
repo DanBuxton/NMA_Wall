@@ -21,22 +21,23 @@ namespace NMA_Wall.Admin
 
         private void Admin_Init(object sender, EventArgs e)
         {
-            if (BP.LoggedInUser == null)
+            if ((BP.LoggedInUser == new User()) || (BP.LoggedInUser == null))
             {
-                Response.Redirect("../Default.aspx");
+                Logout();
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            btnLogout.Click += BtnLogout_Click;
+            btnLogout.ServerClick += (s, r) =>
+            {
+                Logout();
+            };
         }
 
-        private void BtnLogout_Click(object sender, EventArgs e)
+        private void Logout()
         {
-            BP.LoggedInUser = new User();
-            
-            //Response.Redirect("../Default.aspx");
+            Response.Redirect("../Logout.aspx");
         }
     }
 }

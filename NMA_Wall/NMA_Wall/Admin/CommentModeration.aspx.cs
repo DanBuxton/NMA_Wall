@@ -33,17 +33,39 @@ namespace NMA_Wall.Admin
                 }
             }
 
-            // BO.Message.Messages contains if DEBUG
-            foreach (BO.Message message in BO.Message.Messages)
+            if (Global.DebugBurton)
             {
-                Messages.Add(message);
+                // BO.Message.Messages contains if DEBUG
+                foreach (BO.Message message in BO.Message.Messages)
+                {
+                    if (!message.IsAwaitingModeration) continue;
+                    {
+                        // Messages.Add(message);
+                    }
+
+                    // DB.MessageAdd(message);
+                }
             }
 
-            //Response.Write($"(DEBUG) There are {Messages.Count} message{((Messages.Count >= 2) || (Messages.Count == 0) ? "s" : "")}");
+            if (Global.IsDebug || Global.DebugBurton)
+            {
+                //Response.Write($"(DEBUG) There are {Messages.Count} message{((Messages.Count >= 2) || (Messages.Count == 0) ? "s" : "")}");
+                Response.Write($"(DEBUG) There are {Messages.Count} / {messages.Count()} messages that require moderation");
+            }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack)
+            {
+                ModerateComments();
+            }
+        }
+
+        private void ModerateComments()
+        {
+            Response.Write("<br /><br />Moderating comments now!");
+
 
         }
     }

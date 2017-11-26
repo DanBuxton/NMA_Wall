@@ -9,9 +9,12 @@ namespace NMA_Wall
 {
     public class Global : HttpApplication
     {
+        public static bool IsDebug { get; set; } = false;
+        public static bool DebugBurton { get; set; } = true;
+
         protected void Application_Start(object sender, EventArgs e)
         {
-            BO.Settings.RootPathOfWebsite = Server.MapPath("~/");
+            BO.Settings.RootPathOfWebsite = Server.MapPath("/");
         }
 
         void Application_Error(object sender, EventArgs e)
