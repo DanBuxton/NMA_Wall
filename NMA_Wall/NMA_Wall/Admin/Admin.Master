@@ -30,10 +30,12 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <header>
+        <button id="btnLogout" class="btn-default" runat="server">Logout</button>
+    </header>
+
     <main id="main">
         <form method="post" runat="server">
-            <button id="btnLogout" class="btn-default" runat="server">Logout</button>
-
             <asp:ContentPlaceHolder ID="body" runat="server">
             </asp:ContentPlaceHolder>
         </form>

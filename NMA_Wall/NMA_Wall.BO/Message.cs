@@ -38,9 +38,11 @@ namespace NMA_Wall.BO
         public double Latitude { get; protected set; }
         public double Longitude { get; protected set; }
 
+        protected bool valid;
+        public bool IsVaild { get { return valid; } set { if (!IsAwaitingModeration) valid = value; } }
         public bool IsAwaitingModeration { get; set; }
 
-        public DateTime DateAdded { get; private set; }
+        public DateTime DateAdded { get; protected set; }
 
         /// <param name="message">The comment of the user</param>
         /// <param name="lat">Where the user is (latitude)</param>

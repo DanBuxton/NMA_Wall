@@ -28,6 +28,8 @@
     <h1 class="h1">Comment Moderation</h1>
 
     <section style="align-content: center; width: 100%;" id="comment-mod">
+        <% if (currentMessage != null)
+            { %>
         <table style="text-align: center;" id="comments">
             <thead>
                 <tr id="commentsRow">
@@ -44,62 +46,61 @@
             </thead>
             <tbody>
                 <%-- Get All unmoderated messages into an array to display --%>
-                <%
-                    foreach (var message in Messages)
-                    {
-                %>
-                <tr id="<%=$"{message.Id}" %>" class="comment commentsRowData">
+                <tr id="<%=$"{currentMessage.Id}" %>" class="comment commentsRowData">
                     <%
                         if (Request.IsLocal && NMA_Wall.Global.IsDebug)
                         {
                     %>
                     <td class="commentsRowData">
-                        <p><%=message.Id %></p>
+                        <p><%=currentMessage.Id %></p>
                     </td>
                     <%
                         }
                     %>
                     <td class="commentsRowData">
-                        <p><%=message.MessageBody %></p>
+                        <p><%=currentMessage.MessageBody %></p>
                     </td>
                     <td class="commentsRowData">
                         <%
-                            if (message.HasImage || (Request.IsLocal && NMA_Wall.Global.IsDebug))
+                            if (currentMessage.HasImage || (Request.IsLocal && NMA_Wall.Global.IsDebug))
                             {
                         %>
-                        <img src="<%=$@"..\img\Comments\{message.Id}.jpg" %>" width="150" height="150" class="image" />
+                        <img src="<%=$@"..\img\Comments\{currentMessage.Id}.jpg" %>" width="150" height="150" class="image" />
                         <%
                             }
                             else
                             {
                         %>
                         <p>No Image</p>
-                        <p><%=$"{message.ImagePath}" %></p>
                         <%
                             }
                         %>
                     </td>
                     <td class="commentsRowData">
-                        <p><time><%=$"{message.DateAdded.ToString("D")} {message.DateAdded.ToString("t")}" %></time></p>
+                        <p><time><%=$"{currentMessage.DateAdded.ToString("D")} {currentMessage.DateAdded.ToString("t")}" %></time></p>
                     </td>
                     <td class="commentsRowData">
-                        <%-- RadioButtonList ID = message Id (can't when in runat="server") --%>
-                        <asp:RadioButtonList ID="Hello" runat="server">
+                        <%-- RadioButtonList ID = message Id (can't when runat="server") --%>
+                        <%-- RadioButtonList renders as a HTML table?? --%>
+                        <asp:RadioButtonList ID="rblIsCommentValid" runat="server">
                             <asp:ListItem Text="Yes" Value="Yes" />
                             <asp:ListItem Text="No" Value="No" />
                         </asp:RadioButtonList>
                     </td>
                 </tr>
-                <%
-                    }
-                %>
             </tbody>
         </table>
+        <% }
+            else
+            {
+        %>
+        <p style="text-align: center;"><b>There aren't any comments to moderate</b></p>
+        <% } %>
 
         <br />
 
         <%--<input id="btnModerateComments" runat="server" type="button" value="Update moderated messages" class="btn-default" style="width: 100%;" />--%>
 
-        <asp:Button ID="btnModerateComments" runat="server" Text="Update moderated messages" class="btn-default" Style="width: 100%;" />
+        <asp:Button ID="btnModerateComments" runat="server" Text="Update moderated messages" CssClass="btn-default" Style="width: 100%;" />
     </section>
 </asp:Content>

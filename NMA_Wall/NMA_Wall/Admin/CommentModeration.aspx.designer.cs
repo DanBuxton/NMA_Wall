@@ -13,13 +13,13 @@ namespace NMA_Wall.Admin {
     public partial class CommentModeration {
         
         /// <summary>
-        /// Hello control.
+        /// rblIsCommentValid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList Hello;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblIsCommentValid;
         
         /// <summary>
         /// btnModerateComments control.

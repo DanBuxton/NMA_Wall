@@ -10,7 +10,7 @@ namespace NMA_Wall
     public class Global : HttpApplication
     {
         public static bool IsDebug { get; set; } = false;
-        public static bool DebugBurton { get; set; } = true;
+        public static bool DebugBurton { get; set; } = false;
 
         protected void Application_Start(object sender, EventArgs e)
         {

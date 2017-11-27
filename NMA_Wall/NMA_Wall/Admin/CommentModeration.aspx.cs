@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,6 +11,10 @@ namespace NMA_Wall.Admin
     public partial class CommentModeration : BasePage
     {
         public List<BO.Message> Messages { get; set; } = new List<BO.Message>();
+
+        private int index;
+
+        protected BO.Message currentMessage;
 
         public CommentModeration()
         {
@@ -23,34 +28,23 @@ namespace NMA_Wall.Admin
 
         private void GetUnmoderatedComments()
         {
-            BO.Message[] messages = DB.MessageGetAll().ToArray();
-
-            foreach (BO.Message message in messages)
-            {
-                if (!message.IsAwaitingModeration) continue;
-                {
-                    Messages.Add(message);
-                }
-            }
+            Messages = new List<BO.Message>(DB.MessageGetAll().Where(m => m.IsAwaitingModeration));
 
             if (Global.DebugBurton)
             {
-                // BO.Message.Messages contains if DEBUG
-                foreach (BO.Message message in BO.Message.Messages)
-                {
-                    if (!message.IsAwaitingModeration) continue;
-                    {
-                        // Messages.Add(message);
-                    }
+                Messages.AddRange(BO.Message.Messages.Where(m => m.IsAwaitingModeration));
+            }
 
-                    // DB.MessageAdd(message);
-                }
+            if (Messages.Count() > 1)
+            {
+                index = new Random().Next(Messages.Count() );
+                currentMessage = Messages[index];
             }
 
             if (Global.IsDebug || Global.DebugBurton)
             {
                 //Response.Write($"(DEBUG) There are {Messages.Count} message{((Messages.Count >= 2) || (Messages.Count == 0) ? "s" : "")}");
-                Response.Write($"(DEBUG) There are {Messages.Count} / {messages.Count()} messages that require moderation");
+                Response.Write($"(DEBUG) There are {Messages.Count} / {Messages.Count()} messages that require moderation");
             }
         }
 
@@ -66,7 +60,27 @@ namespace NMA_Wall.Admin
         {
             Response.Write("<br /><br />Moderating comments now!");
 
+            if (rblIsCommentValid.SelectedItem != null)
+            {
+                if (rblIsCommentValid.SelectedValue == "Yes")
+                {
+                    // Valid
+                    Messages[index].IsAwaitingModeration = false;
+                    Messages[index].IsVaild = true;
+                }
+                else
+                {
+                    // Not valid
+                    Messages[0].IsAwaitingModeration = false;
+                    Messages[0].IsVaild = false;
+                }
 
+                DB.SaveChanges();
+            }
+            else
+            {
+                // Not selected Yes or No
+            }
         }
     }
 }
