@@ -97,6 +97,33 @@
         <p style="text-align: center;"><b>There aren't any comments to moderate</b></p>
         <% } %>
 
+        <p id="lat"></p>
+        <p id="lon"></p>
+
+        <script type="text/javascript">
+            $(function () {
+                if (navigate.geolocation) {
+                    var options = {
+
+                    }
+
+                    navigator.geolocation.getCurrentPosition(showPos, posError, options);
+
+                    function showPos(pos) {
+                        var coords = pos.coords;
+                        $("#lat").innerHTML = coords.latitude;
+                        $("#lon").innerHTML = coords.longitude;
+                    }
+
+                    function posError(pos) {
+                        alert("Error: " + pos.code);
+                    }
+                } else {
+                    alert("GEO-Location isn't supported on your device");
+                }
+            });
+        </script>
+
         <br />
 
         <%--<input id="btnModerateComments" runat="server" type="button" value="Update moderated messages" class="btn-default" style="width: 100%;" />--%>

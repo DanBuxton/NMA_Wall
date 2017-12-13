@@ -6,15 +6,17 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using NMA_Wall.BO;
+
 namespace NMA_Wall.Admin
 {
     public partial class CommentModeration : BasePage
     {
-        public List<BO.Message> Messages { get; set; } = new List<BO.Message>();
+        public List<Message> Messages { get; set; } = new List<Message>();
 
         private int index;
 
-        protected BO.Message currentMessage;
+        protected Message currentMessage;
 
         public CommentModeration()
         {
@@ -28,20 +30,22 @@ namespace NMA_Wall.Admin
 
         private void GetUnmoderatedComments()
         {
-            Messages = new List<BO.Message>(DB.MessageGetAll().Where(m => m.IsAwaitingModeration));
+            Messages = new List<Message>(DB.MessageGetAll().Where(m => m.IsAwaitingModeration));
 
             if (Global.DebugBurton)
             {
-                Messages.AddRange(BO.Message.Messages.Where(m => m.IsAwaitingModeration));
+                Messages.AddRange(Message.Messages.Where(m => m.IsAwaitingModeration));
             }
+
+            Messages.OrderBy(m => m.Id);
 
             if (Messages.Count() > 1)
             {
-                index = new Random().Next(Messages.Count() );
+                index = new Random().Next(0, Messages.Count());
                 currentMessage = Messages[index];
             }
 
-            if (Global.IsDebug || Global.DebugBurton)
+            if (Global.IsDebug)
             {
                 //Response.Write($"(DEBUG) There are {Messages.Count} message{((Messages.Count >= 2) || (Messages.Count == 0) ? "s" : "")}");
                 Response.Write($"(DEBUG) There are {Messages.Count} / {Messages.Count()} messages that require moderation");
@@ -58,7 +62,10 @@ namespace NMA_Wall.Admin
 
         private void ModerateComments()
         {
-            Response.Write("<br /><br />Moderating comments now!");
+            if (Global.IsDebug)
+            {
+                Response.Write("<br /><br />Moderating comments now!");
+            }
 
             if (rblIsCommentValid.SelectedItem != null)
             {
