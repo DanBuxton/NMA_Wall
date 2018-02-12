@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\assets\css\Admin.css" />
+    <Content Include="Admin\assets\js\Admin_Methods.js" />
     <Content Include="Admin\CommentModeration.aspx" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.min.css" />
@@ -107,7 +108,9 @@
     <Content Include="Error.aspx" />
     <Content Include="img\Comments\1.jpg" />
     <Content Include="img\pattren01.png" />
+    <Content Include="js\AJAX_Request.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\GPS.js" />
     <Content Include="js\Homepage.js" />
     <Content Include="js\jquery-3.2.1.js" />
     <Content Include="Login.aspx" />
@@ -189,7 +192,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\assets\js\" />
     <Folder Include="App_Data\" />
     <Folder Include="img\Content\" />
     <Folder Include="Models\" />

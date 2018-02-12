@@ -8,6 +8,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using NMA_Wall.BO.Extensions;
 
 namespace NMA_Wall
 {
@@ -16,14 +17,9 @@ namespace NMA_Wall
         public Default()
         {
             PreInit += Default_PreInit;
-
-            if (IsPostBack)
-            {
-                PostBack_Validation();
-            }
         }
 
-        private void DisplayMessageBox(string message)
+        public void DisplayMessageBox(string message)
         {
             Response.Write("<script>alert('" + message + "')</script>");
         }
@@ -35,43 +31,92 @@ namespace NMA_Wall
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            AddComments(lat: -29.367, lon: 125.228);
 
+            btnSubmit.ServerClick += (s, r) =>
+            {
+                PostNewComment();
+            };
         }
 
-        private void PostBack_Validation()
+        private void AddComments(double lat, double lon, double dist = 10)
         {
-            // Secondary validation
-            //Page.Validate();
+            var commentsDB = DB.MessageGetInRange(lat, lon, dist);
+
+            if (commentsDB.Count() > 0)
+            {
+                var validComments = commentsDB.Where(m => m.IsVaild).OrderByDescending(m => m.DateAdded);
+
+                var speechMarck = '"';
+                string result = string.Empty;
+
+                foreach (BO.Message message in validComments)
+                {
+                    result += $"<hr />";
+
+                    result += $"<section class={speechMarck}comment{speechMarck}>";
+                    result += $"<p>";
+
+                    if (message.HasImage)
+                        result += $"<img src={speechMarck}img/Comments/{message.Id}.jpg{speechMarck} " +
+                                        $"width={speechMarck}150{speechMarck} " +
+                                        $"height={speechMarck}150{speechMarck} " +
+                                        $"class={speechMarck}image{speechMarck} />";
+
+                    result += $"<br />";
+
+                    result += message.MessageBody;
+
+                    result += $"</p>";
+
+                    result += $"<p class={speechMarck}message-details{speechMarck}>" +
+                        $"Posted by anonymous at {message.DateAdded.Hour.ToString()}:{message.DateAdded.Minute.ToString()} " +
+                        (message.DateAdded.Year != DateTime.Now.Year ?
+                        message.DateAdded.ToString("dddd, dnn MMM yy", useExtendedSpecifiers: true) :
+                        message.DateAdded.ToString("dddd, dnn MMM", useExtendedSpecifiers: true));
+
+                    result += "</section>";
+                }
+
+                result += $"<hr />";
+
+                comments.InnerHtml = result;
+            }
+        }
+
+        private void PostNewComment()
+        {
             string error = "";
 
             if (txtSubject.Value != null && txtSubject.Value != "")
             {
                 if (txtSubject.Value.Length >= 3)
                 {
-                    if (txtComment.Value != null && txtComment.Value == "")
+                    if (txtComment.Value != null && txtComment.Value != "")
                     {
                         if (txtComment.Value.Length > 3)
                         {
-                            if (selOptions.Items.Count == 1)
+                            if (selOptions.Value != null)
                             {
                                 if (fuCommentImage.HasFile &&
                                     (fuCommentImage.FileName.ToLower().EndsWith(".jpg") ||
                                     fuCommentImage.FileName.ToLower().EndsWith(".jpeg")))
                                 {
                                     // Database Code for image
-                                    BO.Message message = new BO.Message(txtComment.Value, -29.367, 125.228);
+                                    BO.Message message = new BO.Message(txtComment.Value, -29.367, 125.228); // alter location once AJAX sorted
                                     DB.MessageAdd(message);
                                     DB.SaveChanges();
 
-                                    // Saving an image can be done like this ->
-                                    fuCommentImage.SaveAs(Server.MapPath(Path.Combine(BO.Settings.RootPathOfWebsite, $"img/Comments/{message.Id}.jpg")));
-                                    // message.SaveImage(fuCommentImage.FileContent);
+                                    message.SaveImage(fuCommentImage.FileContent);
                                 }
                                 else
                                 {
                                     // Add comment to database
-                                    DB.MessageAdd(new BO.Message(txtComment.Value, -29.367, 125.228));
+                                    DB.MessageAdd(new BO.Message(txtComment.Value, -29.367, 125.228)); // alter location once AJAX sorted
                                 }
+
+                                DB.SaveChanges();
+                                Form.Controls.Clear();
                             }
                             else
                             {
@@ -94,19 +139,21 @@ namespace NMA_Wall
                 else
                 {
                     // longer subject required
-                    error = "Subject subject must be longer than 2 characters";
+                    error = "Subject must be longer than 2 characters";
                 }
             }
             else
             {
                 // no subject entered
-                error = "Subject subject cannot be empty";
+                error = "Subject cannot be empty";
             }
 
             if (error != "")
             {
                 DisplayMessageBox(error);
             }
+
+            Response.Redirect("/", true); //Prevent a post-back 
         }
     }
 }

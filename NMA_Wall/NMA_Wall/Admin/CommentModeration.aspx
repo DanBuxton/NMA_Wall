@@ -35,7 +35,7 @@
                 <tr id="commentsRow">
                     <% if (Request.IsLocal && NMA_Wall.Global.IsDebug)
                         { %>
-                    <th>ID (debugging only)</th>
+                    <th>ID (debug only)</th>
                     <% }%>
                     <%--<th>Memorial</th>--%>
                     <th>Comment</th>
@@ -62,7 +62,7 @@
                     </td>
                     <td class="commentsRowData">
                         <%
-                            if (currentMessage.HasImage || (Request.IsLocal && NMA_Wall.Global.IsDebug))
+                            if (currentMessage.HasImage)
                             {
                         %>
                         <img src="<%=$@"..\img\Comments\{currentMessage.Id}.jpg" %>" width="150" height="150" class="image" />
@@ -71,7 +71,7 @@
                             else
                             {
                         %>
-                        <p>No Image</p>
+                        <p><i>No Image</i></p>
                         <%
                             }
                         %>
@@ -97,37 +97,20 @@
         <p style="text-align: center;"><b>There aren't any comments to moderate</b></p>
         <% } %>
 
-        <p id="lat"></p>
-        <p id="lon"></p>
-
-        <script type="text/javascript">
-            $(function () {
-                if (navigate.geolocation) {
-                    var options = {
-
-                    }
-
-                    navigator.geolocation.getCurrentPosition(showPos, posError, options);
-
-                    function showPos(pos) {
-                        var coords = pos.coords;
-                        $("#lat").innerHTML = coords.latitude;
-                        $("#lon").innerHTML = coords.longitude;
-                    }
-
-                    function posError(pos) {
-                        alert("Error: " + pos.code);
-                    }
-                } else {
-                    alert("GEO-Location isn't supported on your device");
-                }
-            });
-        </script>
-
         <br />
 
         <%--<input id="btnModerateComments" runat="server" type="button" value="Update moderated messages" class="btn-default" style="width: 100%;" />--%>
 
         <asp:Button ID="btnModerateComments" runat="server" Text="Update moderated messages" CssClass="btn-default" Style="width: 100%;" />
     </section>
+
+    <div class="comment" id="fullscreen_image_container" style="position: static; width: 100%; height: 100%; background-color: rgba(128, 128, 128, 0.5);">
+        <span class="close" style="display: none; right: 50px; top: 50px; position: absolute; color: black;">X</span>
+
+        <div style="position: fixed; top: 50%; left: 50%; margin-top: -250px; margin-left: -350px; display: block; margin-right: 35px; width: 700px; height: 500px;">
+            <img src="http://placehold.it/700x500" id="imgFullscreen" width="700" height="500" />
+        </div>
+    </div>
+
+    <script src="assets/js/Admin_Methods.js"></script>
 </asp:Content>

@@ -22,7 +22,7 @@ namespace NMA_Wall
         {
             /*
             // Auto-Login
-            if (LoggedInUser != new User() && LoggedInUser != null)
+            if (LoggedInUser != null)
                 Response.Redirect("/Admin/CommentModeration.aspx");
             /**/
 

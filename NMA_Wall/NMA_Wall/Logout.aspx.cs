@@ -13,7 +13,7 @@ namespace NMA_Wall
         {
             LoggedInUser = null;
             Session.Abandon();
-            Response.Redirect("/");
+            Response.Redirect("/", true);
         }
     }
 }

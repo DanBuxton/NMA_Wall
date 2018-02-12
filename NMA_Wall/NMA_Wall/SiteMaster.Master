@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-us">
 <head runat="server">
-    <title></title>
+    <title>National Memorial Arboretum</title>
     <meta name="author" content="Nation Memorial Arboretum" />
     <meta name="description" content="The description of my page" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <%-- JS --%>
-    <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <%-- Emoji support for the younger NMA visitors (Emojidex) --%>
     <link href="https://cdn.emojidex.com/scripts/css/emojidex.css" rel="stylesheet" />
     <script src="https://cdn.emojidex.com/scripts/javascript/emojidex.js"></script>
@@ -31,35 +31,24 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <header id="header" class="container">
-        <nav id="nav">
-            <ul>
-                <li><a href="../Default.aspx">Home</a></li>
+    <%-- No header needed --%>
 
-                <li><a href="../Login.aspx">Login / Sign up</a></li>
-
-                <li><a target="_blank" href="http://www.thenma.org.uk">NMA website</a></li>
-
-                <li><a target="_blank" href="http://www.britishlegion.org.uk/">Royal British Legion</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <%--<h1 class="h1">Wall</h1>--%>
     <main id="main">
-        <form id="fmMain" name="fmMain" runat="server" onsubmit="ValidateForm()">
+        <h1>Comments</h1>
+
+        <form id="fmMain" method="post" name="fmMain" runat="server">
             <asp:ContentPlaceHolder ID="BodyArea" runat="server">
             </asp:ContentPlaceHolder>
         </form>
     </main>
 
     <footer id="footer">
-        <p>&copy; <%= DateTime.Now.Year %> The <span itemtype="http://schema.org/Organization"><a href="http://www.thenma.org.uk" itemprop="url"><span itemprop="name">National Memorial Arboretum</span></a></span> Company Limited.</p>
+        <p>&copy; 2018<%= (DateTime.Now.Year != 2018 ? $" - {DateTime.Now.Year}" : "") %> The National Memorial Arboretum Company Limited.</p>
     </footer>
 
     <script>
         $(document).ready(function () {
-            $("#main").emojidexReplace();
+            $(".message").emojidexReplace();
             $(".emojidex-plain_text").emojidexAutocomplete();
             $(".emojidex-content_editable").emojidexAutocomplete();
         });

@@ -30,11 +30,11 @@ namespace NMA_Wall.Admin
 
         private void GetUnmoderatedComments()
         {
-            Messages = new List<Message>(DB.MessageGetAll().Where(m => m.IsAwaitingModeration));
-
             if (Global.DebugBurton)
-            {
                 Messages.AddRange(Message.Messages.Where(m => m.IsAwaitingModeration));
+            else
+            {
+                Messages = new List<Message>(DB.MessageGetAll().Where(m => m.IsAwaitingModeration));
             }
 
             Messages.OrderBy(m => m.Id);
@@ -44,28 +44,43 @@ namespace NMA_Wall.Admin
                 index = new Random().Next(0, Messages.Count());
                 currentMessage = Messages[index];
             }
+            else if (Messages.Count() == 1)
+            {
+                index = 0;
+                currentMessage = Messages[index];
+            }
 
             if (Global.IsDebug)
             {
                 //Response.Write($"(DEBUG) There are {Messages.Count} message{((Messages.Count >= 2) || (Messages.Count == 0) ? "s" : "")}");
-                Response.Write($"(DEBUG) There are {Messages.Count} / {Messages.Count()} messages that require moderation");
+                Response.Write($"(DEBUG) There are {Messages.Count(m => m.IsAwaitingModeration)} / {DB.MessageGetAll().Count() + Message.Messages.Count()} messages that require moderation");
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-            {
-                ModerateComments();
-            }
+            //if (IsPostBack)
+            //{
+            //    ModerateComments();
+
+            //    Response.Redirect("CommentModeration.aspx", true);
+            //}
+
+            btnModerateComments.Click += BtnModerateComments_Click;
+        }
+
+        private void BtnModerateComments_Click(object sender, EventArgs e)
+        {
+            Debug.Write(value: "Button handler", category: "Location");
+
+            ModerateComments();
+
+            Response.Redirect("CommentModeration.aspx", true);
         }
 
         private void ModerateComments()
         {
-            if (Global.IsDebug)
-            {
-                Response.Write("<br /><br />Moderating comments now!");
-            }
+            Debug.Write(value: "Moderating comments", category: "Location");
 
             if (rblIsCommentValid.SelectedItem != null)
             {
@@ -87,6 +102,7 @@ namespace NMA_Wall.Admin
             else
             {
                 // Not selected Yes or No
+
             }
         }
     }

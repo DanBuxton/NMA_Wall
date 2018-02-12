@@ -9,17 +9,12 @@ namespace NMA_Wall.BO
 {
     public class Message
     {
-        public static List<Message> Messages = new List<Message>
-        {
-#if DEBUG
-            new Message(message: "I love this memorial", lat: 52.800428, lon: -1.630986, isAwaitingModeration: false), // false for testing moderation page
-            new Message(message: "I hate this memorial", lat: 52.800428, lon: -1.630986)
-#endif
-        };
+        public static List<Message> Messages = new List<Message>();
 
         public Guid Id { get; protected set; }
 
         public string MessageBody { get; set; }
+
         public string ImagePath
         {
             get
@@ -35,11 +30,12 @@ namespace NMA_Wall.BO
                 return File.Exists(ImagePath);
             }
         }
+
         public double Latitude { get; protected set; }
         public double Longitude { get; protected set; }
 
-        protected bool valid;
-        public bool IsVaild { get { return valid; } set { if (!IsAwaitingModeration) valid = value; } }
+        private bool valid;
+        public bool IsVaild { get { return valid; } set { if (!IsAwaitingModeration) { valid = value; } } }
         public bool IsAwaitingModeration { get; set; }
 
         public DateTime DateAdded { get; protected set; }
@@ -51,7 +47,6 @@ namespace NMA_Wall.BO
         public Message(string message, double lat, double lon,
             bool isAwaitingModeration = true) : this()
         {
-            Id = Guid.NewGuid();
             MessageBody = message;
             Latitude = lat;
             Longitude = lon;
@@ -61,6 +56,7 @@ namespace NMA_Wall.BO
 
         protected Message()
         {
+            Id = Guid.NewGuid();
             DateAdded = DateTime.Now;
         }
 

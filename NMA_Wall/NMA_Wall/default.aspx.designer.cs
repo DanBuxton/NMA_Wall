@@ -13,6 +13,15 @@ namespace NMA_Wall {
     public partial class Default {
         
         /// <summary>
+        /// comments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl comments;
+        
+        /// <summary>
         /// txtSubject control.
         /// </summary>
         /// <remarks>
@@ -40,15 +49,6 @@ namespace NMA_Wall {
         protected global::System.Web.UI.WebControls.FileUpload fuCommentImage;
         
         /// <summary>
-        /// imgComment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile imgComment;
-        
-        /// <summary>
         /// selOptions control.
         /// </summary>
         /// <remarks>
@@ -56,5 +56,14 @@ namespace NMA_Wall {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect selOptions;
+        
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputSubmit btnSubmit;
     }
 }

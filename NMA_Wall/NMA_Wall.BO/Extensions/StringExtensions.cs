@@ -89,4 +89,26 @@ namespace NMA_Wall.BO.Extensions
             }
         }
     }
+
+    public static class DateTimeExtensions
+    {
+        public static string DayExtestion(this DateTime datetime)
+        {
+            return (datetime.Day % 10 == 1 && datetime.Day != 11) ? "st" : (datetime.Day % 10 == 2 && datetime.Day != 12) ? "nd" :
+                        (datetime.Day % 10 == 3 && datetime.Day != 13) ? "rd" : "th";
+        }
+        public static string DayExtestion(this int day)
+        {
+            return
+                (day % 10 == 1 && day != 11) ? "st" :
+                (day % 10 == 2 && day != 12) ? "nd" :
+                (day % 10 == 3 && day != 13) ? "rd" : "th";
+        }
+
+        public static string ToString(this DateTime dateTime, string format, bool useExtendedSpecifiers)
+        {
+            return dateTime.ToString(format)
+                .Replace("nn", dateTime.Day.DayExtestion().ToLower());
+        }
+    }
 }

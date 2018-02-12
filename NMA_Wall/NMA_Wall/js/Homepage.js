@@ -88,17 +88,40 @@ function SubmitForm() {
 
 // Image click & ...
 $(function () {
+    var newComment = $("#newComment");
+    var hideNewComment = $("#hideNewComment");
+
+    newComment.click(function () {
+        $("#secCommentDetails").css("display", "block");
+        newComment.css("display", "none");
+    });
+    hideNewComment.click(function () {
+        $("#secCommentDetails").css("display", "none");
+        newComment.css("display", "block");
+    });
+
+    var imageContainer = $("#fullscreen_image_container");
+    var image = $("#imgFullscreen");
+    var imageContainerCloser = $(".close");
     $(".image").click(function () {
         // Make image fullscreen etc.
-        var imageSrc = this.src;
-        var fileName = imageSrc.filename();
-        var fileNameWithExtension = fileName + ".jpg";
-        var image = $("#imgFullscreen");
+        var src = this.src;
 
-        confirm(fileNameWithExtension);
-
-        // Width and height done in markup
-        image.css("display", "normal");
-        image.options.src = imageSrc;
+        image.attr("src", src);
+        image.css("display", "block");
+        imageContainerCloser.css("display", "block");
+        imageContainer.css("display", "block");
     });
+    imageContainerCloser.click(function () {
+        image.css("display", "none");
+        imageContainerCloser.css("display", "none");
+        imageContainer.css("display", "none");
+    });
+    /*
+    image.click(function () {
+        image.css("display", "none");
+        imageContainerCloser.css("display", "none");
+        imageContainer.css("display", "none");
+    });
+    /**/
 });
