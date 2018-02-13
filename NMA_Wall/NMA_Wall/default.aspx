@@ -13,13 +13,23 @@
         }
     </script>
 
-    <script src="js/GPS.js"></script>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="BodyArea" runat="server">
     <script>
+        $.getScript("/js/GPS.js", function () {
+            // Handle GPS here
+            let gps = new GPS();
+            var gpspos = gps.getLocation();
+
+            // Undefined
+            /*
+            alert(
+                "Lat: " + gpspos.lat + "\n" +
+                "Lon: " + gpspos.lon);
+            /**/
+        });
 
     </script>
-
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="BodyArea" runat="server">
     <%-- Comment templates --%>
     <section id="comments" style="margin: 0 0; width: auto;" runat="server">
         <section class="comment">

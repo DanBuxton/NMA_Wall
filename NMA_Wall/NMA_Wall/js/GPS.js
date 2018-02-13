@@ -1,38 +1,53 @@
-﻿$(function () {
-    var options = {
-        enableHighAccuracy: true
-    };
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showLocation, posError, options);
-    } else
-        NolocationAvaliable();
-
-    function showLocation(position) {
-        var coords = position.coords;
-
-        //confirm("Latitude: " + coords.latitude);
-        //confirm("Longitude: " + coords.longitude);
+﻿class GPS {
+    constructor() {
+        this.options = {
+            enableHighAccuracy: true
+        };
     }
 
-    function posError(position) {
+    get options() {
+        return this._options;
+    }
+    set options(value) {
+        this._options = value;
+    }
+
+    getLocation() {
+        var result = {  };
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                //alert("lat: " + position.coords.latitude + "\nlon: " + position.coords.longitude);
+                result = { "coords": position.coords.latitude, "lon": position.coords.longitude };
+            }, this.posError, this.options);
+        } else {
+            NolocationAvaliable();
+        }
+
+        return result;
+    }
+
+    posError(position) {
         switch (position.code) {
             case 0: // Unknown Error
-                NolocationAvaliable();
+                this.NolocationAvaliable();
                 break;
             case 1: // Permission Denied
-                NolocationAvaliable();
+                this.NolocationAvaliable();
                 break;
             case 2: // Unable to get Position
 
                 break;
             case 3: // Timed Out
-                NolocationAvaliable();
+                this.NolocationAvaliable();
                 break;
             default:
+                return;
                 break;
         }
     }
 
-
-});
+    NolocationAvaliable() {
+        alert("Location not available");
+    }
+}
