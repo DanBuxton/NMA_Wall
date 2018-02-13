@@ -3,11 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadArea" runat="server">
     <%-- Title added using the C# Title property of the Page reference --%>
     <link href="css/LoginStyleSheet.css" rel="stylesheet" />
-    <script type="text/javascript">
-        function Back() {
-            history.back();
-        }
-    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyArea" runat="server">
     <div class="login-page">

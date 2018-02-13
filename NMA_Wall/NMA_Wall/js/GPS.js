@@ -13,12 +13,15 @@
     }
 
     getLocation() {
-        var result = {  };
+        var result = {};
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
-                //alert("lat: " + position.coords.latitude + "\nlon: " + position.coords.longitude);
-                result = { "coords": position.coords.latitude, "lon": position.coords.longitude };
+                result = {
+                    "latitude": position.coords.latitude,
+                    "longitude": position.coords.longitude,
+                    "position": position
+                };
             }, this.posError, this.options);
         } else {
             NolocationAvaliable();
@@ -42,7 +45,6 @@
                 this.NolocationAvaliable();
                 break;
             default:
-                return;
                 break;
         }
     }

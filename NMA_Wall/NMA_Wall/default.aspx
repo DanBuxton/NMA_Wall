@@ -1,16 +1,14 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="NMA_Wall.Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadArea" runat="server">
-    <meta name="description" content="" />
-    <meta name="keywords" content="Nation Memorial Arboretum; thenma.org.uk" />
-
-    <script src="js/AJAX_Request.js"></script>
     <script>
-        GetData("", funtionName);
+        $.getScript("/js/AJAX_Request.js", function () {
+            GetData("", funtionName);
 
-        function funtionName(xhttp) {
-            //xhttp - contains data from app
-        }
+            function funtionName(xhttp) {
+                //xhttp - contains data from app
+            }
+        });
     </script>
 
     <script>
@@ -22,8 +20,8 @@
             // Undefined
             /*
             alert(
-                "Lat: " + gpspos.lat + "\n" +
-                "Lon: " + gpspos.lon);
+                "Lat: " + gpspos.latitude + "\n" +
+                "Lon: " + gpspos.longitude);
             /**/
         });
 
@@ -61,14 +59,14 @@
 
     <br />
 
-    <span id="newComment" style="cursor: pointer; text-decoration: underline; color: #a2c617;">Click to add comment</span>
+    <span id="newComment" class="link">Click to add comment</span>
 
     <br />
 
     <div class="clear"></div>
 
     <section id="secCommentDetails" style="display: normal;">
-        <span id="hideNewComment" style="cursor: pointer; text-decoration: underline; color: #a2c617; float: right; padding: 5px 10px 0px 0px">Hide</span>
+        <span id="hideNewComment" class="link" style="float: right; padding: 5px 10px 0px 0px">Hide</span>
 
         <br />
 
@@ -89,7 +87,7 @@
 
         <div id="commentOptions">
             <div id="UploadImage">
-                <label for="fuCommentImage">Add an image</label>
+                <label for="fuCommentImage">**&nbsp;Add an image</label>
 
                 <asp:FileUpload TabIndex="3" ID="fuCommentImage" runat="server" AllowMultiple="false" />
             </div>

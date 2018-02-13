@@ -27,6 +27,12 @@
     <link href="https://cdn.emojidex.com/scripts/css/emojidex.css" rel="stylesheet" />
     <script src="https://cdn.emojidex.com/scripts/javascript/emojidex.js"></script>
 
+    <script type="text/javascript">
+        function Back() {
+            history.back();
+        }
+    </script>
+
     <asp:ContentPlaceHolder ID="HeadArea" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -44,9 +50,14 @@
 
     <footer id="footer">
         <p>&copy; 2018<%= (DateTime.Now.Year != 2018 ? $" - {DateTime.Now.Year}" : "") %> The National Memorial Arboretum Company Limited.</p>
+        <p><span class="link" onclick="t_cs()">Terms and Conditions</span></p>
     </footer>
 
     <script>
+        function t_cs() {
+            // Display T&C's
+        }
+
         $(document).ready(function () {
             $(".message").emojidexReplace();
             $(".emojidex-plain_text").emojidexAutocomplete();

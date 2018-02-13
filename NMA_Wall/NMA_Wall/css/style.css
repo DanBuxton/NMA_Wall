@@ -18,6 +18,12 @@ body {
     background-size: cover;
 }
 
+.link {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #a2c617;
+}
+
 a {
     text-decoration: none;
 }
