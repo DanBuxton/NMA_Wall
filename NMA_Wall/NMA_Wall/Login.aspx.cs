@@ -40,7 +40,7 @@ namespace NMA_Wall
 
                     // Database Login Here -> direct user to '/Admin/' with the current user
                     //   DB.UserGet Hashes password
-                    User user = BO.User.Users.FirstOrDefault(u => u.Username == txtUsername.Text && u.Password == txtPassword.Text.ComputeHash());
+                    User user = BO.User.Users.FirstOrDefault(u => u.Username == txtUsername.Text.ToLower() && u.Password == txtPassword.Text.ComputeHash());
 
                     if (user != null)
                     {

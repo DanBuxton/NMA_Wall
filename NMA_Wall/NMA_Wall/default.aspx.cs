@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using NMA_Wall.BO.Extensions;
+using System.Collections;
 
 namespace NMA_Wall
 {
@@ -31,7 +32,8 @@ namespace NMA_Wall
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            AddComments(lat: -29.367, lon: 125.228);
+            //AddComments(lat: -29.367, lon: 125.228);
+            AddComments(-29.367, 125.228);
 
             btnSubmit.ServerClick += (s, r) =>
             {
@@ -43,12 +45,15 @@ namespace NMA_Wall
         {
             var commentsDB = DB.MessageGetInRange(lat, lon, dist);
 
-            if (commentsDB.Count() > 0)
+            if (commentsDB.Count() >= 0)
             {
                 var validComments = commentsDB.Where(m => m.IsVaild).OrderByDescending(m => m.DateAdded);
-
+                //var validComments = BO.Message.Messages.Where(m => m.IsVaild);
                 var speechMarck = '"';
                 string result = string.Empty;
+
+
+                result += $"Comments: {validComments.Count()}";
 
                 foreach (BO.Message message in validComments)
                 {
@@ -62,10 +67,8 @@ namespace NMA_Wall
                                         $"width={speechMarck}150{speechMarck} " +
                                         $"height={speechMarck}150{speechMarck} " +
                                         $"class={speechMarck}image{speechMarck} />";
-
-                    result += $"<br />";
-
-                    result += message.MessageBody;
+                    else
+                        result += message.MessageBody;
 
                     result += $"</p>";
 
@@ -88,64 +91,48 @@ namespace NMA_Wall
         {
             string error = "";
 
-            if (txtSubject.Value != null && txtSubject.Value != "")
+            if ((txtComment.Value != null && txtComment.Value != "") || (fuCommentImage.HasFile))
             {
-                if (txtSubject.Value.Length >= 3)
+                if ((txtComment.Value.Length > 3) || (fuCommentImage.HasFile))
                 {
-                    if (txtComment.Value != null && txtComment.Value != "")
+                    if (selOptions.Value != null)
                     {
-                        if (txtComment.Value.Length > 3)
+                        if (fuCommentImage.HasFile &&
+                            (fuCommentImage.FileName.ToLower().EndsWith(".jpg") ||
+                            fuCommentImage.FileName.ToLower().EndsWith(".jpeg")))
                         {
-                            if (selOptions.Value != null)
-                            {
-                                if (fuCommentImage.HasFile &&
-                                    (fuCommentImage.FileName.ToLower().EndsWith(".jpg") ||
-                                    fuCommentImage.FileName.ToLower().EndsWith(".jpeg")))
-                                {
-                                    // Database Code for image
-                                    BO.Message message = new BO.Message(txtComment.Value, -29.367, 125.228); // alter location once AJAX sorted
-                                    DB.MessageAdd(message);
-                                    DB.SaveChanges();
+                            // Database Code for image
+                            BO.Message message = new BO.Message(txtComment.Value, -29.367, 125.228); // alter location once AJAX sorted
+                            DB.MessageAdd(message);
+                            DB.SaveChanges();
 
-                                    message.SaveImage(fuCommentImage.FileContent);
-                                }
-                                else
-                                {
-                                    // Add comment to database
-                                    DB.MessageAdd(new BO.Message(txtComment.Value, -29.367, 125.228)); // alter location once AJAX sorted
-                                }
-
-                                DB.SaveChanges();
-                                Form.Controls.Clear();
-                            }
-                            else
-                            {
-                                // no options selected
-                                error = "Please select all options that apply to you today";
-                            }
+                            message.SaveImage(fuCommentImage.FileContent);
                         }
                         else
                         {
-                            // longer message required
-                            error = "Comment must be longer than 3 characters";
+                            // Add comment to database
+                            DB.MessageAdd(new BO.Message(txtComment.Value, -29.367, 125.228)); // alter location once AJAX sorted
                         }
+
+                        DB.SaveChanges();
+                        Form.Controls.Clear();
                     }
                     else
                     {
-                        // no message entered
-                        error = "Comment cannot be empty";
+                        // no options selected
+                        error = "Please select all options that apply to you today";
                     }
                 }
                 else
                 {
-                    // longer subject required
-                    error = "Subject must be longer than 2 characters";
+                    // longer message required
+                    error = "Comment must be longer than 3 characters";
                 }
             }
             else
             {
-                // no subject entered
-                error = "Subject cannot be empty";
+                // no message entered
+                error = "Comment cannot be empty";
             }
 
             if (error != "")

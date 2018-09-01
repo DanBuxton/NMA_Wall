@@ -70,16 +70,10 @@
 
         <br />
 
-        <label for="txtSubject">Subject:-</label>
-        <input tabindex="1" type="text" name="subject" id="txtSubject" style="width: 100%;" placeholder="Subject" autocomplete="off" runat="server" />
-
-        <br />
-        <br />
-
-        <label for="txtComment"><span class="required"></span>&nbsp;Comment:-</label>
+        <label for="txtComment"><span></span>&nbsp;Comment:-</label>
         <label><small>(Uses <a href="https://emojipedia.org/" target="_blank">Emojipedia shortcodes</a> for emojis)</small></label>
         <%--<input type="text" name="message" id="txtMessage" value="" runat="server" style="width: 100%; vertical-align: text-top;" placeholder="Message" autocomplete="off" />--%>
-        <input tabindex="2" type="text" name="comment" id="txtComment" style="width: 100%;" placeholder="Comment" autocomplete="off" runat="server" required="required" />
+        <input tabindex="2" type="text" name="comment" id="txtComment" style="width: 100%;" placeholder="Comment" autocomplete="off" runat="server" />
         <%--<asp:TextBox runat="server" AutoCompleteType="None" TextMode="MultiLine" ID="txtMessage" Width="100%" Height="100" Placeholder="Comment" />--%>
 
         <br />
@@ -125,7 +119,7 @@
         var newComment = $("#newComment");
 
         $("#secCommentDetails").css("display", "none");
-        newComment.css("display", "normal");
+        //newComment.css("display", "normal");
     </script>
 
     <script src="js/Homepage.js"></script>

@@ -59,6 +59,7 @@
         }
 
         $(document).ready(function () {
+            $(".comment").emojidexReplace();
             $(".message").emojidexReplace();
             $(".emojidex-plain_text").emojidexAutocomplete();
             $(".emojidex-content_editable").emojidexAutocomplete();
