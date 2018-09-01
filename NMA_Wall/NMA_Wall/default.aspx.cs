@@ -52,8 +52,8 @@ namespace NMA_Wall
                 var speechMarck = '"';
                 string result = string.Empty;
 
-
-                result += $"Comments: {validComments.Count()}";
+                if (Global.IsDebug)
+                    result += $"Comments: {validComments.Count()}";
 
                 foreach (BO.Message message in validComments)
                 {
