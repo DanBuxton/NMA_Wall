@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NMA_Wall", "NMA_Wall\NMA_Wall.csproj", "{08208740-DC2E-4C6C-B779-ED239235C19D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NMA_Wall.Web", "NMA_Wall\NMA_Wall.Web.csproj", "{08208740-DC2E-4C6C-B779-ED239235C19D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NMA_Wall.BO", "NMA_Wall.BO\NMA_Wall.BO.csproj", "{1BE9FA0F-C010-4710-8910-E3FF38D486CD}"
 EndProject

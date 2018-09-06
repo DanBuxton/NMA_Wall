@@ -11,7 +11,8 @@ namespace NMA_Wall.BO
     {
         public static List<Message> Messages = new List<Message>();
 
-        public Guid Id { get; protected set; }
+        public static int PrevId { get; protected set; } = 0;
+        public int Id { get; protected set; }
 
         public string MessageBody { get; set; }
 
@@ -56,7 +57,9 @@ namespace NMA_Wall.BO
 
         protected Message()
         {
-            Id = Guid.NewGuid();
+            Id = PrevId;
+            PrevId++;
+
             DateAdded = DateTime.Now;
         }
 

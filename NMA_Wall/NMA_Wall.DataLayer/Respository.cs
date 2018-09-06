@@ -23,7 +23,7 @@ namespace NMA_Wall.DataLayer
             DB.SaveChanges();
         }
 
-        public BO.Message MessageGet(Guid id)
+        public BO.Message MessageGet(int id)
         {
             return DB.Messages.FirstOrDefault(m => m.Id == id);
         }

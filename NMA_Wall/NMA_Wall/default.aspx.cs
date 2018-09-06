@@ -33,7 +33,8 @@ namespace NMA_Wall
         protected void Page_Load(object sender, EventArgs e)
         {
             //AddComments(lat: -29.367, lon: 125.228);
-            AddComments(-29.367, 125.228);
+            //AddComments(-29.367, 125.228);
+            AddComments(lat: -29.367, lon: 125.228);
 
             btnSubmit.ServerClick += (s, r) =>
             {
@@ -41,19 +42,29 @@ namespace NMA_Wall
             };
         }
 
+        /// <summary>
+        /// Display commments to the user. 
+        /// </summary>
+        /// <param name="lat">Latitude</param>
+        /// <param name="lon">Longitude</param>
+        /// <param name="dist">the +- of location</param>
         private void AddComments(double lat, double lon, double dist = 10)
         {
-            var commentsDB = DB.MessageGetInRange(lat, lon, dist);
+            // Get all comments that have been moderated
+            var commentsDB = DB.MessageGetInRange(lat, lon, dist).Where(m => !m.IsAwaitingModeration);
 
-            if (commentsDB.Count() >= 0)
+            if (commentsDB.Count() >= 1)
             {
-                var validComments = commentsDB.Where(m => m.IsVaild).OrderByDescending(m => m.DateAdded);
+                var validComments = commentsDB.OrderByDescending(m => m.DateAdded);
                 //var validComments = BO.Message.Messages.Where(m => m.IsVaild);
                 var speechMarck = '"';
                 string result = string.Empty;
 
-                if (Global.IsDebug)
-                    result += $"Comments: {validComments.Count()}";
+                if (Global.IsDebug || false)
+                {
+                    result += $"<p>Comments: {validComments.Count()}</p>";
+                    result += $@"<p>Image Path: {BO.Settings.RootPathOfWebsite}img\Comments\</p>";
+                }
 
                 foreach (BO.Message message in validComments)
                 {
@@ -63,12 +74,14 @@ namespace NMA_Wall
                     result += $"<p>";
 
                     if (message.HasImage)
+                    {
                         result += $"<img src={speechMarck}img/Comments/{message.Id}.jpg{speechMarck} " +
                                         $"width={speechMarck}150{speechMarck} " +
                                         $"height={speechMarck}150{speechMarck} " +
                                         $"class={speechMarck}image{speechMarck} />";
+                    }
                     else
-                        result += message.MessageBody;
+                    { result += message.MessageBody; }
 
                     result += $"</p>";
 
