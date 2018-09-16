@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="NMA_Wall.Admin.Admin" %>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-gb">
 <head runat="server">
@@ -42,9 +43,9 @@
 
     <script>
         $(document).ready(function () {
-            $("main").emojidexReplace();
-            $(".emojidex-plain_text").emojidexAutocomplete();
-            $(".emojidex-content_editable").emojidexAutocomplete();
+            //$("main").emojidexReplace();
+            //$(".emojidex-plain_text").emojidexAutocomplete();
+            //$(".emojidex-content_editable").emojidexAutocomplete();
         });
     </script>
     <script src="../js/bootstrap.min.js"></script>

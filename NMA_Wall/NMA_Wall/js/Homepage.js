@@ -107,13 +107,13 @@ $(function () {
         // Make image fullscreen etc.
         var src = this.src;
 
-        image.attr("src", src);
-        image.css("display", "block");
+        $(".img").attr("src", src);
+        $(".img").css("display", "block");
         imageContainerCloser.css("display", "block");
         imageContainer.css("display", "block");
     });
     imageContainerCloser.click(function () {
-        image.css("display", "none");
+        $(".img").css("display", "none");
         imageContainerCloser.css("display", "none");
         imageContainer.css("display", "none");
     });

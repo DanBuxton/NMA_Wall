@@ -59,10 +59,10 @@
         }
 
         $(document).ready(function () {
-            $(".comment").emojidexReplace();
-            $(".message").emojidexReplace();
-            $(".emojidex-plain_text").emojidexAutocomplete();
-            $(".emojidex-content_editable").emojidexAutocomplete();
+            //$(".comment").emojidexReplace();
+            //$(".message").emojidexReplace();
+            //$(".emojidex-plain_text").emojidexAutocomplete();
+            //$(".emojidex-content_editable").emojidexAutocomplete();
         });
     </script>
     <script src="js/bootstrap.min.js"></script>
