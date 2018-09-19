@@ -95,6 +95,8 @@ namespace NMA_Wall.Admin
                     // Not valid
                     Messages[0].IsAwaitingModeration = false;
                     Messages[0].IsVaild = false;
+
+                    DB.MessageRemove(Messages[0]);
                 }
 
                 DB.SaveChanges();

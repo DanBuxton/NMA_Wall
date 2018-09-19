@@ -23,7 +23,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <% var bp = new NMA_Wall.BasePage(); %>
-    <span>Welcome: <%=$"{bp.LoggedInUser.Username}" %></span>
+    <%--<span>Welcome: <%=$"{bp.LoggedInUser.Username}" %></span>--%>
 
     <h1 class="h1">Comment Moderation</h1>
 
