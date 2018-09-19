@@ -123,8 +123,15 @@ namespace NMA_Wall
                         }
                         else
                         {
+                            Uri myUri = new Uri(HttpContext.Current.Request.Url.ToString());
+                            string lat = HttpUtility.ParseQueryString(myUri.Query).Get("lat");
+                            string lng = HttpUtility.ParseQueryString(myUri.Query).Get("lng");
+
                             // Add comment to database
-                            DB.MessageAdd(new BO.Message(txtComment.Value, -29.367, 125.228)); // alter location once AJAX sorted
+                            DB.MessageAdd(new BO.Message(txtComment.Value, Convert.ToDouble(lat), Convert.ToDouble(lng))); // alter location once AJAX sorted
+
+                            //lat: -29.367
+                            //lng: 125.228
                         }
 
                         DB.SaveChanges();
@@ -153,7 +160,7 @@ namespace NMA_Wall
                 DisplayMessageBox(error);
             }
 
-            Response.Redirect("/", true); //Prevent a post-back 
+            Response.Redirect("/", true); //Prevent a post-back
         }
     }
 }
