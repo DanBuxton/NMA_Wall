@@ -21,20 +21,20 @@ namespace NMA_Wall
                 AddBurtonData(isLocal: true);
         }
 
-        void Application_Error(object sender, EventArgs e)
-        {
-            // Get last error from the server
-            Exception exc = Server.GetLastError();
+        //void Application_Error(object sender, EventArgs e)
+        //{
+        //    // Get last error from the server
+        //    Exception exc = Server.GetLastError();
 
-            if (exc is HttpException)
-            {
-                if (exc.InnerException != null)
-                {
-                    exc = new Exception(exc.InnerException.Message);
-                    Server.Transfer("Error.aspx?handler=Application_Error%20-%20Global.asax", true);
-                }
-            }
-        }
+        //    if (exc is HttpException)
+        //    {
+        //        if (exc.InnerException != null)
+        //        {
+        //            exc = new Exception(exc.InnerException.Message);
+        //            Server.Transfer("Error.aspx?handler=Application_Error%20-%20Global.asax", true);
+        //        }
+        //    }
+        //}
 
         private void AddBurtonData(bool isLocal = true)
         {

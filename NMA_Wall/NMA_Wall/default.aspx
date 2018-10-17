@@ -28,6 +28,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyArea" runat="server">
+    <h1>Comments</h1>
     <%-- Comment templates --%>
     <section id="comments" style="margin: 0 0; width: auto;" runat="server">
         <section class="comment">
@@ -83,7 +84,7 @@
             <div id="UploadImage">
                 <label for="fuCommentImage">**&nbsp;Add an image</label>
 
-                <asp:FileUpload TabIndex="3" ID="fuCommentImage" runat="server" AllowMultiple="false" />
+                <asp:fileupload tabindex="3" id="fuCommentImage" runat="server" allowmultiple="false" />
             </div>
 
             <br />

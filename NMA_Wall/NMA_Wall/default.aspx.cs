@@ -32,6 +32,8 @@ namespace NMA_Wall
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            DB.SaveChanges();
+
             //AddComments(lat: -29.367, lon: 125.228);
             //AddComments(-29.367, 125.228);
             AddComments(lat: -29.367, lon: 125.228);
