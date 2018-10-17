@@ -36,7 +36,9 @@ namespace NMA_Wall
 
             //AddComments(lat: -29.367, lon: 125.228);
             //AddComments(-29.367, 125.228);
-            AddComments(lat: -29.367, lon: 125.228);
+            //AddComments(lat: -29.367, lon: 125.228);
+
+            
 
             btnSubmit.ServerClick += (s, r) =>
             {
