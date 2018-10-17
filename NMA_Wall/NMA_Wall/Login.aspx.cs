@@ -26,7 +26,7 @@ namespace NMA_Wall
                 Response.Redirect("/Admin/CommentModeration.aspx");
             /**/
 
-            btnSubmit.Click += BtnSubmit_Click;
+            btnSubmit.ServerClick += BtnSubmit_Click;
         }
 
         private void BtnSubmit_Click(object sender, EventArgs e)

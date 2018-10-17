@@ -40,8 +40,6 @@
     <%-- No header needed --%>
 
     <main id="main">
-        <h1>Comments</h1>
-
         <form id="fmMain" method="post" name="fmMain" runat="server">
             <asp:ContentPlaceHolder ID="BodyArea" runat="server">
             </asp:ContentPlaceHolder>
