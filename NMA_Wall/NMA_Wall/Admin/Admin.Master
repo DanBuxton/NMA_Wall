@@ -10,9 +10,9 @@
 
     <meta name="format-detection" content="telephone=no" />
 
-    <link rel="icon" type="image/png" sizes="16x16" href="http://www.thenma.org.uk/images/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="http://www.thenma.org.uk/images/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="http://www.thenma.org.uk/images/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.thenma.org.uk/images/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.thenma.org.uk/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="https://www.thenma.org.uk/images/favicon-96x96.png" />
     <%-- ------ CSS ----- --%>
     <link href="../css/style.css" rel="stylesheet" />
     <link href="assets/css/Admin.css" rel="stylesheet" />
@@ -38,7 +38,7 @@
     </main>
 
     <footer id="footer">
-        <p>&copy; 2018<%= (DateTime.Now.Year > 2018 ? $" - {DateTime.Now.Year}" : "") %> The National Memorial Arboretum Limited.</p>
+        <p>&copy; 2018<%= (DateTime.Now.Year > 2018 ? $" - {DateTime.Now.Year}" : "") %> The National Memorial Arboretum.</p>
     </footer>
 
     <script>
@@ -48,6 +48,6 @@
             //$(".emojidex-content_editable").emojidexAutocomplete();
         });
     </script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </body>
 </html>

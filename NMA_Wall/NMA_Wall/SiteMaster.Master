@@ -13,14 +13,14 @@
 
     <meta name="format-detection" content="telephone=no" />
 
-    <link rel="icon" type="image/png" sizes="16x16" href="http://www.thenma.org.uk/images/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="http://www.thenma.org.uk/images/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="http://www.thenma.org.uk/images/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.thenma.org.uk/images/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.thenma.org.uk/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="https://www.thenma.org.uk/images/favicon-96x96.png" />
     <%-- CSS --%>
     <%--<link href="css/bootstrap.min.css" rel="stylesheet" />--%>
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
     <%-- JS --%>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <%-- Emoji support for the younger NMA visitors (Emojidex) --%>
@@ -47,22 +47,23 @@
     </main>
 
     <footer id="footer">
-        <p>&copy; 2018<%= (DateTime.Now.Year != 2018 ? $" - {DateTime.Now.Year}" : "") %> The National Memorial Arboretum Company Limited.</p>
+        <p>&copy; 2018<%= (DateTime.Now.Year != 2018 ? $" - {DateTime.Now.Year}" : "") %> The National Memorial Arboretum.</p>
         <p><span class="link" onclick="t_cs()">Terms and Conditions</span></p>
     </footer>
 
     <script>
         function t_cs() {
             // Display T&C's
+            confirm("Warning", "T&C's are boring");
         }
 
         $(document).ready(function () {
-            //$(".comment").emojidexReplace();
-            //$(".message").emojidexReplace();
-            //$(".emojidex-plain_text").emojidexAutocomplete();
-            //$(".emojidex-content_editable").emojidexAutocomplete();
+            $(".comment").emojidexReplace();
+            $(".message").emojidexReplace();
+            $(".emojidex-plain_text").emojidexAutocomplete();
+            $(".emojidex-content_editable").emojidexAutocomplete();
         });
     </script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </body>
 </html>
