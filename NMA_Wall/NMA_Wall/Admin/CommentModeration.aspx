@@ -104,7 +104,7 @@
         <asp:Button ID="btnModerateComments" runat="server" Text="Update moderated messages" CssClass="btn-default" Style="width: 100%;" />
     </section>
 
-    <div class="comment" id="fullscreen_image_container" style="position: static; width: 100%; height: 100%; background-color: rgba(128, 128, 128, 0.5);">
+    <div class="comment" id="fullscreen_image_container" style="position: static; width: 100%; height: 100%; background-color: rgba(128, 128, 128, 0.5); display: none;">
         <span class="close" style="display: none; right: 50px; top: 50px; position: absolute; color: black;">X</span>
 
         <div style="position: fixed; top: 50%; left: 50%; margin-top: -250px; margin-left: -350px; display: block; margin-right: 35px; width: 700px; height: 500px;">
