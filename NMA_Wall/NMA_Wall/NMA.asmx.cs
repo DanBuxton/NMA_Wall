@@ -24,7 +24,7 @@ namespace NMA_Wall
 
         }
 
-        Respository db = new Respository();
+        private static Respository db = new Respository();
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
